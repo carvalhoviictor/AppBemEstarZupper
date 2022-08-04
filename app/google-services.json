@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "147838682084",
+    "project_id": "final-project-catalisa-squad-3",
+    "storage_bucket": "final-project-catalisa-squad-3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147838682084:android:9808bc5aa9f0379fe93df1",
+        "android_client_info": {
+          "package_name": "br.com.zup.projectfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147838682084-mj2tv7u1dcdseir83r6tttkb8vg0tka6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOsozKXsfXml-5f_Nkca7eQD1VX23uH6Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147838682084-mj2tv7u1dcdseir83r6tttkb8vg0tka6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
