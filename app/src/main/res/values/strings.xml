@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">projectFinal</string>
 
-    <string name="default_web_client_id">default web client id</string>
+    <string name="default_web_client_id">defaut_web_client_id</string>
+    <string name="logout">Logout</string>
+    <string name="defaut_web_client_id">teste</string>
 </resources>
