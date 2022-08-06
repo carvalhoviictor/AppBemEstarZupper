@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
             viewModel.validateDataUser(user)
         }
 
-//        initObservers()
+       // initObservers()
     }
 
     private fun getDataUser(): User {
@@ -57,6 +57,12 @@ class LoginFragment : Fragment() {
             .navigate(R.id.action_loginFragment_to_registerFragment)
     }
 
+    private fun goToHome(user: User) {
+        val bundle = bundleOf(USER_KEY to user)
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_loginFragment_to_homeFragment, bundle)
+    }
+
     private fun initObservers() {
         viewModel.loginState.observe(this.viewLifecycleOwner) {
             goToHome(it)
@@ -65,11 +71,5 @@ class LoginFragment : Fragment() {
         viewModel.errorState.observe(this.viewLifecycleOwner) {
             Toast.makeText(context, LOGIN_ERROR_MESSAGE, Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun goToHome(user: User) {
-        val bundle = bundleOf(USER_KEY to user)
-        NavHostFragment.findNavController(this)
-            .navigate(R.id.action_loginFragment_to_homeFragment, bundle)
     }
 }

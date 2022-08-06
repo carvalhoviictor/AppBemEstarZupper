@@ -15,4 +15,6 @@
     <string name="register">Registrar</string>
     <string name="exit">Sair</string>
     <string name="register_now_title">REGISTRAR CONTA</string>
+
+    <string name="texto_home">Olá, %s!</string>
 </resources>
