@@ -34,7 +34,7 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.tvRegisterNow.setOnClickListener {
-           // goToRegister()
+            goToRegister()
         }
 
         binding.bvLogin.setOnClickListener {
@@ -42,7 +42,7 @@ class LoginFragment : Fragment() {
             viewModel.validateDataUser(user)
         }
 
-        initObservers()
+//        initObservers()
     }
 
     private fun getDataUser(): User {
