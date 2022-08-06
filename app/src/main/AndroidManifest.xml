@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="br.com.zup.projectfinal">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +16,11 @@
         android:theme="@style/Theme.ProjectFinal"
         tools:targetApi="31">
         <activity
-            android:name=".ui.TesteActivity"
-            android:exported="false" />
+            android:name=".ui.InitialActivity"
+            android:exported="true" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.splash.view.SplashActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

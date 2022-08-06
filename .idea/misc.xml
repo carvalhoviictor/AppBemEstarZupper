@@ -3,10 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_initial.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_splash.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_teste.xml" value="0.17135416666666667" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.17135416666666667" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_register.xml" value="0.1" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_sign_in.xml" value="0.17135416666666667" />
       </map>
     </option>
