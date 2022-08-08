@@ -48,10 +48,10 @@ class HomeFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId){
+        return when (item.itemId) {
             R.id.exit -> {
                 viewModel.logout()
-                activity?.supportFragmentManager?.popBackStack()
+                this.onDestroy()
                 navigateToLoginFragment()
                 true
             }

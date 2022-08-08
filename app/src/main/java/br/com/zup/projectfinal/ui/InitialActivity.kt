@@ -2,7 +2,10 @@ package br.com.zup.projectfinal.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.MenuItem
+import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.ActivityInitialBinding
 
 class InitialActivity : AppCompatActivity() {
@@ -14,11 +17,10 @@ class InitialActivity : AppCompatActivity() {
         setContentView(binding.root)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == android.R.id.home) {
-            onBackPressed()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
     }
+
 }
