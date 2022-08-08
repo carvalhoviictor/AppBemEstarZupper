@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit
 class RetrofitService {
     companion object {
         const val BASE_URL = "https://api.pexels.com/v1/"
-
+        const val KEY_API = "563492ad6f91700001000001301dc1f2cf7a4791bcb96d24e0a17ba5"
         private val retrofit: Retrofit by lazy {
 
             val httpClient = OkHttpClient.Builder()
@@ -23,7 +23,7 @@ class RetrofitService {
                 val logInterceptor = HttpLoggingInterceptor()
                 logInterceptor.level = HttpLoggingInterceptor.Level.BODY
                 httpClient.addInterceptor(logInterceptor)
-             }
+            }
 
             Retrofit.Builder()
                 .baseUrl(BASE_URL)
