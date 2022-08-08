@@ -17,4 +17,6 @@
     <string name="register_now_title">REGISTRAR CONTA</string>
 
     <string name="texto_home">Olá, %s!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
