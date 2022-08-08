@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="br.com.zup.projectfinal">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,7 +16,11 @@
         android:theme="@style/Theme.ProjectFinal"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.InitialActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.splash.view.SplashActivity"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">projectFinal</string>
+
+    <string name="register_now">Criar nova conta!</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="text_login">LOGIN</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="name">Nome</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >8 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="register">Registrar</string>
+    <string name="exit">Sair</string>
+    <string name="register_now_title">REGISTRAR CONTA</string>
+
+    <string name="texto_home">Olá, %s!</string>
 </resources>
