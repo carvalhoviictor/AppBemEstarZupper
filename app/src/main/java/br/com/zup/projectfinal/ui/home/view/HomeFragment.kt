@@ -2,13 +2,10 @@ package br.com.zup.projectfinal.ui.home.view
 
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.projectfinal.R
-import br.com.zup.projectfinal.databinding.ActivityInitialBinding
 import br.com.zup.projectfinal.databinding.FragmentHomeBinding
 import br.com.zup.projectfinal.ui.home.viewmodel.HomeViewModel
 

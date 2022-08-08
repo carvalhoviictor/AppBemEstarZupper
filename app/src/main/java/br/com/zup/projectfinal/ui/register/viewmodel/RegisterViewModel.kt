@@ -25,7 +25,9 @@ class RegisterViewModel : ViewModel() {
             user.name.length < 3 -> {
                 _errorState.value = NAME_ERROR_MESSAGE
             }
-            !Patterns.EMAIL_ADDRESS.matcher(user.email).matches() -> {
+            !Patterns.EMAIL_ADDRESS.matcher(user.email).matches()
+//            user.email.isEmpty()
+            -> {
                 _errorState.value = EMAIL_ERROR_MESSAGE
             }
             user.password.length < 8 -> {
