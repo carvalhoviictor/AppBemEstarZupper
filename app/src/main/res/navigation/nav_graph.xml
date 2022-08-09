@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/photoScreenFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -38,4 +38,9 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/photoScreenFragment"
+        android:name="br.com.zup.projectfinal.ui.photoscreen.view.PhotoScreenFragment"
+        android:label="fragment_photo_screen"
+        tools:layout="@layout/fragment_photo_screen" />
 </navigation>
