@@ -30,6 +30,7 @@ class HomeFragment : Fragment() {
         setHasOptionsMenu(true)
 
         (activity as InitialActivity).supportActionBar?.show()
+        (activity as InitialActivity).supportActionBar?.title = "Desafios"
 
         showUserData()
     }
