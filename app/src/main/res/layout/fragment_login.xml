@@ -25,9 +25,7 @@
             android:id="@+id/etUserEmail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="35dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
+            android:layout_margin="15dp"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
@@ -39,9 +37,7 @@
             android:id="@+id/etPassword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="32dp"
+       android:layout_margin="15dp"
             android:hint="@string/password"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
@@ -59,6 +55,7 @@
             android:layout_gravity="center"
             android:layout_margin="25dp"
             android:backgroundTint="@color/red_zup"
+            android:textAlignment="center"
             android:text="@string/text_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -86,10 +83,22 @@
             android:backgroundTint="@color/lightGray_zup"
             android:text="@string/register_now"
             android:textColor="@color/blue_zup"
+            android:textAlignment="center"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@+id/tvInformation"
             app:layout_constraintStart_toStartOf="@+id/tvInformation"
             app:layout_constraintTop_toBottomOf="@id/tvInformation" />
+
+        <ImageView
+            android:id="@+id/ivLogoZupColorful"
+            android:layout_width="@dimen/margin_0"
+            android:layout_height="85dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/logo_zup_colorido"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bvRegisterNow" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -5,7 +5,7 @@
     <string name="action_sign_in_short">Sign in</string>
     <string name="text_login">Entrar</string>
     <string name="email">E-mail</string>
-    <string name="password">Password</string>
+    <string name="password">Senha</string>
     <string name="name">Nome</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="invalid_username">Not a valid username</string>
@@ -20,6 +20,10 @@
     <string name="description_example_photo">Mesa cheia de frutas coloridas</string>
     <string name="image_description_logo2">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e azul marinho num fundo branco</string>
     <string name="image_description_logo1">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e branco num fundo azul marinho</string>
-    <string name="informations">Faça Login com sua conta! Zup \n Ainda não tem uma conta?</string>
+    <string name="informations">Faça Login com sua conta Zup! \n Ainda não tem uma conta?</string>
     <string name="image_description_happy_people">Ilustração de três pessoas se divertindo</string>
+    <string name="return_to_login">Já tenho uma conta!</string>
+    <string name="bv_register_now">Criar conta</string>
+    <string name="logo_white">Logotipo da Zup todo branco</string>
+    <string name="logo_colorful">Logotipo da Zup colorido</string>
 </resources>

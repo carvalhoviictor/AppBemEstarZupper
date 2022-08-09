@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentHomeBinding
+import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.home.viewmodel.HomeViewModel
 
 class HomeFragment : Fragment() {
@@ -27,6 +28,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
+
+        (activity as InitialActivity).supportActionBar?.show()
 
         showUserData()
     }
