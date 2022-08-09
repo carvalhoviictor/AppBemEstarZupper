@@ -29,7 +29,7 @@ class PhotoScreenFragment : Fragment() {
     private fun showCurrentDateText(){
         var date = Calendar.getInstance().time
 
-        var dateTimeFormat = SimpleDateFormat("d MMM yyyy", Locale.getDefault())
+        var dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
         var textDate = buildString {
             append("Foto Motivacional do Dia | ")
