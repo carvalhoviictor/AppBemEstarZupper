@@ -3,5 +3,6 @@
     <item
         android:id="@+id/exit"
         android:enabled="true"
+        android:icon="@drawable/ic_baseline_exit_to_app_24"
         android:title="@string/exit" />
 </menu>

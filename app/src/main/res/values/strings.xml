@@ -1,23 +1,25 @@
 <resources>
     <string name="app_name">projectFinal</string>
 
-    <string name="register_now">Criar nova conta!</string>
+    <string name="register_now">Crie agora</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="text_login">LOGIN</string>
+    <string name="text_login">Entrar</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>
     <string name="name">Nome</string>
     <string name="action_sign_in">Sign in or register</string>
-    <string name="welcome">"Welcome!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >8 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="register">Registrar</string>
     <string name="exit">Sair</string>
     <string name="register_now_title">REGISTRAR CONTA</string>
-
     <string name="texto_home">Olá, %s!</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_example_photo">Mesa cheia de frutas coloridas</string>
+    <string name="image_description_logo2">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e azul marinho num fundo branco</string>
+    <string name="image_description_logo1">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e branco num fundo azul marinho</string>
+    <string name="informations">Faça Login com sua conta! Zup \n Ainda não tem uma conta?</string>
+    <string name="image_description_happy_people">Ilustração de três pessoas se divertindo</string>
 </resources>
