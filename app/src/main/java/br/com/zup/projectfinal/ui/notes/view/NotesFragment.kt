@@ -1,4 +1,4 @@
-package br.com.zup.projectfinal.ui.notes
+package br.com.zup.projectfinal.ui.notes.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
