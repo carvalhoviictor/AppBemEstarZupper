@@ -1,4 +1,4 @@
-package br.com.zup.projectfinal.data.model
+package br.com.zup.projectfinal.data.datasource.remote.model
 
 data class PexelsResponse(
     val next_page: String,
