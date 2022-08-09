@@ -5,13 +5,13 @@ import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 
 class NotesRepository(private val notesDao: NotesDao) {
 
-    fun insertNote(note: NotesModel){
+    suspend fun insertNote(note: NotesModel){
         notesDao.insertNote(note)
     }
 
-    fun deleteNote(note: NotesModel){
+    suspend fun deleteNote(note: String){
         notesDao.deleteNote(note)
     }
 
-    fun getAllNotes(): List<NotesModel> = notesDao.getAllNotes()
+    suspend fun getAllNotes(): List<NotesModel> = notesDao.getAllNotes()
 }

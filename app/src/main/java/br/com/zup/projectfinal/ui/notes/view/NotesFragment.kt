@@ -11,12 +11,14 @@ import br.com.zup.projectfinal.databinding.FragmentNotesBinding
 import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.notes.view.adapter.NotesAdapter
 import br.com.zup.projectfinal.ui.notes.viewmodel.NotesViewModel
+import br.com.zup.projectfinal.ui.viewstate.ViewState
+import br.com.zup.projectfinal.utils.DELETE_MSG_NOTE_SUCCESS
+import br.com.zup.projectfinal.utils.MSG_NOTE_SUCCESS
 import br.com.zup.projectfinal.utils.REQUIRED_FIELD
 import br.com.zup.projectfinal.utils.TITLE_NOTES
 
 class NotesFragment : Fragment() {
     private lateinit var binding: FragmentNotesBinding
-    private var notesList = mutableListOf<NotesModel>()
 
     private val viewModel: NotesViewModel by lazy {
         ViewModelProvider(this)[NotesViewModel::class.java]
@@ -39,13 +41,13 @@ class NotesFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.title = TITLE_NOTES
 
         viewModel.getAllNotes()
+        initObserver()
         showRecyclerView()
 
         binding.btnSaveNote.setOnClickListener {
             saveNote()
+            viewModel.getAllNotes()
         }
-
-        initObserver()
 
     }
 
@@ -57,14 +59,14 @@ class NotesFragment : Fragment() {
     private fun saveNote(){
         if(validateField()){
             viewModel.insertNote(getNote())
+            Toast.makeText(context, MSG_NOTE_SUCCESS, Toast.LENGTH_LONG).show()
             clearField()
         }
     }
 
     private fun getNote(): NotesModel{
-        val note = NotesModel(note = binding.etNotesReminders.text.toString())
-        notesList.add(note)
-        return note
+        val note = binding.etNotesReminders.text.toString()
+        return NotesModel(note = note)
     }
 
     private fun validateField(): Boolean{
@@ -81,16 +83,21 @@ class NotesFragment : Fragment() {
     }
 
     private fun deleteNote(note: NotesModel){
-        viewModel.deleteNote(note)
+        viewModel.deleteNote(note.note)
+        Toast.makeText(context, DELETE_MSG_NOTE_SUCCESS, Toast.LENGTH_LONG).show()
     }
 
     private fun initObserver(){
-        viewModel.stateMsg.observe(this.viewLifecycleOwner){
-            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
-        }
 
         viewModel.notesListState.observe(this.viewLifecycleOwner){
-            notesAdapter.updateNotesList(it.toMutableList())
+            when(it){
+                is ViewState.Success -> {
+                    notesAdapter.updateNotesList(it.data.toMutableList())
+                }
+                is ViewState.Error -> {
+                    Toast.makeText(context, "${it.throwable.message}", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 

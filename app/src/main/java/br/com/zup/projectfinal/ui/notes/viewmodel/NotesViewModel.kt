@@ -4,45 +4,50 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 import br.com.zup.projectfinal.domain.usecase.NotesUseCase
+import br.com.zup.projectfinal.ui.viewstate.ViewState
 import br.com.zup.projectfinal.utils.DELETE_MSG_NOTE_SUCCESS
 import br.com.zup.projectfinal.utils.MSG_NOTE_ERROR
 import br.com.zup.projectfinal.utils.MSG_NOTE_SUCCESS
+import br.com.zup.projectfinal.utils.NOTE_LIST_ERROR
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class NotesViewModel(application: Application): AndroidViewModel(application) {
     private val notesUseCase = NotesUseCase(application)
 
-    private var _notesListState = MutableLiveData<List<NotesModel>>()
-    val notesListState: LiveData<List<NotesModel>> = _notesListState
-
-    private var _stateMsg = MutableLiveData<String>()
-    val stateMsg: LiveData<String> = _stateMsg
+    private var _notesListState = MutableLiveData<ViewState<List<NotesModel>>>()
+    val notesListState: LiveData<ViewState<List<NotesModel>>> = _notesListState
 
     fun insertNote(note: NotesModel){
-        try {
-            notesUseCase.insertNote(note)
-            _stateMsg.value = MSG_NOTE_SUCCESS
-        }catch(e: Exception){
-            _stateMsg.value = MSG_NOTE_ERROR
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                notesUseCase.insertNote(note)
+            }
         }
     }
 
-    fun deleteNote(note: NotesModel){
-        try {
-            notesUseCase.deleteNote(note)
-            _stateMsg.value = DELETE_MSG_NOTE_SUCCESS
-        }catch (ex: Exception){
-            _stateMsg.value = MSG_NOTE_ERROR
+    fun deleteNote(note: String){
+        viewModelScope.launch {
+            withContext(Dispatchers.IO){
+                notesUseCase.deleteNote(note)
+            }
         }
     }
 
     fun getAllNotes(){
-        try {
-            _notesListState.value = notesUseCase.getAllNotes()
-        }catch (ex: Exception){
-            _notesListState.value = arrayListOf()
-            _stateMsg.value = MSG_NOTE_SUCCESS
+        viewModelScope.launch {
+            try {
+                val response = withContext(Dispatchers.IO){
+                    notesUseCase.getAllNotes()
+                }
+                _notesListState.value = response
+            }catch (e: Exception){
+                _notesListState.value = ViewState.Error(Throwable(NOTE_LIST_ERROR))
+            }
         }
     }
 }

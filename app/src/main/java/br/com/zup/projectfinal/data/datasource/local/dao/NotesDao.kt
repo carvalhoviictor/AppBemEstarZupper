@@ -12,9 +12,9 @@ interface NotesDao {
     @Query("SELECT * FROM notes_table")
     fun getAllNotes(): List<NotesModel>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertNote(notesModel: NotesModel)
 
-    @Query("DELETE FROM notes_table WHERE note = :notesModel")
-    fun deleteNote(notesModel: NotesModel)
+    @Query("DELETE FROM notes_table WHERE note = :selectedNote")
+    fun deleteNote(selectedNote: String)
 }
