@@ -33,4 +33,8 @@
     <string name="hint_notes_reminders">Escreva sua nota ou lembrete aqui</string>
     <string name="btn_text_save_note">SALVAR</string>
     <string name="description_trash_icon">Ícone de Lixeira. Clique para deletar sua nota ou lembrete</string>
+    <string name="challenges">Desafios</string>
+    <string name="award">Conquistas</string>
+    <string name="take_a_break">Take a Break</string>
+    <string name="notes">Notas</string>
 </resources>
