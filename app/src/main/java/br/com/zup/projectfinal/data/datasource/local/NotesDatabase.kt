@@ -4,6 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import br.com.zup.projectfinal.data.datasource.local.dao.NotesDao
+import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 
 @Database(entities = [NotesModel::class], version = 1)
 abstract class NotesDatabase: RoomDatabase() {

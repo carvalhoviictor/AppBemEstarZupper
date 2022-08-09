@@ -1,4 +1,4 @@
-package br.com.zup.projectfinal.data.datasource.local
+package br.com.zup.projectfinal.data.datasource.local.model
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo
