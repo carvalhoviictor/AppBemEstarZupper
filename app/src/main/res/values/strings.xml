@@ -29,4 +29,8 @@
     <string name="challenge_msg">Aqui vai ser o desafio a ser feito</string>
     <string name="check_description">Imagem de um check verde para quando o desafio está feito, e de uma X laranja para quando não está feito</string>
     <string name="_20pts">20pts</string>
+    <string name="description_image_watering_brain">Ilustração de um cérebro colorido e florido sendo regado por uma mão segurando um regador</string>
+    <string name="hint_notes_reminders">Escreva sua nota ou lembrete aqui</string>
+    <string name="btn_text_save_note">SALVAR</string>
+    <string name="description_trash_icon">Ícone de Lixeira. Clique para deletar sua nota ou lembrete</string>
 </resources>
