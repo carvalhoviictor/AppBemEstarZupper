@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.challenges.view.ChallengesFragment">
+
+    <TextView
+        android:id="@+id/tv_HelloZupper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_45"
+        android:layout_marginTop="@dimen/size_21"
+        android:fontFamily="@font/montserrat__regular"
+        android:text="@string/hello_zupper"
+        android:textColor="@color/blue_zup"
+        app:layout_constraintBottom_toTopOf="@id/rv_challenges"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_challenges"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_16"
+        android:layout_marginTop="@dimen/size_21"
+        android:layout_marginEnd="@dimen/size_16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_HelloZupper"
+        tools:listitem="@layout/challenge_item"
+        tools:itemCount="4" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBlue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_210"
+        android:layout_marginTop="@dimen/size_39"
+        android:backgroundTint="@color/blue_zup"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/im_Brain"
+                android:layout_width="@dimen/size_210"
+                android:layout_height="@dimen/size_210"
+                android:contentDescription="@string/image_brain_description"
+                android:padding="@dimen/size_21"
+                android:src="@drawable/colorful_brain"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/tv_Vc"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_Vc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/size_39"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/montserrat__regular"
+                android:text="@string/text_inform"
+                android:textSize="@dimen/fontSize_14"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/im_Brain"
+                app:layout_constraintTop_toTopOf="@id/im_Brain" />
+
+            <TextView
+                android:id="@+id/tv_Level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat__bold"
+                android:text="@string/level_2"
+                android:textColor="@color/red_zup"
+                android:textSize="@dimen/fontSize_20"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/tv_Vc"
+                app:layout_constraintStart_toStartOf="@id/tv_Vc"
+                app:layout_constraintTop_toBottomOf="@id/tv_Vc" />
+
+            <TextView
+                android:id="@+id/tv_numbPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="@font/montserrat_alternates_bold_italic"
+                android:text="@string/_70"
+                android:textColor="@color/orange_zup"
+                android:textSize="@dimen/fontSize_40"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/tv_Vc"
+                app:layout_constraintStart_toStartOf="@id/tv_Vc"
+                app:layout_constraintTop_toBottomOf="@id/tv_Level" />
+
+            <TextView
+                android:id="@+id/tv_textPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="27dp"
+                android:fontFamily="@font/montserrat__bold"
+                android:text="@string/points"
+                android:textColor="@color/tealGreen_zup"
+                android:textSize="@dimen/fontSize_14"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/tv_Vc"
+                app:layout_constraintStart_toStartOf="@id/tv_Vc"
+                app:layout_constraintTop_toBottomOf="@id/tv_numbPoints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
