@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentLoginBinding
 import br.com.zup.projectfinal.domain.model.User
+import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.login.viewmodel.LoginViewModel
 import br.com.zup.projectfinal.utils.LOGIN_ERROR_MESSAGE
 import br.com.zup.projectfinal.utils.USER_KEY
@@ -34,7 +35,9 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvRegisterNow.setOnClickListener {
+        (activity as InitialActivity).supportActionBar?.hide()
+
+        binding.bvRegisterNow.setOnClickListener {
             goToRegister()
         }
 
