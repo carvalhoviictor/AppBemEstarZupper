@@ -35,11 +35,15 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        (activity as InitialActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as InitialActivity).supportActionBar?.hide()
 
-        binding.btRegister.setOnClickListener {
+        binding.bvRegisterNow.setOnClickListener {
             val user = getDataUser()
             viewModel.validateDataUser(user)
+        }
+
+        binding.tvInformation.setOnClickListener {
+            returnToLogin()
         }
 
         initObservers()
@@ -47,9 +51,9 @@ class RegisterFragment : Fragment() {
 
     private fun getDataUser(): User {
         return User(
-            name = binding.etNameRegister.text.toString(),
-            email = binding.etEmailRegister.text.toString(),
-            password = binding.etPasswordRegister.text.toString()
+            name = binding.etUserName.text.toString(),
+            email = binding.etUserEmail.text.toString(),
+            password = binding.etPassword.text.toString()
         )
     }
 
@@ -67,5 +71,10 @@ class RegisterFragment : Fragment() {
         val bundle = bundleOf(USER_KEY to user)
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_registerFragment_to_homeFragment, bundle)
+    }
+
+    private fun returnToLogin() {
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_registerFragment_to_loginFragment)
     }
 }
