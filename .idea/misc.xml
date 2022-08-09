@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_initial.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_teste.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_splash.xml" value="0.1" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
@@ -18,6 +20,7 @@
         <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_notes.xml" value="0.22" />
         <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.22" />
         <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/note_item.xml" value="0.22" />
+        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/menu/menu.xml" value="0.17552083333333332" />
       </map>
     </option>
   </component>

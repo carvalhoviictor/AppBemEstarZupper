@@ -1,7 +1,6 @@
-package br.com.zup.projectfinal.data
+package br.com.zup.projectfinal.data.datasource.remote
 
 import br.com.zup.projectfinal.BuildConfig
-
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
