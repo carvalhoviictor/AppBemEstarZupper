@@ -37,7 +37,7 @@ class NotesAdapter (
         return notesList.size
     }
 
-    fun updateMessageList(newList: MutableList<NotesModel>){
+    fun updateNotesList(newList: MutableList<NotesModel>){
         if (notesList.size == 0){
             notesList = newList
         }else{

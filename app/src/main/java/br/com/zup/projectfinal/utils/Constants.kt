@@ -8,3 +8,9 @@ const val CREATE_USER_ERROR_MESSAGE = "Erro ao criar usuário! Tente novamente!"
 const val LOGIN_ERROR_MESSAGE = "Usuário não registrado. Favor realizar cadastro!"
 
 const val TITLE_DESAFIOS = "Desafios"
+const val TITLE_NOTES = "Notas e Lembretes"
+
+const val MSG_NOTE_SUCCESS = "Salvo com sucesso!"
+const val MSG_NOTE_ERROR = "Ops! Houve um erro. Tente Novamente"
+const val DELETE_MSG_NOTE_SUCCESS = "Excluído com sucesso!"
+const val REQUIRED_FIELD = "Campo obrigatório"
