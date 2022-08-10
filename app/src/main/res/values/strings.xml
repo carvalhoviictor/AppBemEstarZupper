@@ -18,6 +18,7 @@
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_example_photo">Mesa cheia de frutas coloridas</string>
+
     <string name="image_description_logo2">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e azul marinho num fundo branco</string>
     <string name="image_description_logo1">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e branco num fundo azul marinho</string>
     <string name="informations">Faça Login com sua conta Zup! \n Ainda não tem uma conta?</string>
@@ -27,4 +28,18 @@
     <string name="logo_white">Logotipo da Zup todo branco</string>
     <string name="logo_colorful">Logotipo da Zup colorido</string>
     <string name="password_confirmation">Confirme sua senha</string>
+
+    <string name="hello_zupper"><![CDATA[Olá, <Nome Zupper>]]></string>
+    <string name="image_brain_description">Desenho de um cérebro, sendo o lado esquerdo colorido de laranja e o lado direito dele colorido de verde claro, e em volta várias flores coloridas uma de cada cor sendo laranja, branca, azul com algumas folhas</string>
+    <string name="text_inform">Você está no:</string>
+    <string name="level_2">Nível 2</string>
+    <string name="points">Pontos</string>
+    <string name="_70">70</string>
+    <string name="challenge_msg">Aqui vai ser o desafio a ser feito</string>
+    <string name="check_description">Imagem de um check verde para quando o desafio está feito, e de uma X laranja para quando não está feito</string>
+    <string name="_20pts">20pts</string>
+    <string name="description_image_watering_brain">Ilustração de um cérebro colorido e florido sendo regado por uma mão segurando um regador</string>
+    <string name="hint_notes_reminders">Escreva sua nota ou lembrete aqui</string>
+    <string name="btn_text_save_note">SALVAR</string>
+    <string name="description_trash_icon">Ícone de Lixeira. Clique para deletar sua nota ou lembrete</string>
 </resources>

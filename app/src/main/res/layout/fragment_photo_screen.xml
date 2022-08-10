@@ -28,6 +28,7 @@
             android:background="@color/limeGreen_zup"
             android:padding="@dimen/padding_10"
             tools:text="Foto Motivacional do Dia | 08 de agosto de 2022"
+            android:fontFamily="@font/montserrat__bold"
             android:textAlignment="center"
             android:textColor="@color/white_zup"
             android:textSize="@dimen/fontSize_14"
