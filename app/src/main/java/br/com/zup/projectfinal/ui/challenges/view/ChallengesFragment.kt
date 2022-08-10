@@ -5,11 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.projectfinal.databinding.FragmentChallengesBinding
 import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.challenges.view.adapter.ChallengesAdapter
 import br.com.zup.projectfinal.ui.challenges.viewmodel.ChallengesViewModel
+import br.com.zup.projectfinal.ui.viewstate.ViewState
 import br.com.zup.projectfinal.utils.TITLE_DESAFIOS
 
 class ChallengesFragment : Fragment() {
@@ -38,6 +41,24 @@ class ChallengesFragment : Fragment() {
         viewModel.setChallengesList()
         viewModel.getFourRandomChallenges()
         initObserver()
+        showChallengesRecyclerView()
+    }
 
+    private fun showChallengesRecyclerView(){
+        binding.rvChallenges.adapter = challengesAdapter
+        binding.rvChallenges.layoutManager = LinearLayoutManager(context)
+    }
+
+    private fun initObserver(){
+        viewModel.challengesListState.observe(this.viewLifecycleOwner){
+            when(it){
+                is ViewState.Success -> {
+                    challengesAdapter.updateNotesList(it.data.toMutableList())
+                }
+                is ViewState.Error -> {
+                    Toast.makeText(context, "${it.throwable.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 }
