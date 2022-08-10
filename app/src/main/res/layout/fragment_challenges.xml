@@ -31,7 +31,7 @@
             android:layout_marginTop="@dimen/margin_10"
             app:layout_constraintBottom_toTopOf="@id/cvBlue"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.476"
+            app:layout_constraintHorizontal_bias="0.825"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_HelloZupper"
             tools:itemCount="4"
@@ -39,9 +39,9 @@
 
         <androidx.cardview.widget.CardView
         android:id="@+id/cvBlue"
-        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_10"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/size_210"
+        android:layout_height="@dimen/size_300"
         android:backgroundTint="@color/blue_zup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
