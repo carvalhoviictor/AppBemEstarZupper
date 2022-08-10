@@ -35,7 +35,7 @@
     <string name="level_2">Nível 2</string>
     <string name="points">Pontos</string>
     <string name="_70">70</string>
-    <string name="challenge_msg">Aqui vai ser o desafio a ser feito</string>
+    <string name="challenge_msg">Exemplo de Desafio</string>
     <string name="check_description">Imagem de um check verde para quando o desafio está feito, e de uma X laranja para quando não está feito</string>
     <string name="_20pts">20pts</string>
     <string name="description_image_watering_brain">Ilustração de um cérebro colorido e florido sendo regado por uma mão segurando um regador</string>
