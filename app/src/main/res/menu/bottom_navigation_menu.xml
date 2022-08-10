@@ -1,22 +1,21 @@
-<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/page_1"
+        android:id="@+id/menuChallengesPage"
         android:enabled="true"
         android:icon="@drawable/ic_check_box"
         android:title="@string/challenges" />
     <item
-        android:id="@+id/page_2"
+        android:id="@+id/menuAwardsPage"
         android:enabled="true"
         android:icon="@drawable/ic_trophy"
         android:title="@string/award" />
     <item
-        android:id="@+id/page_3"
+        android:id="@+id/menuBreakPage"
         android:enabled="true"
         android:icon="@drawable/ic_coffee"
         android:title="@string/take_a_break" />
     <item
-        android:id="@+id/page_4"
+        android:id="@+id/menuNotesPage"
         android:enabled="true"
         android:icon="@drawable/ic_edit_note"
         android:title="@string/notes" />
