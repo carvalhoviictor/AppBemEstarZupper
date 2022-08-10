@@ -45,7 +45,6 @@ class ChallengesFragment : Fragment() {
         showUserName()
         viewModel.getPointsDatabase()
         viewModel.getLevelDatabase()
-        viewModel.setChallengesList()
         viewModel.getFourRandomChallenges()
         initObserver()
         showChallengesRecyclerView()

@@ -11,10 +11,6 @@ class ChallengesUseCase(application: Application) {
     private val challengesRepository = ChallengesRepository()
     private val authenticationRepository = AuthenticationRepository()
 
-    fun setChallengesList(){
-        challengesRepository.setChallengesList()
-    }
-
     fun getFourRandomChallenges(): ViewState<List<ChallengeModel>>{
         return try {
             ViewState.Success(challengesRepository.getFourRandomChallenges())

@@ -9,8 +9,6 @@ import com.google.firebase.ktx.Firebase
 
 class ChallengesRepository {
     private val authentication: FirebaseAuth = Firebase.auth
-
-    private val listofchallenges = mutableListOf<ChallengeModel>()
     private val database = FirebaseDatabase.getInstance()
     private val referencePoints = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Pontuacao" )
     private val referenceLevel = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Nivel" )
@@ -25,7 +23,10 @@ class ChallengesRepository {
         return referencePoints.orderByValue()
     }
 
-    fun setChallengesList(){
+    fun setChallengesList(): List<ChallengeModel>{
+
+        val listofchallenges = mutableListOf<ChallengeModel>()
+
         listofchallenges.add(
             ChallengeModel(
                 challengeName = "Beba 2 litros de água",
@@ -61,9 +62,13 @@ class ChallengesRepository {
                 challengeName = "Passe um tempo ao ar livre",
                 challengePoints = 60
             ))
+
+        return listofchallenges
     }
 
     fun getFourRandomChallenges(): List<ChallengeModel>{
+        val listofchallenges = setChallengesList().toMutableList()
+
         listofchallenges.shuffle()
         val fourChallengesList = mutableListOf<ChallengeModel>()
 

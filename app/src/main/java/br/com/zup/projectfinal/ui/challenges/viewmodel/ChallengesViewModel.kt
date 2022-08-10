@@ -32,10 +32,6 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
     private var _pointsState = MutableLiveData<List<String>>()
     val pointsState: LiveData<List<String>> = _pointsState
 
-    fun setChallengesList() {
-        challengesUseCase.setChallengesList()
-    }
-
     fun getFourRandomChallenges() {
         try {
             _challengesListState.value = challengesUseCase.getFourRandomChallenges()
