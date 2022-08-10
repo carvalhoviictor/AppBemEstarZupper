@@ -13,7 +13,7 @@ const val TITLE_DESAFIOS = "Desafios"
 const val TITLE_NOTES = "Notas e Lembretes"
 
 const val MSG_NOTE_SUCCESS = "Salvo com sucesso!"
-const val MSG_NOTE_ERROR = "Ops! Houve um erro. Tente Novamente"
 const val DELETE_MSG_NOTE_SUCCESS = "Excluído com sucesso!"
 const val REQUIRED_FIELD = "Campo obrigatório"
 const val NOTE_LIST_ERROR = "Não foi possível carregar a lista"
+const val CHALLENGES_LIST_ERROR = "Não foi possível carregar os desafios"
