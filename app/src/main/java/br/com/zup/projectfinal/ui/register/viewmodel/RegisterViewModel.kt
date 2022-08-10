@@ -8,7 +8,6 @@ import br.com.zup.projectfinal.domain.model.User
 import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import br.com.zup.projectfinal.utils.CREATE_USER_ERROR_MESSAGE
 import br.com.zup.projectfinal.utils.EMAIL_ERROR_MESSAGE
-import br.com.zup.projectfinal.utils.NAME_ERROR_MESSAGE
 import br.com.zup.projectfinal.utils.PASSWORD_ERROR_MESSAGE
 
 class RegisterViewModel : ViewModel() {
@@ -22,15 +21,11 @@ class RegisterViewModel : ViewModel() {
 
     fun validateDataUser(user: User) {
         when {
-            user.name.length < 3 -> {
-                _errorState.value = NAME_ERROR_MESSAGE
-            }
             !Patterns.EMAIL_ADDRESS.matcher(user.email).matches()
-//            user.email.isEmpty()
             -> {
                 _errorState.value = EMAIL_ERROR_MESSAGE
             }
-            user.password.length < 8 -> {
+            user.password.length < 6 -> {
                 _errorState.value = PASSWORD_ERROR_MESSAGE
             }
             else -> {
