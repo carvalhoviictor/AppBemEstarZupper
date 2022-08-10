@@ -60,6 +60,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etUserEmail" />
 
+        <EditText
+            android:id="@+id/etPasswordConfirmation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:hint="@string/password_confirmation"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:lineSpacingExtra="20sp"
+            android:selectAllOnFocus="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
         <Button
             android:id="@+id/bvRegisterNow"
             android:layout_width="150dp"
@@ -69,9 +84,9 @@
             android:text="@string/bv_register_now"
             android:textColor="@color/blue_zup"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/etPassword"
-            app:layout_constraintStart_toStartOf="@+id/etPassword"
-            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordConfirmation"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordConfirmation"
+            app:layout_constraintTop_toBottomOf="@id/etPasswordConfirmation" />
 
         <TextView
             android:id="@+id/tvInformation"
@@ -90,7 +105,7 @@
             android:id="@+id/ivLogoZupColorful"
             android:layout_width="@dimen/margin_0"
             android:layout_height="85dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:src="@drawable/logo_zup_colorido"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -6,9 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import br.com.zup.projectfinal.domain.model.User
 import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
-import br.com.zup.projectfinal.utils.CREATE_USER_ERROR_MESSAGE
-import br.com.zup.projectfinal.utils.EMAIL_ERROR_MESSAGE
-import br.com.zup.projectfinal.utils.PASSWORD_ERROR_MESSAGE
+import br.com.zup.projectfinal.utils.*
 
 class RegisterViewModel : ViewModel() {
     private val authenticationRepository = AuthenticationRepository()
@@ -28,6 +26,12 @@ class RegisterViewModel : ViewModel() {
             user.password.length < 6 -> {
                 _errorState.value = PASSWORD_ERROR_MESSAGE
             }
+            user.password != user.passwordConfirmation -> {
+                _errorState.value = PASSWORDCONFIRMATION_ERROR_MESSAGE
+            }
+            !user.email.contains(EMAIL_ZUP) -> {
+                _errorState.value = EMAIL_ZUP_ERROR
+            }
             else -> {
                 registerUser(user)
             }
@@ -40,13 +44,13 @@ class RegisterViewModel : ViewModel() {
                 user.email,
                 user.password
             ).addOnSuccessListener {
-
                 authenticationRepository.updateUserProfile(user.name)?.addOnSuccessListener {
                     _registerState.value = user
                 }
 
             }.addOnFailureListener {
                 _errorState.value = CREATE_USER_ERROR_MESSAGE + it.message
+
             }
         } catch (ex: Exception) {
             _errorState.value = ex.message

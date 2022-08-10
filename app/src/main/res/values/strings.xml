@@ -27,6 +27,7 @@
     <string name="bv_register_now">Criar conta</string>
     <string name="logo_white">Logotipo da Zup todo branco</string>
     <string name="logo_colorful">Logotipo da Zup colorido</string>
+    <string name="password_confirmation">Confirme sua senha</string>
 
     <string name="hello_zupper"><![CDATA[Olá, <Nome Zupper>]]></string>
     <string name="image_brain_description">Desenho de um cérebro, sendo o lado esquerdo colorido de laranja e o lado direito dele colorido de verde claro, e em volta várias flores coloridas uma de cada cor sendo laranja, branca, azul com algumas folhas</string>
@@ -41,5 +42,4 @@
     <string name="hint_notes_reminders">Escreva sua nota ou lembrete aqui</string>
     <string name="btn_text_save_note">SALVAR</string>
     <string name="description_trash_icon">Ícone de Lixeira. Clique para deletar sua nota ou lembrete</string>
-
 </resources>
