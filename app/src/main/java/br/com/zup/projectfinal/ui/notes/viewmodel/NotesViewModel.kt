@@ -8,9 +8,6 @@ import androidx.lifecycle.viewModelScope
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 import br.com.zup.projectfinal.domain.usecase.NotesUseCase
 import br.com.zup.projectfinal.ui.viewstate.ViewState
-import br.com.zup.projectfinal.utils.DELETE_MSG_NOTE_SUCCESS
-import br.com.zup.projectfinal.utils.MSG_NOTE_ERROR
-import br.com.zup.projectfinal.utils.MSG_NOTE_SUCCESS
 import br.com.zup.projectfinal.utils.NOTE_LIST_ERROR
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
