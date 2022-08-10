@@ -59,7 +59,7 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             }
     }
 
-    fun getPointsPath(point: Int): String {
+    private fun getPointsPath(point: Int): String {
         val uri = Uri.parse(point.toString())
         return uri.toString()
     }
@@ -75,7 +75,7 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             }
     }
 
-    fun getLevelPath(level: Int): String {
+    private fun getLevelPath(level: Int): String {
         val uri = Uri.parse(level.toString())
         return uri.toString()
     }

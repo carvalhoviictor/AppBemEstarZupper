@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.projectfinal.databinding.FragmentChallengesBinding
+import br.com.zup.projectfinal.domain.model.ChallengeModel
 import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.challenges.view.adapter.ChallengesAdapter
 import br.com.zup.projectfinal.ui.challenges.viewmodel.ChallengesViewModel
@@ -23,7 +24,7 @@ class ChallengesFragment : Fragment() {
     }
 
     private val challengesAdapter: ChallengesAdapter by lazy {
-        ChallengesAdapter(arrayListOf())
+        ChallengesAdapter(arrayListOf(), this::savePoints)
     }
 
     override fun onCreateView(
@@ -38,6 +39,9 @@ class ChallengesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         (activity as InitialActivity).supportActionBar?.title = TITLE_DESAFIOS
 
+        showUserName()
+        viewModel.getPointsDatabase()
+        viewModel.getLevelDatabase()
         viewModel.setChallengesList()
         viewModel.getFourRandomChallenges()
         initObserver()
@@ -60,9 +64,73 @@ class ChallengesFragment : Fragment() {
                 }
             }
         }
+
+        viewModel.msgState.observe(this.viewLifecycleOwner){
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
+        }
+
+        viewModel.levelState.observe(this.viewLifecycleOwner){
+            showLevel(it)
+        }
+
+        viewModel.pointsState.observe(this.viewLifecycleOwner){
+            showPoints(it)
+        }
     }
 
     private fun showUserName(){
 
+        val greetings = buildString {
+            append("Olá, ")
+            append(viewModel.getUserName())
+            append("!")
+        }
+
+        binding.tvHelloZupper.text = greetings
+    }
+
+    private fun savePoints(doneChallenge: ChallengeModel){
+        viewModel.savePoints(doneChallenge.challengePoints)
+    }
+
+    private fun showPoints(pointList: List<String>){
+        var totalPoints = 0
+        pointList.forEach { point ->
+            totalPoints += point.toInt()
+        }
+        binding.tvNumbPoints.text = totalPoints.toString()
+        saveLevel(totalPoints)
+    }
+
+    private fun saveLevel(points: Int){
+        //100pts = level 1
+        //200pts = level 2
+        //300pts = level 3
+        //500pts = level 4
+        //800pts = level 5
+
+        if(points == 100){
+            viewModel.saveLevel(1)
+        }
+        if(points == 200){
+            viewModel.saveLevel(2)
+        }
+        if(points == 300){
+            viewModel.saveLevel(3)
+        }
+        if(points == 500){
+            viewModel.saveLevel(4)
+        }
+        if(points == 800){
+            viewModel.saveLevel(5)
+        }
+    }
+
+    private fun showLevel(levelList: List<String>){
+        levelList.sortedBy {
+            it.toInt().inc()
+        }
+
+        binding.tvLevel.text = levelList[0]
     }
 }
