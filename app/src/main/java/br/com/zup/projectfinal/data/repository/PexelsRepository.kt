@@ -1,8 +1,8 @@
 package br.com.zup.projectfinal.data.repository
 
 import android.util.Log
-import br.com.zup.projectfinal.data.RetrofitService
-import br.com.zup.projectfinal.data.model.Photo
+import br.com.zup.projectfinal.data.datasource.remote.RetrofitService
+import br.com.zup.projectfinal.data.datasource.remote.model.Photo
 import br.com.zup.projectfinal.domain.model.Image
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.Dispatchers
