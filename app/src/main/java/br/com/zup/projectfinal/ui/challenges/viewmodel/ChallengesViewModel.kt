@@ -29,4 +29,8 @@ class ChallengesViewModel(application: Application): AndroidViewModel(applicatio
             _challengesListState.value = ViewState.Error(Throwable(CHALLENGES_LIST_ERROR))
         }
     }
+
+    fun getUserName(): String{
+        return challengesUseCase.getUserName()
+    }
 }
