@@ -53,7 +53,8 @@ class RegisterFragment : Fragment() {
         return User(
             name = binding.etUserName.text.toString(),
             email = binding.etUserEmail.text.toString(),
-            password = binding.etPassword.text.toString()
+            password = binding.etPassword.text.toString(),
+            passwordConfirmation = binding.etPasswordConfirmation.text.toString()
         )
     }
 
@@ -63,7 +64,7 @@ class RegisterFragment : Fragment() {
         }
 
         viewModel.errorState.observe(this.viewLifecycleOwner) {
-            Toast.makeText(context, CREATE_USER_ERROR_MESSAGE, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
     }
 

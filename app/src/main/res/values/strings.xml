@@ -26,4 +26,5 @@
     <string name="bv_register_now">Criar conta</string>
     <string name="logo_white">Logotipo da Zup todo branco</string>
     <string name="logo_colorful">Logotipo da Zup colorido</string>
+    <string name="password_confirmation">Confirme sua senha</string>
 </resources>
