@@ -1,13 +1,14 @@
 package br.com.zup.projectfinal.ui.challenges.view.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 import br.com.zup.projectfinal.databinding.ChallengeItemBinding
 class ChallengesAdapter(
     private var challengesList: MutableList<ChallengeModel>,
-    private val getPoints: (challengeModel: ChallengeModel) -> Unit
+    private val onCheckboxClicked: (view: View, challenge: ChallengeModel) -> Unit
 ): RecyclerView.Adapter<ChallengesAdapter.ViewHolder>() {
 
     class ViewHolder(val binding: ChallengeItemBinding): RecyclerView.ViewHolder(binding.root){
@@ -26,10 +27,8 @@ class ChallengesAdapter(
         val challenge = challengesList[position]
         holder.showChallenge(challenge)
 
-        val checked: Boolean = holder.binding.cbCheck.isChecked
-        if(checked){
-            getPoints(challenge)
-            notifyItemChanged(position)
+        holder.binding.cbCheck.setOnClickListener {
+            onCheckboxClicked(holder.binding.cbCheck, challenge)
         }
     }
 

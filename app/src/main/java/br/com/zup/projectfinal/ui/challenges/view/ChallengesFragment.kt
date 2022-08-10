@@ -5,9 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentChallengesBinding
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 import br.com.zup.projectfinal.ui.InitialActivity
@@ -24,7 +26,7 @@ class ChallengesFragment : Fragment() {
     }
 
     private val challengesAdapter: ChallengesAdapter by lazy {
-        ChallengesAdapter(arrayListOf(), this::savePoints)
+        ChallengesAdapter(arrayListOf(), this::onCheckboxClicked)
     }
 
     override fun onCreateView(
@@ -127,10 +129,26 @@ class ChallengesFragment : Fragment() {
 
     private fun showLevel(levelList: List<String>){
         if(levelList.isNotEmpty()){
+            levelList.sortedBy {
+                it.toInt().dec()
+            }
             binding.tvLevel.text = levelList[0]
         }else{
             binding.tvLevel.text = "Nível 1"
         }
+    }
 
+    fun onCheckboxClicked(view: View, challengeModel: ChallengeModel) {
+        if (view is CheckBox) {
+            val checked: Boolean = view.isChecked
+
+            when (view.id) {
+                R.id.cbCheck -> {
+                    if (checked) {
+                        savePoints(challengeModel)
+                    }
+                }
+            }
+        }
     }
 }

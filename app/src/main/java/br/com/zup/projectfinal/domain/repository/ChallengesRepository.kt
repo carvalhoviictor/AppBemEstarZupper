@@ -33,8 +33,7 @@ class ChallengesRepository {
             )
         )
 
-        listofchallenges.add(
-            ChallengeModel(
+        listofchallenges.add(ChallengeModel(
                 challengeName = "Faça um alongamento",
                 challengePoints = 50
             ))

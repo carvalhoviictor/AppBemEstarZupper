@@ -85,8 +85,8 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             override fun onDataChange(snapshot: DataSnapshot) {
                 val levelList = mutableListOf<String>()
                 for (resultSnapshot in snapshot.children) {
-                    val levelResponse = resultSnapshot.getValue(String::class.java)
-                    levelResponse?.let {
+                    val levelResponse = resultSnapshot.value.toString()
+                    levelResponse.let {
                         levelList.add(it)
                         levelList.reverse()
                     }
@@ -105,8 +105,8 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             override fun onDataChange(snapshot: DataSnapshot) {
                 val pointsList = mutableListOf<String>()
                 for (resultSnapshot in snapshot.children) {
-                    val pointsResponse = resultSnapshot.getValue(String::class.java)
-                    pointsResponse?.let {
+                    val pointsResponse = resultSnapshot.value.toString()
+                    pointsResponse.let {
                         pointsList.add(it)
                     }
                 }
