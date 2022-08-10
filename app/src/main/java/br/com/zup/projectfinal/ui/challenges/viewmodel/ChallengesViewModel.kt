@@ -71,7 +71,6 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
                 if (error != null) {
                     _msgState.value = error.message
                 }
-                _msgState.value = CONGRATULATION_LEVEL
             }
     }
 
@@ -88,7 +87,6 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
                     val levelResponse = resultSnapshot.value.toString()
                     levelResponse.let {
                         levelList.add(it)
-                        levelList.reverse()
                     }
                 }
                 _levelState.value = levelList

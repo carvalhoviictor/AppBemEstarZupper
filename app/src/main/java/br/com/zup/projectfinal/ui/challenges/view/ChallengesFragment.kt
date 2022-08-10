@@ -16,6 +16,7 @@ import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.challenges.view.adapter.ChallengesAdapter
 import br.com.zup.projectfinal.ui.challenges.viewmodel.ChallengesViewModel
 import br.com.zup.projectfinal.ui.viewstate.ViewState
+import br.com.zup.projectfinal.utils.CONGRATULATION_LEVEL
 import br.com.zup.projectfinal.utils.TITLE_DESAFIOS
 
 class ChallengesFragment : Fragment() {
@@ -113,16 +114,16 @@ class ChallengesFragment : Fragment() {
         //300pts = level 4
         //500pts = level 5
 
-        if(points == 100){
+        if(points in 100..200){
             viewModel.saveLevel("Nível 2")
         }
-        if(points == 200){
+        if(points in 200..300){
             viewModel.saveLevel("Nível 3")
         }
-        if(points == 300){
+        if(points in 300..500){
             viewModel.saveLevel("Nível 4")
         }
-        if(points == 500){
+        if(points in 500..600){
             viewModel.saveLevel("Nível 5")
         }
     }
