@@ -38,4 +38,19 @@
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/challengesFragment"
+        android:name="br.com.zup.projectfinal.ui.challenges.view.ChallengesFragment"
+        android:label="fragment_challenges"
+        tools:layout="@layout/fragment_challenges" />
+    <fragment
+        android:id="@+id/photoScreenFragment"
+        android:name="br.com.zup.projectfinal.ui.photoscreen.view.PhotoScreenFragment"
+        android:label="fragment_photo_screen"
+        tools:layout="@layout/fragment_photo_screen" />
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="br.com.zup.projectfinal.ui.notes.view.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" />
 </navigation>

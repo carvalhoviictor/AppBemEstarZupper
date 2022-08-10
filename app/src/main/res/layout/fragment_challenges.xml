@@ -7,7 +7,7 @@
     tools:context=".ui.challenges.view.ChallengesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
@@ -51,16 +51,19 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="@dimen/size_300">
 
                 <ImageView
                     android:id="@+id/im_Brain"
-                    android:layout_width="@dimen/size_210"
+                    android:layout_width="@dimen/margin_0"
+                    android:layout_marginBottom="@dimen/margin_30"
                     android:layout_height="@dimen/size_210"
                     android:contentDescription="@string/image_brain_description"
                     android:padding="@dimen/size_21"
+                    android:scaleType="centerInside"
                     android:src="@drawable/colorful_brain"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/dividerLevel"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -129,7 +132,8 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/im_Brain"
-                    app:layout_constraintTop_toBottomOf="@id/tv_numbPoints" />
+                    app:layout_constraintTop_toBottomOf="@id/tv_numbPoints"
+                    app:layout_constraintVertical_bias="0.025" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
