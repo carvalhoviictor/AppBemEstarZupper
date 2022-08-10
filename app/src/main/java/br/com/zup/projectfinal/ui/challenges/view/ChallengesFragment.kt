@@ -79,13 +79,11 @@ class ChallengesFragment : Fragment() {
     }
 
     private fun showUserName(){
-
         val greetings = buildString {
             append("Olá, ")
             append(viewModel.getUserName())
             append("!")
         }
-
         binding.tvHelloZupper.text = greetings
     }
 
@@ -113,28 +111,26 @@ class ChallengesFragment : Fragment() {
         //300pts = level 4
         //500pts = level 5
 
-        if(points == 0){
-            viewModel.saveLevel(1)
-        }
         if(points == 100){
-            viewModel.saveLevel(2)
+            viewModel.saveLevel("Nível 2")
         }
         if(points == 200){
-            viewModel.saveLevel(3)
+            viewModel.saveLevel("Nível 3")
         }
         if(points == 300){
-            viewModel.saveLevel(4)
+            viewModel.saveLevel("Nível 4")
         }
         if(points == 500){
-            viewModel.saveLevel(5)
+            viewModel.saveLevel("Nível 5")
         }
     }
 
     private fun showLevel(levelList: List<String>){
-        levelList.sortedBy {
-            it.toInt().dec()
+        if(levelList.isNotEmpty()){
+            binding.tvLevel.text = levelList[0]
+        }else{
+            binding.tvLevel.text = "Nível 1"
         }
 
-        binding.tvLevel.text = levelList[0]
     }
 }

@@ -64,7 +64,7 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
         return uri.toString()
     }
 
-    fun saveLevel(level: Int) {
+    fun saveLevel(level: String) {
         val levelPath = getLevelPath(level)
         challengesRepository.databaseReferenceLevel().child("$levelPath")
             .setValue(level) { error, reference ->
@@ -75,8 +75,8 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             }
     }
 
-    private fun getLevelPath(level: Int): String {
-        val uri = Uri.parse(level.toString())
+    private fun getLevelPath(level: String): String {
+        val uri = Uri.parse(level)
         return uri.toString()
     }
 
@@ -88,6 +88,7 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
                     val levelResponse = resultSnapshot.getValue(String::class.java)
                     levelResponse?.let {
                         levelList.add(it)
+                        levelList.reverse()
                     }
                 }
                 _levelState.value = levelList
