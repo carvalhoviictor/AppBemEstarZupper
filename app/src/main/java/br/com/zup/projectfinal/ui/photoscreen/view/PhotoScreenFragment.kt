@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import br.com.zup.projectfinal.databinding.FragmentPhotoScreenBinding
+
 import java.text.SimpleDateFormat
 import java.util.*
 
