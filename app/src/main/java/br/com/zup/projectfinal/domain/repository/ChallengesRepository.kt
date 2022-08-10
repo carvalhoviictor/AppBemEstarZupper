@@ -1,9 +1,29 @@
 package br.com.zup.projectfinal.domain.repository
 
 import br.com.zup.projectfinal.domain.model.ChallengeModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.Query
+import com.google.firebase.ktx.Firebase
 
 class ChallengesRepository {
+    private val authentication: FirebaseAuth = Firebase.auth
+
     private val listofchallenges = mutableListOf<ChallengeModel>()
+    private val database = FirebaseDatabase.getInstance()
+    private val referencePoints = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Pontuacao" )
+    private val referenceLevel = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Nivel" )
+    fun databaseReferencePoints() = referencePoints
+    fun databaseReferenceLevel() = referenceLevel
+
+    fun getLevel(): Query {
+        return referenceLevel.orderByValue()
+    }
+
+    fun getPoints(): Query {
+        return referencePoints.orderByValue()
+    }
 
     fun setChallengesList(){
         listofchallenges.add(
