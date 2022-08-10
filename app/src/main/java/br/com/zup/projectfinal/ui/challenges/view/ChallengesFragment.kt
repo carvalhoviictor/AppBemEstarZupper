@@ -128,7 +128,7 @@ class ChallengesFragment : Fragment() {
 
     private fun showLevel(levelList: List<String>){
         levelList.sortedBy {
-            it.toInt().inc()
+            it.toInt().dec()
         }
 
         binding.tvLevel.text = levelList[0]
