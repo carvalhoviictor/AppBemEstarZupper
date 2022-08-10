@@ -3,7 +3,7 @@ package br.com.zup.projectfinal.domain.repository
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 
 class ChallengesRepository {
-    val listofchallenges = mutableListOf<ChallengeModel>()
+    private val listofchallenges = mutableListOf<ChallengeModel>()
 
     fun setChallengesList(){
         listofchallenges.add(
