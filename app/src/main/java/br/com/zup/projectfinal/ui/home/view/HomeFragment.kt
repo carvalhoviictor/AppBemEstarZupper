@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToLoginFragment(){
-        NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_loginFragment)
+//        NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_loginFragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

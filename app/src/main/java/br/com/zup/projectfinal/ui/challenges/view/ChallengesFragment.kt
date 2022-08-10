@@ -95,33 +95,37 @@ class ChallengesFragment : Fragment() {
 
     private fun showPoints(pointList: List<String>){
         var totalPoints = 0
-        pointList.forEach { point ->
-            totalPoints += point.toInt()
+        if(pointList.isNotEmpty()){
+            pointList.forEach { point ->
+                totalPoints += point.toInt()
+            }
+        }else{
+            totalPoints = 0
         }
         binding.tvNumbPoints.text = totalPoints.toString()
         saveLevel(totalPoints)
     }
 
     private fun saveLevel(points: Int){
-        //100pts = level 1
-        //200pts = level 2
-        //300pts = level 3
-        //500pts = level 4
-        //800pts = level 5
+        //0pts = level 1
+        //100pts = level 2
+        //200pts = level 3
+        //300pts = level 4
+        //500pts = level 5
 
-        if(points == 100){
+        if(points == 0){
             viewModel.saveLevel(1)
         }
-        if(points == 200){
+        if(points == 100){
             viewModel.saveLevel(2)
         }
-        if(points == 300){
+        if(points == 200){
             viewModel.saveLevel(3)
         }
-        if(points == 500){
+        if(points == 300){
             viewModel.saveLevel(4)
         }
-        if(points == 800){
+        if(points == 500){
             viewModel.saveLevel(5)
         }
     }
