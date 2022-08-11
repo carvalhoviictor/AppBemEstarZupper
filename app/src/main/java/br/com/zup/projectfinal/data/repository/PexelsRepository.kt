@@ -7,7 +7,7 @@ import br.com.zup.projectfinal.domain.model.Image
 class PexelsRepository {
 
     suspend fun getImages(): List<Image> {
-        val resp = RetrofitService.apiService.getImagesPexels("query=frutas e verduras")
+        val resp = RetrofitService.apiService.getImagesPexels("search?query=frutas&query=verduras")
         return toListImage(resp.photos)
     }
 
