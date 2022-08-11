@@ -40,7 +40,8 @@ class NotesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as InitialActivity).supportActionBar?.title = TITLE_NOTES
+        setHasOptionsMenu(true)
+        actionBarAccess()
 
         viewModel.getAllNotes()
         initObserver()
@@ -50,9 +51,13 @@ class NotesFragment : Fragment() {
             saveNote()
             viewModel.getAllNotes()
         }
-
     }
 
+    private fun actionBarAccess() {
+        (activity as InitialActivity).supportActionBar?.show()
+        (activity as InitialActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as InitialActivity).supportActionBar?.title = TITLE_NOTES
+    }
     private fun showRecyclerView(){
         binding.rvNotes.adapter = notesAdapter
         binding.rvNotes.layoutManager = LinearLayoutManager(context)

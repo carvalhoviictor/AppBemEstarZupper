@@ -11,6 +11,7 @@ const val EMAIL_ZUP = "@zup.com.br"
 
 const val TITLE_DESAFIOS = "Desafios"
 const val TITLE_NOTES = "Notas e Lembretes"
+const val TITLE_BSZ = "Bem Estar Zupper"
 
 const val MSG_NOTE_SUCCESS = "Salvo com sucesso!"
 const val DELETE_MSG_NOTE_SUCCESS = "Excluído com sucesso!"
