@@ -26,6 +26,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:fontFamily="@font/montserrat__bold"
             android:hint="@string/name"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
@@ -38,6 +39,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:fontFamily="@font/montserrat__bold"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:selectAllOnFocus="true"
@@ -50,11 +52,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:fontFamily="@font/montserrat__bold"
             android:hint="@string/password"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:lineSpacingExtra="20sp"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,11 +67,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
+            android:fontFamily="@font/montserrat__bold"
             android:hint="@string/password_confirmation"
             android:imeActionLabel="@string/action_sign_in_short"
             android:imeOptions="actionDone"
             android:inputType="textPassword"
-            android:lineSpacingExtra="20sp"
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,10 +79,11 @@
 
         <Button
             android:id="@+id/bvRegisterNow"
-            android:layout_width="150dp"
+            android:layout_width="wrap_content"
             android:layout_height="38dp"
             android:layout_margin="25dp"
             android:backgroundTint="@color/lightGray_zup"
+            android:fontFamily="@font/montserrat__bold"
             android:text="@string/bv_register_now"
             android:textColor="@color/blue_zup"
             android:textSize="16sp"
@@ -93,6 +96,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="25dp"
+            android:fontFamily="@font/montserrat__bold"
             android:text="@string/return_to_login"
             android:textAlignment="center"
             android:textColor="@color/blue_zup"
@@ -106,13 +110,12 @@
             android:layout_width="@dimen/margin_0"
             android:layout_height="85dp"
             android:layout_marginTop="20dp"
+            android:contentDescription="@string/logo_colorful"
             android:src="@drawable/logo_zup_colorido"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvInformation"
-            android:contentDescription="@string/logo_colorful" />
+            app:layout_constraintTop_toBottomOf="@+id/tvInformation" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

@@ -2,16 +2,16 @@ package br.com.zup.projectfinal.ui.photoscreen.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import br.com.zup.projectfinal.data.SingleLiveEvent
 import br.com.zup.projectfinal.domain.PexelsUseCase
 import br.com.zup.projectfinal.domain.model.Image
-import br.com.zup.projectfinal.ui.ViewState
-import com.google.firebase.database.MutableData
+import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
+import  br.com.zup.projectfinal.ui.ViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class PhotoScreenViewModel(application: Application) : AndroidViewModel(application) {
+    private val authenticationRepository = AuthenticationRepository()
 
     private val pexelsUseCase = PexelsUseCase(application)
     val pexelsState = MutableLiveData<ViewState<Image>>()
@@ -31,5 +31,7 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
         }
     }
 
-
+    fun logout() {
+        authenticationRepository.logout()
+    }
 }

@@ -21,7 +21,7 @@
 
     <string name="image_description_logo2">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e azul marinho num fundo branco</string>
     <string name="image_description_logo1">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e branco num fundo azul marinho</string>
-    <string name="informations">Faça Login com sua conta Zup! \n Ainda não tem uma conta?</string>
+    <string name="informations">Faça Login com sua conta Zup \n Ainda não tem uma conta?</string>
     <string name="image_description_happy_people">Ilustração de três pessoas se divertindo</string>
     <string name="return_to_login">Já tenho uma conta!</string>
     <string name="bv_register_now">Criar conta</string>

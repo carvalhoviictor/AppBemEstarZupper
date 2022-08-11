@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
+import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import br.com.zup.projectfinal.domain.usecase.NotesUseCase
 import br.com.zup.projectfinal.ui.viewstate.ViewState
 import br.com.zup.projectfinal.utils.NOTE_LIST_ERROR
@@ -14,6 +15,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class NotesViewModel(application: Application): AndroidViewModel(application) {
+    private val authenticationRepository = AuthenticationRepository()
+
     private val notesUseCase = NotesUseCase(application)
 
     private var _notesListState = MutableLiveData<ViewState<List<NotesModel>>>()
@@ -46,5 +49,9 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
                 _notesListState.value = ViewState.Error(Throwable(NOTE_LIST_ERROR))
             }
         }
+    }
+
+    fun logout() {
+        authenticationRepository.logout()
     }
 }

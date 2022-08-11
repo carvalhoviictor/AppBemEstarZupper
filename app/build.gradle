@@ -32,7 +32,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
     buildFeatures {
         viewBinding true
     }
@@ -48,8 +47,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
     implementation 'androidx.annotation:annotation:1.4.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
+
+    //############ NAVIGATION ############################/
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-fragment:2.5.1'
 
     //############ GSON ############
     implementation 'com.google.code.gson:gson:2.9.0'

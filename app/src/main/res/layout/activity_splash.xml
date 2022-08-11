@@ -11,9 +11,9 @@
         android:id="@+id/ivLogoApp"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_margin="54dp"
         android:contentDescription="@string/image_description_logo1"
         android:src="@drawable/bez_white"
+        app:layout_constraintBottom_toTopOf="@id/ivHappyPeople"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -22,26 +22,22 @@
         android:id="@+id/ivHappyPeople"
         android:layout_width="@dimen/margin_0"
         android:layout_height="240dp"
-        android:layout_marginTop="36dp"
+        android:contentDescription="@string/image_description_happy_people"
         android:src="@drawable/ilustra_splash"
+        app:layout_constraintBottom_toTopOf="@id/ivLogoZupWhite"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogoApp"
-        android:contentDescription="@string/image_description_happy_people" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLogoApp" />
 
     <ImageView
         android:id="@+id/ivLogoZupWhite"
         android:layout_width="@dimen/margin_0"
         android:layout_height="85dp"
-        android:layout_marginTop="32dp"
+        android:contentDescription="@string/logo_white"
         android:src="@drawable/logo_zup_branco"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivHappyPeople"
-        app:layout_constraintVertical_bias="0.0"
-        android:contentDescription="@string/logo_white" />
+        app:layout_constraintTop_toBottomOf="@+id/ivHappyPeople" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

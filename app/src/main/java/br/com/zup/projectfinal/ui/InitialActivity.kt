@@ -1,8 +1,8 @@
 package br.com.zup.projectfinal.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -12,8 +12,8 @@ import br.com.zup.projectfinal.databinding.ActivityInitialBinding
 
 class InitialActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInitialBinding
-    private val navController: NavController by lazy { findNavController(R.id.nav_host_fragment) }
 
+    private val navController: NavController by lazy { findNavController(R.id.nav_host_fragment) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,24 @@ class InitialActivity : AppCompatActivity() {
                 R.id.loginFragment -> hideBottomNav()
                 R.id.registerFragment -> hideBottomNav()
                 else -> showBottomNav()
+            }
+        }
+
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.menuChallengesPage -> {
+                    navController.navigate(R.id.challengesFragment)
+                    true
+                }
+                R.id.menuBreakPage -> {
+                    navController.navigate(R.id.photoScreenFragment)
+                    true
+                }
+                R.id.menuNotesPage -> {
+                    navController.navigate(R.id.notesFragment)
+                    true
+                }
+                else -> false
             }
         }
     }

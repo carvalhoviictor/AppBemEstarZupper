@@ -6,17 +6,18 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.zup.projectfinal.domain.model.ChallengeModel
+import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import br.com.zup.projectfinal.domain.repository.ChallengesRepository
 import br.com.zup.projectfinal.domain.usecase.ChallengesUseCase
 import br.com.zup.projectfinal.ui.viewstate.ViewState
 import br.com.zup.projectfinal.utils.CHALLENGES_LIST_ERROR
 import br.com.zup.projectfinal.utils.CONGRATULATION
-import br.com.zup.projectfinal.utils.CONGRATULATION_LEVEL
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 
 class ChallengesViewModel(application: Application) : AndroidViewModel(application) {
+    private val authenticationRepository = AuthenticationRepository()
     private val challengesUseCase = ChallengesUseCase(application)
     private val challengesRepository = ChallengesRepository()
 
@@ -31,6 +32,10 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
 
     private var _pointsState = MutableLiveData<List<String>>()
     val pointsState: LiveData<List<String>> = _pointsState
+
+    fun logout() {
+        authenticationRepository.logout()
+    }
 
     fun getFourRandomChallenges() {
         try {
