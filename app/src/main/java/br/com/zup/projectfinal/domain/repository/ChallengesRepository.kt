@@ -25,7 +25,7 @@ class ChallengesRepository {
     }
 
     fun getPoints(): Query {
-        return referencePoints.orderByValue()
+        return referencePoints
     }
 
     private fun setChallengesList(): List<ChallengeModel> {
