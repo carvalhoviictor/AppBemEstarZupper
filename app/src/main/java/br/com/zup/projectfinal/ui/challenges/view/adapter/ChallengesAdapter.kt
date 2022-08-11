@@ -29,6 +29,7 @@ class ChallengesAdapter(
 
         holder.binding.cbCheck.setOnClickListener {
             onCheckboxClicked(holder.binding.cbCheck, challenge)
+            holder.binding.cbCheck.isEnabled = false
         }
     }
 

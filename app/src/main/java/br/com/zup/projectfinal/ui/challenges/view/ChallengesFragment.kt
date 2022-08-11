@@ -113,16 +113,16 @@ class ChallengesFragment : Fragment() {
         //300pts = level 4
         //500pts = level 5
 
-        if(points in 100..200){
+        if(points in 100..199){
             viewModel.saveLevel("Nível 2")
         }
-        if(points in 200..300){
+        if(points in 200..299){
             viewModel.saveLevel("Nível 3")
         }
-        if(points in 300..500){
+        if(points in 300..499){
             viewModel.saveLevel("Nível 4")
         }
-        if(points in 500..600){
+        if(points in 500..599){
             viewModel.saveLevel("Nível 5")
         }
     }
