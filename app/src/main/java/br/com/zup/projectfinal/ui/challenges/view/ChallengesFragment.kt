@@ -126,8 +126,6 @@ class ChallengesFragment : Fragment() {
 
 
     private fun showPoints(pointList: List<String>){
-        //pegar ultimo item da lista
-        //exibir ultimo item da lista no binding
 
         if(pointList.isEmpty()){
             binding.tvNumbPoints.text = "0"
