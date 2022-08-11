@@ -165,10 +165,7 @@ class ChallengesFragment : Fragment() {
 
     private fun showLevel(levelList: List<String>){
         if(levelList.isNotEmpty()){
-            levelList.sortedBy {
-                it.toInt().inc()
-            }
-            binding.tvLevel.text = "Nível " + levelList[0]
+            binding.tvLevel.text = "Nível " + levelList.last()
         }else{
             binding.tvLevel.text = "Nível 1"
         }
