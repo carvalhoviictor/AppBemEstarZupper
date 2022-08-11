@@ -112,7 +112,8 @@ class ChallengesFragment : Fragment() {
         }
 
         viewModel.pointsState.observe(this.viewLifecycleOwner){
-            showPoints(it)
+//            showPoints(it)
+            getPointsDatabase(it)
         }
     }
 
@@ -125,8 +126,16 @@ class ChallengesFragment : Fragment() {
         binding.tvHelloZupper.text = greetings
     }
 
+    private fun getPointsDatabase(pointList: List<String>): Int{
+        return if (pointList.isNotEmpty()){
+            pointList.last().toInt()
+        }else{
+            0
+        }
+    }
+
     private fun savePoints(doneChallenge: ChallengeModel){
-        viewModel.savePoints(doneChallenge.challengePoints)
+        viewModel.savePoints(pointdata + doneChallenge.challengePoints)
     }
 
     private fun showPoints(pointList: List<String>){
