@@ -1,5 +1,6 @@
 package br.com.zup.projectfinal.domain.repository
 
+import android.net.Uri
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -9,16 +10,15 @@ import com.google.firebase.ktx.Firebase
 
 class ChallengesRepository {
     private val authentication: FirebaseAuth = Firebase.auth
-
-    private val listofchallenges = mutableListOf<ChallengeModel>()
     private val database = FirebaseDatabase.getInstance()
-    private val referencePoints =
-        database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Pontuacao")
-    private val referenceLevel =
-        database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Nivel")
+
+    private val referencePoints = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Pontuacao" )
+    private val referenceLevel = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Nivel" )
+    private val referenceUsername = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/NomeUsuario")
 
     fun databaseReferencePoints() = referencePoints
     fun databaseReferenceLevel() = referenceLevel
+    fun databaseReferenceUsername() = referenceUsername
 
     fun getLevel(): Query {
         return referenceLevel.orderByValue()
@@ -28,7 +28,8 @@ class ChallengesRepository {
         return referencePoints.orderByValue()
     }
 
-    fun setChallengesList() {
+    fun setChallengesList(): List<ChallengeModel> {
+    val listofchallenges = mutableListOf<ChallengeModel>()
         listofchallenges.add(ChallengeModel(challengeName = "Beba 2 litros de água", challengePoints = 20))
         listofchallenges.add(ChallengeModel(challengeName = "Faça alongamentos ao longo do dia", challengePoints = 50))
         listofchallenges.add(ChallengeModel(challengeName = "Pausa para o chá/café", challengePoints = 20))
@@ -52,9 +53,12 @@ class ChallengesRepository {
         listofchallenges.add(ChallengeModel(challengeName = "Coma menos carne vermelha", challengePoints = 50))
         listofchallenges.add(ChallengeModel(challengeName = "Crie expectativas positivas. É de graça", challengePoints = 30))
         listofchallenges.add(ChallengeModel(challengeName = "Gaste mais tempo com quem você gosta", challengePoints = 40))
+        return listofchallenges  
     }
 
-    fun getFourRandomChallenges(): List<ChallengeModel> {
+    fun getFourRandomChallenges(): List<ChallengeModel>{
+        val listofchallenges = setChallengesList().toMutableList()
+
         listofchallenges.shuffle()
         val fourChallengesList = mutableListOf<ChallengeModel>()
 

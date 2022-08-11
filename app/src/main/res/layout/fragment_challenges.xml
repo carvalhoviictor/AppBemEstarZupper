@@ -7,7 +7,7 @@
     tools:context=".ui.challenges.view.ChallengesFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <TextView
         android:id="@+id/tv_HelloZupper"
@@ -27,11 +27,11 @@
             android:id="@+id/rv_challenges"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/size_16"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="@dimen/size_16"
+            android:layout_marginHorizontal="@dimen/margin_20"
+            android:layout_marginTop="@dimen/margin_10"
+            app:layout_constraintBottom_toTopOf="@id/cvBlue"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintHorizontal_bias="0.825"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_HelloZupper"
             tools:itemCount="4"
@@ -39,7 +39,7 @@
 
         <androidx.cardview.widget.CardView
         android:id="@+id/cvBlue"
-        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_10"
         android:layout_width="match_parent"
         android:layout_height="@dimen/size_300"
         android:backgroundTint="@color/blue_zup"
@@ -81,7 +81,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat__bold"
-                android:text="@string/level_2"
+                android:text="Nível 1"
                 android:textColor="@color/red_zup"
                 android:textSize="@dimen/fontSize_20"
                 android:textStyle="bold"
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_10"
                 android:fontFamily="@font/montserrat_alternates_bold"
-                android:text="@string/_70"
+                android:text="0"
                 android:textColor="@color/orange_zup"
                 android:textSize="@dimen/fontSize_40"
                 android:textStyle="bold"

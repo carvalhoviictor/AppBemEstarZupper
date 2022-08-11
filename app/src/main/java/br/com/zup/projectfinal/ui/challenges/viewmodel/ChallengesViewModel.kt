@@ -32,16 +32,16 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
     private var _pointsState = MutableLiveData<List<String>>()
     val pointsState: LiveData<List<String>> = _pointsState
 
-    fun setChallengesList() {
-        challengesUseCase.setChallengesList()
-    }
-
     fun getFourRandomChallenges() {
         try {
             _challengesListState.value = challengesUseCase.getFourRandomChallenges()
         } catch (e: Exception) {
             _challengesListState.value = ViewState.Error(Throwable(CHALLENGES_LIST_ERROR))
         }
+    }
+
+    fun getUserName(): String{
+        return challengesUseCase.getUserName()
     }
 
     fun savePoints(point: Int) {
@@ -55,24 +55,23 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             }
     }
 
-    fun getPointsPath(point: Int): String {
+    private fun getPointsPath(point: Int): String {
         val uri = Uri.parse(point.toString())
         return uri.toString()
     }
 
-    fun saveLevel(level: Int) {
+    fun saveLevel(level: String) {
         val levelPath = getLevelPath(level)
         challengesRepository.databaseReferenceLevel().child("$levelPath")
             .setValue(level) { error, reference ->
                 if (error != null) {
                     _msgState.value = error.message
                 }
-                _msgState.value = CONGRATULATION_LEVEL
             }
     }
 
-    fun getLevelPath(level: Int): String {
-        val uri = Uri.parse(level.toString())
+    private fun getLevelPath(level: String): String {
+        val uri = Uri.parse(level)
         return uri.toString()
     }
 
@@ -81,8 +80,8 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             override fun onDataChange(snapshot: DataSnapshot) {
                 val levelList = mutableListOf<String>()
                 for (resultSnapshot in snapshot.children) {
-                    val levelResponse = resultSnapshot.getValue(String::class.java)
-                    levelResponse?.let {
+                    val levelResponse = resultSnapshot.value.toString()
+                    levelResponse.let {
                         levelList.add(it)
                     }
                 }
@@ -100,8 +99,8 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             override fun onDataChange(snapshot: DataSnapshot) {
                 val pointsList = mutableListOf<String>()
                 for (resultSnapshot in snapshot.children) {
-                    val pointsResponse = resultSnapshot.getValue(String::class.java)
-                    pointsResponse?.let {
+                    val pointsResponse = resultSnapshot.value.toString()
+                    pointsResponse.let {
                         pointsList.add(it)
                     }
                 }
@@ -112,5 +111,22 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
                 _msgState.value = error.message
             }
         })
+    }
+
+    //############ SETAR NOME DE USUÁRIO NO REALTIME DATABASE DO FIREBASE ############
+
+    private fun getUserNamePath(username: String): String {
+        val uri = Uri.parse(username)
+        return uri.toString()
+    }
+
+    fun saveUsernameFirebaseDatabase(username: String) {
+        val usernamePath = getUserNamePath(username)
+        challengesRepository.databaseReferenceUsername().child(usernamePath)
+            .setValue(username) { error, _ ->
+                if (error != null) {
+                    _msgState.value = error.message
+                }
+            }
     }
 }
