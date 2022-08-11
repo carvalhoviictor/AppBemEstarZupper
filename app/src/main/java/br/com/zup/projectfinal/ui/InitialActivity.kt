@@ -9,6 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.ActivityInitialBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class InitialActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInitialBinding
@@ -28,6 +29,30 @@ class InitialActivity : AppCompatActivity() {
                 R.id.loginFragment -> hideBottomNav()
                 R.id.registerFragment -> hideBottomNav()
                 else -> showBottomNav()
+            }
+        }
+
+        binding.bottomNavigation.setOnNavigationItemReselectedListener { item ->
+            when (item.itemId) {
+                R.id.menuChallengesPage -> {
+                    navController.navigate(R.id.challengesFragment)
+
+                    // Respond to navigation item 1 click
+                    true
+                }
+                R.id.menuBreakPage -> {
+                    navController.navigate(R.id.photoScreenFragment)
+
+                    // Respond to navigation item 2 click
+                    true
+                }
+                R.id.menuNotesPage -> {
+                    navController.navigate(R.id.notesFragment)
+
+                    // Respond to navigation item 2 click
+                    true
+                }
+                else -> false
             }
         }
     }

@@ -1,13 +1,13 @@
 package br.com.zup.projectfinal.ui.challenges.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentChallengesBinding
 import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.challenges.view.adapter.ChallengesAdapter
@@ -36,22 +36,56 @@ class ChallengesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        (activity as InitialActivity).supportActionBar?.title = TITLE_DESAFIOS
+        setHasOptionsMenu(true)
+        actionBarAccess()
+        showUserData()
 
         viewModel.setChallengesList()
         viewModel.getFourRandomChallenges()
-        initObserver()
+//        initObserver()
         showChallengesRecyclerView()
     }
 
-    private fun showChallengesRecyclerView(){
+    private fun actionBarAccess() {
+        (activity as InitialActivity).supportActionBar?.show()
+        (activity as InitialActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as InitialActivity).supportActionBar?.title = TITLE_DESAFIOS
+    }
+
+    private fun showUserData() {
+        val name = viewModel.getUserName()
+        binding.tvHelloZupper.text = getString(R.string.texto_home, name)
+    }
+
+    private fun navigateToLoginFragment() {
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_challengesFragment_to_loginFragment)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.exit -> {
+                viewModel.logout()
+                this.onDestroy()
+                navigateToLoginFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun showChallengesRecyclerView() {
         binding.rvChallenges.adapter = challengesAdapter
         binding.rvChallenges.layoutManager = LinearLayoutManager(context)
     }
 
-    private fun initObserver(){
-        viewModel.challengesListState.observe(this.viewLifecycleOwner){
-            when(it){
+    private fun initObserver() {
+        viewModel.challengesListState.observe(this.viewLifecycleOwner) {
+            when (it) {
                 is ViewState.Success -> {
                     challengesAdapter.updateNotesList(it.data.toMutableList())
                 }

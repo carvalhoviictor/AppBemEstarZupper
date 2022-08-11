@@ -64,7 +64,7 @@ class LoginFragment : Fragment() {
     private fun goToHome(user: User) {
         val bundle = bundleOf(USER_KEY to user)
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_loginFragment_to_homeFragment, bundle)
+            .navigate(R.id.action_loginFragment_to_challengesFragment, bundle)
     }
 
     private fun initObservers() {
