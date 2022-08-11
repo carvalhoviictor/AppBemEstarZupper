@@ -1,19 +1,14 @@
 package br.com.zup.projectfinal.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.ActivityInitialBinding
-import br.com.zup.projectfinal.ui.challenges.view.ChallengesFragment
-import br.com.zup.projectfinal.ui.notes.view.NotesFragment
-import br.com.zup.projectfinal.ui.photoscreen.view.PhotoScreenFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class InitialActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInitialBinding
@@ -36,7 +31,6 @@ class InitialActivity : AppCompatActivity() {
             }
         }
 
-
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menuChallengesPage -> {
@@ -54,27 +48,7 @@ class InitialActivity : AppCompatActivity() {
                 else -> false
             }
         }
-//        binding.bottomNavigation.setOnItemSelectedListener {
-//
-//            when(it.itemId){
-//                R.id.menuChallengesPage -> replaceFragment(ChallengesFragment())
-//                R.id.menuBreakPage -> replaceFragment(PhotoScreenFragment())
-//                R.id.menuNotesPage -> replaceFragment(NotesFragment())
-//
-//                else -> {
-//                }
-//            }
-//            true
-//        }
-//    }
-//
-//    private fun replaceFragment(fragment: Fragment){
-//        val fragmentManager = supportFragmentManager
-//        val fragmentTransaction = fragmentManager.beginTransaction()
-//        fragmentTransaction.replace(R.id.nav_host_fragment,fragment)
-//        fragmentTransaction.commit()
     }
-
 
     private fun showBottomNav() {
         binding.bottomNavigation.visibility = View.VISIBLE
