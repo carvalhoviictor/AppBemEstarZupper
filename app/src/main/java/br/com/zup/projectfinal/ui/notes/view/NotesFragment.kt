@@ -5,7 +5,9 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 import br.com.zup.projectfinal.databinding.FragmentNotesBinding
 import br.com.zup.projectfinal.ui.InitialActivity
@@ -101,4 +103,24 @@ class NotesFragment : Fragment() {
         }
     }
 
+    private fun navigateToLoginFragment() {
+        NavHostFragment.findNavController(this)
+            .navigate(R.id.action_notesFragment_to_loginFragment)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.exit -> {
+                viewModel.logout()
+                this.onDestroy()
+                navigateToLoginFragment()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 }

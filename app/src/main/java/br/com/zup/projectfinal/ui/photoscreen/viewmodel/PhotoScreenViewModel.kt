@@ -8,9 +8,11 @@ import kotlinx.coroutines.Dispatchers
 import br.com.zup.projectfinal.data.SingleLiveEvent
 import br.com.zup.projectfinal.domain.PexelsUseCase
 import br.com.zup.projectfinal.domain.model.Image
+import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import  br.com.zup.projectfinal.ui.ViewState
 
 class PhotoScreenViewModel(application: Application) : AndroidViewModel(application) {
+    private val authenticationRepository = AuthenticationRepository()
 
     private val pexelsUseCase = PexelsUseCase(application)
     val pexelsState = SingleLiveEvent<ViewState<Image>>()
@@ -30,5 +32,7 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
         }
     }
 
-
+    fun logout() {
+        authenticationRepository.logout()
+    }
 }

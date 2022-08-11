@@ -42,10 +42,18 @@
         android:id="@+id/notesFragment"
         android:name="br.com.zup.projectfinal.ui.notes.view.NotesFragment"
         android:label="@string/notes"
-        tools:layout="@layout/fragment_notes" />
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/photoScreenFragment"
         android:name="br.com.zup.projectfinal.ui.photoscreen.view.PhotoScreenFragment"
         android:label="@string/take_a_break"
-        tools:layout="@layout/fragment_photo_screen" />
+        tools:layout="@layout/fragment_photo_screen" >
+        <action
+            android:id="@+id/action_photoScreenFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>
