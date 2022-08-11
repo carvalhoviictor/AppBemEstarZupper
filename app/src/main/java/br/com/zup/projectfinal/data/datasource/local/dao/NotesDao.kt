@@ -6,6 +6,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 
+
 @Dao
 interface NotesDao {
 
