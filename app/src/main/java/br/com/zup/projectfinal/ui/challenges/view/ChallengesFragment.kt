@@ -103,20 +103,20 @@ class ChallengesFragment : Fragment() {
             }
         }
 
-        viewModel.msgState.observe(this.viewLifecycleOwner){
+        viewModel.msgState.observe(this.viewLifecycleOwner) {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
 
-        viewModel.levelState.observe(this.viewLifecycleOwner){
+        viewModel.levelState.observe(this.viewLifecycleOwner) {
             showLevel(it)
         }
 
-        viewModel.pointsState.observe(this.viewLifecycleOwner){
+        viewModel.pointsState.observe(this.viewLifecycleOwner) {
             showPoints(it)
         }
     }
 
-    private fun showUserName(){
+    private fun showUserName() {
         val greetings = buildString {
             append("Olá, ")
             append(viewModel.getUserName())
@@ -125,51 +125,43 @@ class ChallengesFragment : Fragment() {
         binding.tvHelloZupper.text = greetings
     }
 
-    private fun savePoints(doneChallenge: ChallengeModel){
-        viewModel.savePoints(doneChallenge.challengePoints)
+    private fun savePoints(doneChallenge: ChallengeModel) {
+        val totalPoints =
+            binding.tvNumbPoints.text.toString().toInt() + doneChallenge.challengePoints
+        viewModel.savePoints(totalPoints)
     }
 
-    private fun showPoints(pointList: List<String>){
-        var totalPoints = 0
-        if(pointList.isNotEmpty()){
-            pointList.forEach { point ->
-                totalPoints += point.toInt()
-            }
-        }else{
-            totalPoints = 0
-        }
-        binding.tvNumbPoints.text = totalPoints.toString()
-        saveLevel(totalPoints)
+
+    private fun showPoints(point: Int) {
+        binding.tvNumbPoints.text = point.toString()
+        saveLevel(point)
     }
 
-    private fun saveLevel(points: Int){
+    private fun saveLevel(points: Int) {
         //0pts = level 1
         //100pts = level 2
         //200pts = level 3
         //300pts = level 4
         //500pts = level 5
 
-        if(points in 100..199){
-            viewModel.saveLevel("Nível 2")
+        if (points in 100..199) {
+            viewModel.saveLevel(2)
         }
-        if(points in 200..299){
-            viewModel.saveLevel("Nível 3")
+        if (points in 200..299) {
+            viewModel.saveLevel(3)
         }
-        if(points in 300..499){
-            viewModel.saveLevel("Nível 4")
+        if (points in 300..499) {
+            viewModel.saveLevel(4)
         }
-        if(points in 500..599){
-            viewModel.saveLevel("Nível 5")
+        if (points in 500..599) {
+            viewModel.saveLevel(5)
         }
     }
 
-    private fun showLevel(levelList: List<String>){
-        if(levelList.isNotEmpty()){
-            levelList.sortedBy {
-                it.toInt().dec()
-            }
-            binding.tvLevel.text = levelList[0]
-        }else{
+    private fun showLevel(levelList: List<String>) {
+        if (levelList.isNotEmpty()) {
+            binding.tvLevel.text = "Nível " + levelList.last()
+        } else {
             binding.tvLevel.text = "Nível 1"
         }
     }

@@ -1,7 +1,7 @@
-package br.com.zup.projectfinal.domain
+package br.com.zup.projectfinal.domain.usecase
 
 import android.app.Application
-import br.com.zup.projectfinal.data.repository.PexelsRepository
+import br.com.zup.projectfinal.domain.repository.PexelsRepository
 import br.com.zup.projectfinal.domain.model.Image
 import  br.com.zup.projectfinal.ui.ViewState
 
