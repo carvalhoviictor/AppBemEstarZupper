@@ -3,42 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_splash.xml" value="0.1" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.22" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_photo_screen.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_register.xml" value="0.22" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/menu/menu.xml" value="0.16145833333333334" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_home.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_initial.xml" value="0.1" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
         <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_challenges.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_home.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_login.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_notes.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.17864583333333334" />
-        <entry key="..\:/Users/gabriela.marques/Desktop/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.14130434782608695" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_initial.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_teste.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/challenge_item.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_challenges.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_notes.xml" value="0.22" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.22" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/note_item.xml" value="0.22" />
-        <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/menu/menu.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_initial.xml" value="0.17314814814814813" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/challenge_item.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_challenges.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_home.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_login.xml" value="0.17692307692307693" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_notes.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_register.xml" value="0.17692307692307693" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/note_item.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.3333333333333333" />
       </map>
     </option>
   </component>
@@ -47,12 +13,5 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
-  </component>
-  <component name="VisualizationToolProject">
-    <option name="state">
-      <ProjectState>
-        <option name="scale" value="0.17552083333333332" />
-      </ProjectState>
-    </option>
   </component>
 </project>
