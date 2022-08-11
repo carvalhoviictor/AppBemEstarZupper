@@ -48,10 +48,10 @@ class ChallengesRepository {
         listofchallenges.add(ChallengeModel(challengeName = "Mora perto da praia?\nVai correr por lá!", challengePoints = 40))
         listofchallenges.add(ChallengeModel(challengeName = "Procure por algum\nhobby", challengePoints = 60))
         listofchallenges.add(ChallengeModel(challengeName = "Reduza o consumo\nde alimentos\nindustrializados e de\nfast food", challengePoints = 100))
-        listofchallenges.add(ChallengeModel(challengeName = "Tire aquele plan\npara uma vida mais\nsaudável do papel", challengePoints = 80))
-        listofchallenges.add(ChallengeModel(challengeName = "Mantenha sua casa limpa", challengePoints = 60))
+        listofchallenges.add(ChallengeModel(challengeName = "Tire aquele plano\npara uma vida mais\nsaudável do papel", challengePoints = 80))
+        listofchallenges.add(ChallengeModel(challengeName = "Mantenha sua\ncasa limpa", challengePoints = 60))
         listofchallenges.add(ChallengeModel(challengeName = "Coma menos carne\nvermelha", challengePoints = 50))
-        listofchallenges.add(ChallengeModel(challengeName = "Crie expectativas positivas", challengePoints = 30))
+        listofchallenges.add(ChallengeModel(challengeName = "Crie expectativas\npositivas", challengePoints = 30))
         listofchallenges.add(ChallengeModel(challengeName = "Gaste mais tempo com\nquem você gosta!", challengePoints = 40))
         return listofchallenges  
     }

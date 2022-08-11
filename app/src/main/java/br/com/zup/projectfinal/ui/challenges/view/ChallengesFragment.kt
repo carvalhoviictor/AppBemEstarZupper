@@ -150,22 +150,25 @@ class ChallengesFragment : Fragment() {
         //500pts = level 5
 
         if(points in 100..199){
-            viewModel.saveLevel("Nível 2")
+            viewModel.saveLevel(2)
         }
         if(points in 200..299){
-            viewModel.saveLevel("Nível 3")
+            viewModel.saveLevel(3)
         }
         if(points in 300..499){
-            viewModel.saveLevel("Nível 4")
+            viewModel.saveLevel(4)
         }
         if(points in 500..599){
-            viewModel.saveLevel("Nível 5")
+            viewModel.saveLevel(5)
         }
     }
 
     private fun showLevel(levelList: List<String>){
         if(levelList.isNotEmpty()){
-            binding.tvLevel.text = levelList[0]
+            levelList.sortedBy {
+                it.toInt().inc()
+            }
+            binding.tvLevel.text = "Nível " + levelList[0]
         }else{
             binding.tvLevel.text = "Nível 1"
         }
