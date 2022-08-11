@@ -46,4 +46,6 @@
     <string name="award">Conquistas</string>
     <string name="take_a_break">Take a Break</string>
     <string name="notes">Notas</string>
+    <string name="movi_mente">Movi[mente]</string>
+    <string name="description_logo">Imagem do logo do benefício descrito abaixo, ao clicar será redirecionado a página desse benefício</string>
 </resources>
