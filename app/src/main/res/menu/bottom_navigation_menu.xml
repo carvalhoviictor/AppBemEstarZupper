@@ -4,11 +4,11 @@
         android:enabled="true"
         android:icon="@drawable/ic_check_box"
         android:title="@string/challenges" />
-    <item
-        android:id="@+id/menuAwardsPage"
-        android:enabled="true"
-        android:icon="@drawable/ic_trophy"
-        android:title="@string/award" />
+<!--    <item-->
+<!--        android:id="@+id/menuAwardsPage"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/ic_trophy"-->
+<!--        android:title="@string/award" />-->
     <item
         android:id="@+id/menuBreakPage"
         android:enabled="true"
