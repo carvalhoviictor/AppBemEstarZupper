@@ -112,4 +112,21 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             }
         })
     }
+
+    //############ SETAR NOME DE USUÁRIO NO REALTIME DATABASE DO FIREBASE ############
+
+    private fun getUserNamePath(username: String): String {
+        val uri = Uri.parse(username)
+        return uri.toString()
+    }
+
+    fun saveUsernameFirebaseDatabase(username: String) {
+        val usernamePath = getUserNamePath(username)
+        challengesRepository.databaseReferenceUsername().child(usernamePath)
+            .setValue(username) { error, _ ->
+                if (error != null) {
+                    _msgState.value = error.message
+                }
+            }
+    }
 }

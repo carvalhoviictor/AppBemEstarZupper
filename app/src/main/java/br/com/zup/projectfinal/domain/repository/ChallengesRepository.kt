@@ -1,5 +1,6 @@
 package br.com.zup.projectfinal.domain.repository
 
+import android.net.Uri
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -12,8 +13,10 @@ class ChallengesRepository {
     private val database = FirebaseDatabase.getInstance()
     private val referencePoints = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Pontuacao" )
     private val referenceLevel = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/Nivel" )
+    private val referenceUsername = database.getReference("bemEstarZupper/${authentication.currentUser?.uid}/NomeUsuario")
     fun databaseReferencePoints() = referencePoints
     fun databaseReferenceLevel() = referenceLevel
+    fun databaseReferenceUsername() = referenceUsername
 
     fun getLevel(): Query {
         return referenceLevel.orderByValue()
@@ -23,7 +26,7 @@ class ChallengesRepository {
         return referencePoints.orderByValue()
     }
 
-    fun setChallengesList(): List<ChallengeModel>{
+    private fun setChallengesList(): List<ChallengeModel>{
 
         val listofchallenges = mutableListOf<ChallengeModel>()
 

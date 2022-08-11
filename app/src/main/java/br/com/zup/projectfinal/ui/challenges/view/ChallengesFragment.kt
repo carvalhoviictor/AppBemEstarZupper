@@ -43,6 +43,7 @@ class ChallengesFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.title = TITLE_DESAFIOS
 
         showUserName()
+        viewModel.saveUsernameFirebaseDatabase(viewModel.getUserName())
         viewModel.getPointsDatabase()
         viewModel.getLevelDatabase()
         viewModel.getFourRandomChallenges()
