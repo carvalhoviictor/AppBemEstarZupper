@@ -44,8 +44,8 @@ class PhotoScreenFragment : Fragment() {
         setHasOptionsMenu(true)
         actionBarAccess()
         showCurrentDateText()
-        viewmodel.getImage()
         observable()
+        viewmodel.getImage()
     }
 
     private fun actionBarAccess() {
