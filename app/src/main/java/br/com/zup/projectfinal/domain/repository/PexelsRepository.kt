@@ -1,4 +1,4 @@
-package br.com.zup.projectfinal.data.repository
+package br.com.zup.projectfinal.domain.repository
 
 import br.com.zup.projectfinal.data.datasource.remote.RetrofitService
 import br.com.zup.projectfinal.data.datasource.remote.model.Photo
@@ -8,7 +8,7 @@ class PexelsRepository {
 
     suspend fun getImages(): List<Image> {
         val resp = RetrofitService.apiService.getImagesPexels(RetrofitService.KEY_API,
-            "frutas")
+            "healthy")
         return toListImage(resp.photos)
     }
 

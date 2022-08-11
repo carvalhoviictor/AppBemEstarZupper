@@ -2,7 +2,7 @@ package br.com.zup.projectfinal.ui.photoscreen.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
-import br.com.zup.projectfinal.domain.PexelsUseCase
+import br.com.zup.projectfinal.domain.usecase.PexelsUseCase
 import br.com.zup.projectfinal.domain.model.Image
 import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import  br.com.zup.projectfinal.ui.ViewState

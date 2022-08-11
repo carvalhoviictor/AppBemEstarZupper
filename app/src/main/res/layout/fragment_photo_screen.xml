@@ -37,5 +37,55 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivPhoto" />
 
+        <TextView
+            android:id="@+id/tv_TakeBreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/size_25"
+            tools:text="@string/take_a_break"
+            android:fontFamily="@font/montserrat__bold"
+            android:textAlignment="center"
+            android:textColor="@color/orange_zup"
+            android:textSize="@dimen/fontSize_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_TakeBreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/size_25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_TakeBreak"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="3" />
+
+        <View
+            android:id="@+id/dividerLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="@dimen/margin_30"
+            android:background="@color/orange_zup"
+            app:dividerThickness="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_TakeBreak"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_benefits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerLine"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

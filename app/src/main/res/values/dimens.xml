@@ -24,4 +24,5 @@
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_40">40dp</dimen>
     <dimen name="size_300">300dp</dimen>
+    <dimen name="size_25">25dp</dimen>
 </resources>
