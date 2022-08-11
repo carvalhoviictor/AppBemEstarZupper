@@ -165,7 +165,6 @@ class ChallengesFragment : Fragment() {
 
     private fun showLevel(levelList: List<String>){
         if(levelList.isNotEmpty()){
-            levelList.reversed()
             binding.tvLevel.text = levelList[0]
         }else{
             binding.tvLevel.text = "Nível 1"

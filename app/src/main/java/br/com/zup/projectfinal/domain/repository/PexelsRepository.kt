@@ -1,4 +1,4 @@
-package br.com.zup.projectfinal.data.repository
+package br.com.zup.projectfinal.domain.repository
 
 import br.com.zup.projectfinal.data.datasource.remote.RetrofitService
 import br.com.zup.projectfinal.data.datasource.remote.model.Photo
