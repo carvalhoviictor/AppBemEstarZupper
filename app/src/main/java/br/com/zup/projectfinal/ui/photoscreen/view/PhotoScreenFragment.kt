@@ -8,17 +8,24 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentPhotoScreenBinding
 import br.com.zup.projectfinal.ui.InitialActivity
-import br.com.zup.projectfinal.ui.notes.viewmodel.NotesViewModel
 import br.com.zup.projectfinal.ui.photoscreen.viewmodel.PhotoScreenViewModel
 import br.com.zup.projectfinal.utils.TITLE_BSZ
-import br.com.zup.projectfinal.utils.TITLE_DESAFIOS
-import br.com.zup.projectfinal.utils.TITLE_NOTES
-
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import br.com.zup.projectfinal.domain.model.Image
+import br.com.zup.projectfinal.ui.ViewState
+import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
 
 class PhotoScreenFragment : Fragment() {
     private lateinit var binding: FragmentPhotoScreenBinding
+    private val viewmodel: PhotoScreenViewModel by lazy {
+        ViewModelProvider(this)[PhotoScreenViewModel::class.java]
+
+    }
 
     private val viewModel: PhotoScreenViewModel by lazy {
         ViewModelProvider(this)[PhotoScreenViewModel::class.java]
@@ -28,7 +35,7 @@ class PhotoScreenFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPhotoScreenBinding.inflate(inflater,container,false)
+        binding = FragmentPhotoScreenBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -37,6 +44,8 @@ class PhotoScreenFragment : Fragment() {
         setHasOptionsMenu(true)
         actionBarAccess()
         showCurrentDateText()
+        viewmodel.getImage()
+        observable()
     }
 
     private fun actionBarAccess() {
@@ -45,7 +54,8 @@ class PhotoScreenFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.title = TITLE_BSZ
     }
 
-    private fun showCurrentDateText(){
+    private fun showCurrentDateText() {
+
         var date = Calendar.getInstance().time
 
         var dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -75,6 +85,25 @@ class PhotoScreenFragment : Fragment() {
                 true
             }
             else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun showImage(image: Image) {
+
+        Picasso.get().load(image.src).into(binding.ivPhoto)
+        binding.ivPhoto.contentDescription = image.alt
+    }
+
+    private fun observable() {
+        viewmodel.pexelsState.observe(this.viewLifecycleOwner) {
+            when (it) {
+                is ViewState.Success -> {
+                    showImage(it.data)
+                }
+                is ViewState.Error -> {
+                    Toast.makeText(context, "${it.throwable.message}", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }

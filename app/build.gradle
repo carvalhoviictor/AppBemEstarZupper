@@ -32,7 +32,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
     buildFeatures {
         viewBinding true
     }
@@ -70,6 +69,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
     implementation 'com.google.firebase:firebase-database:19.2.1'
+    implementation 'androidx.room:room-common:2.4.3'
 
     //############ TESTES ############
     testImplementation 'junit:junit:4.13.2'
