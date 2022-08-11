@@ -43,7 +43,6 @@ class ChallengesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         actionBarAccess()
-        showUserData()
 
         showUserName()
         viewModel.saveUsernameFirebaseDatabase(viewModel.getUserName())
@@ -58,11 +57,6 @@ class ChallengesFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.show()
         (activity as InitialActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (activity as InitialActivity).supportActionBar?.title = TITLE_DESAFIOS
-    }
-
-    private fun showUserData() {
-        val name = viewModel.getUserName()
-        binding.tvHelloZupper.text = getString(R.string.texto_home, name)
     }
 
     private fun navigateToLoginFragment() {
@@ -126,15 +120,20 @@ class ChallengesFragment : Fragment() {
     }
 
     private fun savePoints(doneChallenge: ChallengeModel) {
-        val totalPoints =
-            binding.tvNumbPoints.text.toString().toInt() + doneChallenge.challengePoints
+        val totalPoints = binding.tvNumbPoints.text.toString().toInt() + doneChallenge.challengePoints
         viewModel.savePoints(totalPoints)
     }
 
 
-    private fun showPoints(point: Int) {
-        binding.tvNumbPoints.text = point.toString()
-        saveLevel(point)
+    private fun showPoints(pointList: List<String>){
+
+        if(pointList.isEmpty()){
+            binding.tvNumbPoints.text = "0"
+            saveLevel(0)
+        }else{
+            binding.tvNumbPoints.text = pointList.last()
+            saveLevel(pointList.last().toInt())
+        }
     }
 
     private fun saveLevel(points: Int) {
