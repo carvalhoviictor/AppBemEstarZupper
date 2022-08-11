@@ -6,6 +6,7 @@ import br.com.zup.projectfinal.data.SingleLiveEvent
 import br.com.zup.projectfinal.domain.PexelsUseCase
 import br.com.zup.projectfinal.domain.model.Image
 import br.com.zup.projectfinal.ui.ViewState
+import com.google.firebase.database.MutableData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -13,7 +14,7 @@ import kotlinx.coroutines.withContext
 class PhotoScreenViewModel(application: Application) : AndroidViewModel(application) {
 
     private val pexelsUseCase = PexelsUseCase(application)
-    val pexelsState = SingleLiveEvent<ViewState<Image>>()
+    val pexelsState = MutableLiveData<ViewState<Image>>()
 
     fun getImage() {
 
