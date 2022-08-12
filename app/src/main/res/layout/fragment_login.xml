@@ -48,7 +48,7 @@
             android:selectAllOnFocus="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUserEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/etUserEmail"/>
 
         <Button
             android:id="@+id/bvLogin"

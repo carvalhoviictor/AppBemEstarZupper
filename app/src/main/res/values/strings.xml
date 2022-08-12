@@ -46,6 +46,12 @@
     <string name="award">Conquistas</string>
     <string name="take_a_break">Take a Break</string>
     <string name="notes">Notas</string>
+
+    <string name="titulo">Título</string>
+    <string name="descricao_take_a_break">Descrição take a break</string>
+
     <string name="benefit_name">Movi[mente]</string>
     <string name="description_logo">Imagem do logo do benefício descrito abaixo, ao clicar será redirecionado a página desse benefício</string>
+    <string name="illustrative_image">Imagens ilustrativas de uma calendário, um prato de comida e relógio</string>
+
 </resources>

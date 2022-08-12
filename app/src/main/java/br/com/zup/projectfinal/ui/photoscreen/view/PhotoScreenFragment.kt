@@ -15,6 +15,8 @@ import br.com.zup.projectfinal.ui.ViewState
 import br.com.zup.projectfinal.ui.benefits.adapter.BenefitsAdapter
 import br.com.zup.projectfinal.ui.benefits.viewmodel.BenefitsViewModel
 import br.com.zup.projectfinal.ui.photoscreen.viewmodel.PhotoScreenViewModel
+import br.com.zup.projectfinal.ui.takebreak.adapter.TakeBreakAdapter
+import br.com.zup.projectfinal.ui.takebreak.viewmodel.TakeBreakViewModel
 import br.com.zup.projectfinal.utils.TITLE_BSZ
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
@@ -23,8 +25,17 @@ import java.util.*
 class PhotoScreenFragment : Fragment() {
     private lateinit var binding: FragmentPhotoScreenBinding
 
+    private val takeBreakAdapter: TakeBreakAdapter by lazy {
+        TakeBreakAdapter(arrayListOf())
+    }
+
+    private val takeBreakViewModel: TakeBreakViewModel by lazy {
+        ViewModelProvider(this)[TakeBreakViewModel::class.java]
+    }
+
     private val benefitsAdapter: BenefitsAdapter by lazy {
-        BenefitsAdapter(arrayListOf()
+        BenefitsAdapter(
+            arrayListOf()
 //            , this::goToWeb
         )
     }
@@ -56,6 +67,8 @@ class PhotoScreenFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        takeBreakViewModel.getTakeBreak()
+        setTakeBreakRecyclerView()
         benefitsViewModel.getAllBenefits()
         setBenefisRecyclerView()
     }
@@ -68,11 +81,11 @@ class PhotoScreenFragment : Fragment() {
 
     private fun showCurrentDateText() {
 
-        var date = Calendar.getInstance().time
+        val date = Calendar.getInstance().time
 
-        var dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
 
-        var textDate = buildString {
+        val textDate = buildString {
             append("Foto Motivacional do Dia | ")
             append(dateTimeFormat.format(date))
         }
@@ -117,15 +130,28 @@ class PhotoScreenFragment : Fragment() {
                 }
             }
         }
+        takeBreakViewModel.takeBreakResponse.observe(this.viewLifecycleOwner) {
+            takeBreakAdapter.updateTakeBreak(it.toMutableList())
+        }
 
         benefitsViewModel.benefitResponse.observe(this.viewLifecycleOwner) {
             benefitsAdapter.updateBenefitsList(it.toMutableList())
         }
     }
 
+    private fun setTakeBreakRecyclerView() {
+        binding.rvTakeBreak.adapter = takeBreakAdapter
+        binding.rvTakeBreak.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.HORIZONTAL, false
+        )
+    }
+
     private fun setBenefisRecyclerView() {
         binding.rvBenefits.adapter = benefitsAdapter
-        binding.rvBenefits.layoutManager = LinearLayoutManager(context,
-            LinearLayoutManager.HORIZONTAL, false)
+        binding.rvBenefits.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.HORIZONTAL, false
+        )
     }
 }
