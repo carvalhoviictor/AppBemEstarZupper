@@ -7,7 +7,8 @@ import br.com.zup.projectfinal.domain.model.Image
 class PexelsRepository {
 
     suspend fun getImages(): List<Image> {
-        val resp = RetrofitService.apiService.getImagesPexels("search?query=healthy")
+        val resp = RetrofitService.apiService.getImagesPexels(RetrofitService.KEY_API,
+            "healthy")
         return toListImage(resp.photos)
     }
 
@@ -18,12 +19,10 @@ class PexelsRepository {
             images.add(
                 Image(
                     alt = i.alt,
-                    src = i.src.original
+                    src = i.src.tiny
                 )
             )
         }
         return images
     }
-
-
 }

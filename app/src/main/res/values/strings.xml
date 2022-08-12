@@ -23,7 +23,7 @@
     <string name="image_description_logo1">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e branco num fundo azul marinho</string>
     <string name="informations">Faça Login com sua conta Zup \n Ainda não tem uma conta?</string>
     <string name="image_description_happy_people">Ilustração de três pessoas se divertindo</string>
-    <string name="return_to_login">Já tenho uma conta!</string>
+    <string name="return_to_login">Já tenho uma conta</string>
     <string name="bv_register_now">Criar conta</string>
     <string name="logo_white">Logotipo da Zup todo branco</string>
     <string name="logo_colorful">Logotipo da Zup colorido</string>
@@ -32,9 +32,9 @@
     <string name="hello_zupper"><![CDATA[Olá, <Nome Zupper>]]></string>
     <string name="image_brain_description">Desenho de um cérebro, sendo o lado esquerdo colorido de laranja e o lado direito dele colorido de verde claro, e em volta várias flores coloridas uma de cada cor sendo laranja, branca, azul com algumas folhas</string>
     <string name="text_inform">Você está no:</string>
-    <string name="level_2">Nível 2</string>
+    <string name="level_1">Nível 1</string>
     <string name="points">Pontos</string>
-    <string name="_70">70</string>
+    <string name="zero">0</string>
     <string name="challenge_msg">Exemplo de Desafio</string>
     <string name="check_description">Imagem de um check verde para quando o desafio está feito, e de uma X laranja para quando não está feito</string>
     <string name="_20pts">20pts</string>
@@ -46,6 +46,11 @@
     <string name="award">Conquistas</string>
     <string name="take_a_break">Take a Break</string>
     <string name="notes">Notas</string>
+<<<<<<< HEAD
     <string name="titulo">Título</string>
     <string name="descricao_take_a_break">Descrição take a break</string>
+=======
+    <string name="benefit_name">Movi[mente]</string>
+    <string name="description_logo">Imagem do logo do benefício descrito abaixo, ao clicar será redirecionado a página desse benefício</string>
+>>>>>>> 837154c79ad2dc61768e5a00cf84aa1cbaf33215
 </resources>

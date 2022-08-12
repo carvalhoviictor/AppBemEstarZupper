@@ -31,8 +31,8 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
     private var _levelState = MutableLiveData<List<String>>()
     val levelState: LiveData<List<String>> = _levelState
 
-    private var _pointsState = MutableLiveData<Int>()
-    val pointsState: LiveData<Int> = _pointsState
+    private var _pointsState = MutableLiveData<List<String>>()
+    val pointsState: LiveData<List<String>> = _pointsState
 
     fun logout() {
         authenticationRepository.logout()
@@ -52,24 +52,14 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
 
     fun savePoints(point: Int) {
         val pointsPath = getPointsPath(point)
-        challengesRepository.databaseReferencePoints().child(pointsPath)
-            .setValue(mapOf("totalPoints" to point)).addOnSuccessListener {
+        challengesRepository.databaseReferencePoints().child("$pointsPath")
+            .setValue(point) { error, reference ->
+                if (error != null) {
+                    _msgState.value = error.message
+                }
                 _msgState.value = CONGRATULATION
-            }.addOnFailureListener {
-                _msgState.value = it.message
             }
     }
-
-//    fun updatePoint(point: Int) {
-//        val pointsPath = getPointsPath(point)
-//        challengesRepository.databaseReferencePoints().child("pontos")
-//            .updateChildren(mapOf("pontos" to point)) { error, reference ->
-//                if (error != null) {
-//                    _msgState.value = error.message
-//                }
-//                _msgState.value = CONGRATULATION
-//            }
-//    }
 
     private fun getPointsPath(point: Int): String {
         val uri = Uri.parse(point.toString())
@@ -110,46 +100,21 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
         })
     }
 
-//    fun getPointsDatabaseB() {
-//        challengesRepository.getPoints().addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                val pointsList = mutableListOf<String>()
-//                for (resultSnapshot in snapshot.children) {
-//                    val pointsResponse = resultSnapshot.value.toString()
-//                    pointsResponse.let {
-//                        pointsList.add(it)
-//                    }
-//                }
-//                _pointsState.value = pointsList
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                _msgState.value = error.message
-//            }
-//        })
-//    }
-
     fun getPointsDatabase() {
         challengesRepository.getPoints().addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                try {
-                    if(snapshot.value == null){
-                        _pointsState.value = 0
-                    }else{
-                        val totalPoints = snapshot.value.toString().toInt()
-                        _pointsState.value = totalPoints
-                        Log.i("teste: ", snapshot.value.toString())
+                val pointsList = mutableListOf<String>()
+                for (resultSnapshot in snapshot.children) {
+                    val pointsResponse = resultSnapshot.value.toString()
+                    pointsResponse.let {
+                        pointsList.add(it)
                     }
-
-                }catch (e: Exception){
-                    Log.e("teste: ", e.toString())
                 }
-
+                _pointsState.value = pointsList
             }
 
             override fun onCancelled(error: DatabaseError) {
                 _msgState.value = error.message
-                Log.e("teste: ", error.message)
             }
         })
     }
