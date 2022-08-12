@@ -1,5 +1,7 @@
 package br.com.zup.projectfinal.ui.photoscreen.view
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -35,9 +37,7 @@ class PhotoScreenFragment : Fragment() {
 
     private val benefitsAdapter: BenefitsAdapter by lazy {
         BenefitsAdapter(
-            arrayListOf()
-//            , this::goToWeb
-        )
+            arrayListOf(), this::goToWeb)
     }
 
     private val benefitsViewModel: BenefitsViewModel by lazy {
@@ -153,5 +153,15 @@ class PhotoScreenFragment : Fragment() {
             context,
             LinearLayoutManager.HORIZONTAL, false
         )
+    }
+
+    private fun goToWeb(uri: String) {
+        var url = uri
+        if (!url.startsWith("https://" ) && !url.startsWith("http://")){
+            url = "https://$uri"
+        }
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
     }
 }
