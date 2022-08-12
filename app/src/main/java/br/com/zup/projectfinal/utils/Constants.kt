@@ -39,6 +39,15 @@ const val BENEFIT_GYMPASS_URL = "https://site.gympass.com/br"
 const val BENEFIT_REINTEGRAR = "Reintegrar"
 const val BENEFIT_REINTEGRAR_LOGO = R.drawable.reintegrar_zupnet
 const val BENEFIT_REINTEGRAR_URL = "https://zup1.typeform.com/to/SVDJuH4I?typeform-source=www.google.com"
+const val BENEFIT_BEM_VIVER = "Bem Viver"
+const val BENEFIT_BEM_VIVER_LOGO = R.drawable.bem_viver
+const val BENEFIT_BEM_VIVER_URL = "https://zup1.typeform.com/to/zAUJtW0A?typeform-source=www.google.com"
+const val BENEFIT_GESTAR = "Gestar"
+const val BENEFIT_GESTAR_LOGO = R.drawable.gestar
+const val BENEFIT_GESTAR_URL = "https://zup1.typeform.com/to/yW1fEtRn?typeform-source=www.google.com"
+const val BENEFIT_ATENDIMENTO_COVID = "Atendimento Covid"
+const val BENEFIT_ATENDIMENTO_COVID_LOGO = R.drawable.atendimento_covid
+const val BENEFIT_ATENDIMENTO_COVID_URL = "https://zup1.typeform.com/to/YnDMi82D?typeform-source=www.google.com"
 
 const val TAKEABREAK_NOREUNION = "Período sem reuniões"
 const val TAKEABREAK_NOREUNION_SUBTITLE = "Sugerimos que os times tenham um período sem reuniões para focar em produzir sem interrupções."
