@@ -25,12 +25,16 @@ const val CONGRATULATION_LEVEL = "Parabéns! Você subiu de nível!"
 
 const val BENEFIT_MOVIMENTE = "Movi[mente]"
 const val BENEFIT_MOVIMENTE_LOGO = R.drawable.movimente_logo
-const val BENEFIT_GYMPASS = "Gympass"
-const val BENEFIT_GYMPASS_LOGO = R.drawable.gympass
+const val BENEFIT_MOVIMENTE_URL = "meet.google.com/etu-tcjm-kav"
 const val BENEFIT_TELAVITA = "Telavita"
 const val BENEFIT_TELAVITA_LOGO = R.drawable.telavita
+const val BENEFIT_TELAVITA_URL = "https://www.telavita.com.br/"
+const val BENEFIT_GYMPASS = "Gympass"
+const val BENEFIT_GYMPASS_LOGO = R.drawable.gympass
+const val BENEFIT_GYMPASS_URL = "https://site.gympass.com/br"
 const val BENEFIT_REINTEGRAR = "Reintegrar"
 const val BENEFIT_REINTEGRAR_LOGO = R.drawable.reintegrar_zupnet
+const val BENEFIT_REINTEGRAR_URL = "https://zup1.typeform.com/to/SVDJuH4I?typeform-source=www.google.com"
 
 const val TAKEABREAK_NOREUNION = "Período sem reuniões"
 const val TAKEABREAK_NOREUNION_SUBTITLE = "Sugerimos que os times tenham um período sem reuniões para focar em produzir sem interrupções."
