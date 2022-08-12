@@ -3,19 +3,19 @@ package br.com.zup.projectfinal.domain.model
 data class DailyChallenges(
     var chOneName: String,
     var chOnePoint: Int,
-    var checkOne: Boolean,
+    var checkOne: Boolean = false,
 
     var chTwoName: String,
     var chTwoPoint: Int,
-    var checkTwo: Boolean,
+    var checkTwo: Boolean = false,
 
     var chThreeName: String,
     var chThreePoint: Int,
-    var checkThree: Boolean,
+    var checkThree: Boolean = false,
 
     var chFourName: String,
     var chFourPoint: Int,
-    var checkFour: Boolean,
+    var checkFour: Boolean = false,
 
     var currentDate: String
     )

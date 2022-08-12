@@ -1,11 +1,14 @@
 package br.com.zup.projectfinal.ui.challenges.view.adapter
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 import br.com.zup.projectfinal.databinding.ChallengeItemBinding
+import br.com.zup.projectfinal.utils.*
 
 
 class ChallengesAdapter(
@@ -20,6 +23,7 @@ class ChallengesAdapter(
             if(challengeModel.check){
                 binding.cbCheck.isChecked = true
                 binding.cbCheck.isEnabled = false
+                binding.cbCheck.isClickable = false
             }
         }
     }
@@ -30,12 +34,29 @@ class ChallengesAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val pref = holder.binding.cbCheck.context.applicationContext.getSharedPreferences(PREF_KEY, Context.MODE_PRIVATE)
+        val prefEditor: SharedPreferences.Editor = pref.edit()
+
         val challenge = challengesList[position]
         holder.showChallenge(challenge)
 
         holder.binding.cbCheck.setOnClickListener {
+            challenge.check = true
             onCheckboxClicked(holder.binding.cbCheck, challenge)
-            holder.binding.cbCheck.isEnabled = false
+            holder.binding.cbCheck.isClickable = false
+
+            if(position == 0){
+                prefEditor.putBoolean(PREF_CHECKED_ONE, true)
+            }
+            if(position == 1){
+                prefEditor.putBoolean(PREF_CHECKED_TWO, true)
+            }
+            if(position == 2){
+                prefEditor.putBoolean(PREF_CHECKED_THREE, true)
+            }
+            if(position == 3){
+                prefEditor.putBoolean(PREF_CHECKED_FOUR, true)
+            }
         }
     }
 

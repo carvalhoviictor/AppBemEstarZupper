@@ -58,14 +58,11 @@ class ChallengesRepository {
 
     fun getFourRandomChallenges(): List<ChallengeModel>{
         val listofchallenges = setChallengesList().toMutableList()
-
         listofchallenges.shuffle()
         val fourChallengesList = mutableListOf<ChallengeModel>()
-
         for (i in 0..3) {
             fourChallengesList.add(listofchallenges[i])
         }
-
         return fourChallengesList
     }
 }

@@ -35,8 +35,6 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
     private var _pointsState = MutableLiveData<List<String>>()
     val pointsState: LiveData<List<String>> = _pointsState
 
-    var challengePosition: Int = 1
-
     fun logout() {
         authenticationRepository.logout()
     }
@@ -163,19 +161,15 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
 
             prefEditor.putString(PREF_CH_ONE_NAME_KEY, challenges.chOneName)
             prefEditor.putInt(PREF_CH_ONE_POINT_KEY, challenges.chOnePoint)
-            prefEditor.putBoolean(PREF_CHECKED_ONE, challenges.checkOne)
 
             prefEditor.putString(PREF_CH_TWO_NAME_KEY, challenges.chTwoName)
             prefEditor.putInt(PREF_CH_TWO_POINT_KEY, challenges.chTwoPoint)
-            prefEditor.putBoolean(PREF_CHECKED_TWO, challenges.checkTwo)
 
             prefEditor.putString(PREF_CH_THREE_NAME_KEY, challenges.chThreeName)
             prefEditor.putInt(PREF_CH_THREE_POINT_KEY, challenges.chThreePoint)
-            prefEditor.putBoolean(PREF_CHECKED_THREE, challenges.checkThree)
 
             prefEditor.putString(PREF_CH_FOUR_NAME_KEY, challenges.chFourName)
             prefEditor.putInt(PREF_CH_FOUR_POINT_KEY, challenges.chFourPoint)
-            prefEditor.putBoolean(PREF_CHECKED_FOUR, challenges.checkFour)
 
             prefEditor.apply()
         }catch (e: Exception){
@@ -217,21 +211,6 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
             ViewState.Success(challengesList)
         }catch (e: Exception){
             ViewState.Error(Exception(CHALLENGES_LIST_ERROR))
-        }
-    }
-
-    fun updateCheck(){
-        if(challengePosition == 0){
-            prefEditor.putBoolean(PREF_CHECKED_ONE, true)
-        }
-        if(challengePosition == 1){
-            prefEditor.putBoolean(PREF_CHECKED_TWO, true)
-        }
-        if(challengePosition == 2){
-            prefEditor.putBoolean(PREF_CHECKED_THREE, true)
-        }
-        if(challengePosition == 3){
-            prefEditor.putBoolean(PREF_CHECKED_FOUR, true)
         }
     }
 }
