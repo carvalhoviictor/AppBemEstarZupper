@@ -173,6 +173,9 @@ class ChallengesFragment : Fragment() {
                 R.id.cbCheck -> {
                     if (checked) {
                         savePoints(challengeModel)
+                        challengeModel.check = true
+                        viewModel.challengePosition = challengeModel.position
+                        viewModel.updateCheck()
                     }
                 }
             }

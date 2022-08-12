@@ -68,8 +68,4 @@ class ChallengesRepository {
 
         return fourChallengesList
     }
-
-    fun getSavedChallenges(dailyChallenges: DailyChallenges): DailyChallenges{
-        return dailyChallenges
-    }
 }

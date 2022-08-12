@@ -2,6 +2,7 @@ package br.com.zup.projectfinal.ui.challenges.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -34,22 +35,28 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
     private var _pointsState = MutableLiveData<List<String>>()
     val pointsState: LiveData<List<String>> = _pointsState
 
+    var challengePosition: Int = 6
+
     fun logout() {
         authenticationRepository.logout()
     }
 
     fun getFourRandomChallenges() {
         try {
-            var dailyChallenges = challengesUseCase.getFourRandomChallenges()
+            val dailyChallenges = challengesUseCase.getFourRandomChallenges()
 
-            if(dailyChallenges.currentDate == pref.getString(PREF_DATE_KEY,"").toString()){
-                _challengesListState.value = getSavedChallenges()
-
-            }else{
+            if(pref.getString(PREF_CH_ONE_NAME_KEY,"").toString().isEmpty()){
                 saveChallenges(dailyChallenges)
                 _challengesListState.value = getSavedChallenges()
-            }
+            }else{
+                if(dailyChallenges.currentDate == pref.getString(PREF_DATE_KEY,"").toString()){
+                    _challengesListState.value = getSavedChallenges()
 
+                }else{
+                    saveChallenges(dailyChallenges)
+                    _challengesListState.value = getSavedChallenges()
+                }
+            }
 
         } catch (e: Exception) {
             _challengesListState.value = ViewState.Error(Throwable(CHALLENGES_LIST_ERROR))
@@ -147,59 +154,84 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     //############ SHARED PREFERENCES ############
-    val pref = application.getSharedPreferences(PREF_KEY, Context.MODE_PRIVATE)
-    val prefEditor = pref.edit()
+    private val pref: SharedPreferences = application.getSharedPreferences(PREF_KEY, Context.MODE_PRIVATE)
+    private val prefEditor: SharedPreferences.Editor = pref.edit()
 
-    private val _savedChallenges: MutableLiveData<DailyChallenges> = MutableLiveData()
-    val savedChallenges: LiveData<DailyChallenges> = _savedChallenges
-
-    fun saveChallenges(challenges: DailyChallenges){
+    private fun saveChallenges(challenges: DailyChallenges){
         try {
             prefEditor.putString(PREF_DATE_KEY, challenges.currentDate)
+
             prefEditor.putString(PREF_CH_ONE_NAME_KEY, challenges.chOneName)
             prefEditor.putInt(PREF_CH_ONE_POINT_KEY, challenges.chOnePoint)
+            prefEditor.putBoolean(PREF_CHECKED_ONE, challenges.checkOne)
+
             prefEditor.putString(PREF_CH_TWO_NAME_KEY, challenges.chTwoName)
             prefEditor.putInt(PREF_CH_TWO_POINT_KEY, challenges.chTwoPoint)
+            prefEditor.putBoolean(PREF_CHECKED_TWO, challenges.checkTwo)
+
             prefEditor.putString(PREF_CH_THREE_NAME_KEY, challenges.chThreeName)
             prefEditor.putInt(PREF_CH_THREE_POINT_KEY, challenges.chThreePoint)
+            prefEditor.putBoolean(PREF_CHECKED_THREE, challenges.checkThree)
+
             prefEditor.putString(PREF_CH_FOUR_NAME_KEY, challenges.chFourName)
             prefEditor.putInt(PREF_CH_FOUR_POINT_KEY, challenges.chFourPoint)
+            prefEditor.putBoolean(PREF_CHECKED_FOUR, challenges.checkFour)
+
             prefEditor.apply()
         }catch (e: Exception){
             _msgState.value = e.message
         }
     }
 
-    fun getSavedChallenges(): ViewState<List<ChallengeModel>>{
+    private fun getSavedChallenges(): ViewState<List<ChallengeModel>>{
         return try {
-            var challengesList = mutableListOf<ChallengeModel>()
+            val challengesList = mutableListOf<ChallengeModel>()
 
             challengesList.add(
                 ChallengeModel(
                     pref.getString(PREF_CH_ONE_NAME_KEY,"").toString(),
-                    pref.getInt(PREF_CH_ONE_POINT_KEY,0)
+                    pref.getInt(PREF_CH_ONE_POINT_KEY,0),
+                    pref.getBoolean(PREF_CHECKED_ONE, false)
                 ))
 
             challengesList.add(
                 ChallengeModel(
                     pref.getString(PREF_CH_TWO_NAME_KEY,"").toString(),
-                    pref.getInt(PREF_CH_TWO_POINT_KEY,0)
+                    pref.getInt(PREF_CH_TWO_POINT_KEY,0),
+                    pref.getBoolean(PREF_CHECKED_TWO, false)
                 ))
 
             challengesList.add(
                 ChallengeModel(
                     pref.getString(PREF_CH_THREE_NAME_KEY,"").toString(),
-                    pref.getInt(PREF_CH_THREE_POINT_KEY,0)
+                    pref.getInt(PREF_CH_THREE_POINT_KEY,0),
+                    pref.getBoolean(PREF_CHECKED_THREE, false)
                 ))
 
             challengesList.add(
                 ChallengeModel(
                     pref.getString(PREF_CH_FOUR_NAME_KEY,"").toString(),
-                    pref.getInt(PREF_CH_FOUR_POINT_KEY,0)
+                    pref.getInt(PREF_CH_FOUR_POINT_KEY,0),
+                    pref.getBoolean(PREF_CHECKED_FOUR, false)
                 ))
             ViewState.Success(challengesList)
         }catch (e: Exception){
             ViewState.Error(Exception(CHALLENGES_LIST_ERROR))
+        }
+    }
+
+    fun updateCheck(){
+        if(challengePosition == 0){
+            prefEditor.putBoolean(PREF_CHECKED_ONE, true)
+        }
+        if(challengePosition == 1){
+            prefEditor.putBoolean(PREF_CHECKED_TWO, true)
+        }
+        if(challengePosition == 2){
+            prefEditor.putBoolean(PREF_CHECKED_THREE, true)
+        }
+        if(challengePosition == 3){
+            prefEditor.putBoolean(PREF_CHECKED_FOUR, true)
         }
     }
 }

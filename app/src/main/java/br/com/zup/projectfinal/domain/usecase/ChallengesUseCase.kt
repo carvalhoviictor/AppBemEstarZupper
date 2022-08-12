@@ -15,7 +15,7 @@ class ChallengesUseCase(application: Application) {
     private val authenticationRepository = AuthenticationRepository()
 
     fun getFourRandomChallenges(): DailyChallenges{
-        var challengeList = challengesRepository.getFourRandomChallenges()
+        val challengeList = challengesRepository.getFourRandomChallenges()
 
         val date = Calendar.getInstance().time
         val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
@@ -24,12 +24,16 @@ class ChallengesUseCase(application: Application) {
         return DailyChallenges(
             chOneName = challengeList[0].challengeName,
             chOnePoint = challengeList[0].challengePoints,
+            checkOne = false,
             chTwoName = challengeList[1].challengeName,
             chTwoPoint = challengeList[1].challengePoints,
+            checkTwo = false,
             chThreeName = challengeList[2].challengeName,
             chThreePoint = challengeList[2].challengePoints,
+            checkThree = false,
             chFourName = challengeList[3].challengeName,
             chFourPoint = challengeList[3].challengePoints,
+            checkFour = false,
             currentDate = currentDate
         )
     }

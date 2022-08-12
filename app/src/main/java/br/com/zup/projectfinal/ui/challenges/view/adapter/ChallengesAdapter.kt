@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 import br.com.zup.projectfinal.databinding.ChallengeItemBinding
+
+
 class ChallengesAdapter(
     private var challengesList: MutableList<ChallengeModel>,
     private val onCheckboxClicked: (view: View, challenge: ChallengeModel) -> Unit
@@ -15,6 +17,10 @@ class ChallengesAdapter(
         fun showChallenge(challengeModel: ChallengeModel){
             binding.tvMessageBody.text = challengeModel.challengeName
             binding.tvNumbPoints.text = challengeModel.challengePoints.toString()
+            if(challengeModel.check){
+                binding.cbCheck.isChecked = true
+                binding.cbCheck.isEnabled = false
+            }
         }
     }
 
@@ -30,6 +36,7 @@ class ChallengesAdapter(
         holder.binding.cbCheck.setOnClickListener {
             onCheckboxClicked(holder.binding.cbCheck, challenge)
             holder.binding.cbCheck.isEnabled = false
+            challenge.position = position
         }
     }
 
