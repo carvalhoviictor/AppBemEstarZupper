@@ -2,29 +2,35 @@ package br.com.zup.projectfinal.ui.photoscreen.view
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentPhotoScreenBinding
+import br.com.zup.projectfinal.domain.model.Image
 import br.com.zup.projectfinal.ui.InitialActivity
+import br.com.zup.projectfinal.ui.ViewState
+import br.com.zup.projectfinal.ui.benefits.adapter.BenefitsAdapter
+import br.com.zup.projectfinal.ui.benefits.viewmodel.BenefitsViewModel
 import br.com.zup.projectfinal.ui.photoscreen.viewmodel.PhotoScreenViewModel
 import br.com.zup.projectfinal.utils.TITLE_BSZ
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
-import br.com.zup.projectfinal.domain.model.Image
-import br.com.zup.projectfinal.ui.ViewState
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
 import java.util.*
 
 class PhotoScreenFragment : Fragment() {
     private lateinit var binding: FragmentPhotoScreenBinding
-    private val viewmodel: PhotoScreenViewModel by lazy {
-        ViewModelProvider(this)[PhotoScreenViewModel::class.java]
 
+    private val benefitsAdapter: BenefitsAdapter by lazy {
+        BenefitsAdapter(arrayListOf()
+//            , this::goToWeb
+        )
+    }
+
+    private val benefitsViewModel: BenefitsViewModel by lazy {
+        ViewModelProvider(this)[BenefitsViewModel::class.java]
     }
 
     private val viewModel: PhotoScreenViewModel by lazy {
@@ -33,7 +39,7 @@ class PhotoScreenFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentPhotoScreenBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,8 +50,14 @@ class PhotoScreenFragment : Fragment() {
         setHasOptionsMenu(true)
         actionBarAccess()
         showCurrentDateText()
+        viewModel.getImage()
         observable()
-        viewmodel.getImage()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        benefitsViewModel.getAllBenefits()
+        setBenefisRecyclerView()
     }
 
     private fun actionBarAccess() {
@@ -95,7 +107,7 @@ class PhotoScreenFragment : Fragment() {
     }
 
     private fun observable() {
-        viewmodel.pexelsState.observe(this.viewLifecycleOwner) {
+        viewModel.pexelsState.observe(this.viewLifecycleOwner) {
             when (it) {
                 is ViewState.Success -> {
                     showImage(it.data)
@@ -105,5 +117,15 @@ class PhotoScreenFragment : Fragment() {
                 }
             }
         }
+
+        benefitsViewModel.benefitResponse.observe(this.viewLifecycleOwner) {
+            benefitsAdapter.updateBenefitsList(it.toMutableList())
+        }
+    }
+
+    private fun setBenefisRecyclerView() {
+        binding.rvBenefits.adapter = benefitsAdapter
+        binding.rvBenefits.layoutManager = LinearLayoutManager(context,
+            LinearLayoutManager.HORIZONTAL, false)
     }
 }

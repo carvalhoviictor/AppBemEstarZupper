@@ -1,5 +1,7 @@
 package br.com.zup.projectfinal.utils
 
+import br.com.zup.projectfinal.R
+
 const val USER_KEY = "user"
 const val EMAIL_ERROR_MESSAGE = "Favor informar email válido!"
 const val EMAIL_ZUP_ERROR = "Favor informar email da Zup!"
@@ -20,3 +22,15 @@ const val NOTE_LIST_ERROR = "Não foi possível carregar a lista"
 const val CHALLENGES_LIST_ERROR = "Não foi possível carregar os desafios"
 const val CONGRATULATION = "Parabéns por mais um desafio concluído!"
 const val CONGRATULATION_LEVEL = "Parabéns! Você subiu de nível!"
+
+const val BENEFIT_MOVIMENTE = "Movi[mente]"
+const val BENEFIT_MOVIMENTE_LOGO = R.drawable.movimente_logo
+const val BENEFIT_GYMPASS = "Gympass"
+const val BENEFIT_GYMPASS_LOGO = R.drawable.gympass
+const val BENEFIT_TELAVITA = "Telavita"
+const val BENEFIT_TELAVITA_LOGO = R.drawable.telavita
+const val BENEFIT_REINTEGRAR = "Reintegrar"
+const val BENEFIT_REINTEGRAR_LOGO = R.drawable.reintegrar_zupnet
+
+const val ERROR = "Error"
+const val DIVISOR = "------> "

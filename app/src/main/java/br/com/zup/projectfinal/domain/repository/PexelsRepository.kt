@@ -25,6 +25,4 @@ class PexelsRepository {
         }
         return images
     }
-
-
 }
