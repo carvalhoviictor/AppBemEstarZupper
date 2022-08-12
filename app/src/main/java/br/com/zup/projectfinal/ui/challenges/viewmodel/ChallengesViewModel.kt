@@ -1,18 +1,18 @@
 package br.com.zup.projectfinal.ui.challenges.viewmodel
 
 import android.app.Application
+import android.content.Context
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.zup.projectfinal.domain.model.ChallengeModel
+import br.com.zup.projectfinal.domain.model.DailyChallenges
 import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import br.com.zup.projectfinal.domain.repository.ChallengesRepository
 import br.com.zup.projectfinal.domain.usecase.ChallengesUseCase
 import br.com.zup.projectfinal.ui.viewstate.ViewState
-import br.com.zup.projectfinal.utils.CHALLENGES_LIST_ERROR
-import br.com.zup.projectfinal.utils.CONGRATULATION
+import br.com.zup.projectfinal.utils.*
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -40,7 +40,17 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
 
     fun getFourRandomChallenges() {
         try {
-            _challengesListState.value = challengesUseCase.getFourRandomChallenges()
+            var dailyChallenges = challengesUseCase.getFourRandomChallenges()
+
+            if(dailyChallenges.currentDate == pref.getString(PREF_DATE_KEY,"").toString()){
+                _challengesListState.value = getSavedChallenges()
+
+            }else{
+                saveChallenges(dailyChallenges)
+                _challengesListState.value = getSavedChallenges()
+            }
+
+
         } catch (e: Exception) {
             _challengesListState.value = ViewState.Error(Throwable(CHALLENGES_LIST_ERROR))
         }
@@ -134,5 +144,62 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
                     _msgState.value = error.message
                 }
             }
+    }
+
+    //############ SHARED PREFERENCES ############
+    val pref = application.getSharedPreferences(PREF_KEY, Context.MODE_PRIVATE)
+    val prefEditor = pref.edit()
+
+    private val _savedChallenges: MutableLiveData<DailyChallenges> = MutableLiveData()
+    val savedChallenges: LiveData<DailyChallenges> = _savedChallenges
+
+    fun saveChallenges(challenges: DailyChallenges){
+        try {
+            prefEditor.putString(PREF_DATE_KEY, challenges.currentDate)
+            prefEditor.putString(PREF_CH_ONE_NAME_KEY, challenges.chOneName)
+            prefEditor.putInt(PREF_CH_ONE_POINT_KEY, challenges.chOnePoint)
+            prefEditor.putString(PREF_CH_TWO_NAME_KEY, challenges.chTwoName)
+            prefEditor.putInt(PREF_CH_TWO_POINT_KEY, challenges.chTwoPoint)
+            prefEditor.putString(PREF_CH_THREE_NAME_KEY, challenges.chThreeName)
+            prefEditor.putInt(PREF_CH_THREE_POINT_KEY, challenges.chThreePoint)
+            prefEditor.putString(PREF_CH_FOUR_NAME_KEY, challenges.chFourName)
+            prefEditor.putInt(PREF_CH_FOUR_POINT_KEY, challenges.chFourPoint)
+            prefEditor.apply()
+        }catch (e: Exception){
+            _msgState.value = e.message
+        }
+    }
+
+    fun getSavedChallenges(): ViewState<List<ChallengeModel>>{
+        return try {
+            var challengesList = mutableListOf<ChallengeModel>()
+
+            challengesList.add(
+                ChallengeModel(
+                    pref.getString(PREF_CH_ONE_NAME_KEY,"").toString(),
+                    pref.getInt(PREF_CH_ONE_POINT_KEY,0)
+                ))
+
+            challengesList.add(
+                ChallengeModel(
+                    pref.getString(PREF_CH_TWO_NAME_KEY,"").toString(),
+                    pref.getInt(PREF_CH_TWO_POINT_KEY,0)
+                ))
+
+            challengesList.add(
+                ChallengeModel(
+                    pref.getString(PREF_CH_THREE_NAME_KEY,"").toString(),
+                    pref.getInt(PREF_CH_THREE_POINT_KEY,0)
+                ))
+
+            challengesList.add(
+                ChallengeModel(
+                    pref.getString(PREF_CH_FOUR_NAME_KEY,"").toString(),
+                    pref.getInt(PREF_CH_FOUR_POINT_KEY,0)
+                ))
+            ViewState.Success(challengesList)
+        }catch (e: Exception){
+            ViewState.Error(Exception(CHALLENGES_LIST_ERROR))
+        }
     }
 }
