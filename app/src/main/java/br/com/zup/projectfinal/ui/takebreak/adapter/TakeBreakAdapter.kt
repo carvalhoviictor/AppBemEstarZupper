@@ -3,12 +3,11 @@ package br.com.zup.projectfinal.ui.takebreak.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.zup.projectfinal.databinding.NoteItemBinding
 import br.com.zup.projectfinal.databinding.TakeBreakItemBinding
-import br.com.zup.projectfinal.domain.model.TakeBrakeModel
+import br.com.zup.projectfinal.domain.model.TakeBreakModel
 
 class TakeBreakAdapter(
-    private var takeBreakList: List<TakeBrakeModel>
+    private var takeBreakList: MutableList<TakeBreakModel>
 ) : RecyclerView.Adapter<TakeBreakAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,8 +22,13 @@ class TakeBreakAdapter(
 
     override fun getItemCount() = takeBreakList.size
 
+    fun updateTakeBreak(newList: MutableList<TakeBreakModel>) {
+        takeBreakList = newList
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(val binding: TakeBreakItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun adicionarInformacoesView(takeBreak: TakeBrakeModel) {
+        fun adicionarInformacoesView(takeBreak: TakeBreakModel) {
             binding.ivTakeBreak.setImageResource(takeBreak.image)
             binding.tvTakeBreak.text = takeBreak.title
             binding.tvTakeBreak2.text = takeBreak.subtitle

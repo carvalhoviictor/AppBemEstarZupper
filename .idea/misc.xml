@@ -3,16 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< HEAD
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/activity_splash.xml" value="0.1" />
+        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/benefit_item.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/challenge_item.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_photo_screen.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/fragment_register.xml" value="0.22" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/note_item.xml" value="0.17552083333333332" />
-        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/take_break_item.xml" value="0.22" />
+        <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/layout/take_break_item.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Victor.Silva/Desktop/FinalProject/app/src/main/res/menu/menu.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_home.xml" value="0.1796875" />
         <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/activity_initial.xml" value="0.1" />
@@ -31,15 +31,6 @@
         <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.22" />
         <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/layout/note_item.xml" value="0.22" />
         <entry key="..\:/Users/jeniffer.sival/Desktop/ProjetoFinal/git/FinalProjectCatalisaSquad3/app/src/main/res/menu/menu.xml" value="0.17552083333333332" />
-=======
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/benefit_item.xml" value="0.6666666666666666" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/challenge_item.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_challenges.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_login.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_photo_screen.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/fragment_register.xml" value="0.1796875" />
-        <entry key="..\:/Users/catarine.rodrigues/Desktop/Catalisa/Projeto Final/FinalProjectCatalisaSquad3/app/src/main/res/layout/note_item.xml" value="0.1796875" />
->>>>>>> 837154c79ad2dc61768e5a00cf84aa1cbaf33215
       </map>
     </option>
   </component>

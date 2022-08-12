@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="46dp"
+    android:layout_margin="@dimen/margin_8"
     android:backgroundTint="@color/white_zup"
     app:cardCornerRadius="@dimen/corner_10" >
 
@@ -14,12 +15,13 @@
 
         <ImageView
             android:id="@+id/iv_TakeBreak"
-            android:layout_width="@dimen/margin_0"
-            android:layout_height="wrap_content"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/noreunion"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/illustrative_image" />
 
         <TextView
             android:id="@+id/tv_TakeBreak"
@@ -29,11 +31,11 @@
             android:text="@string/titulo"
             android:textSize="@dimen/size_16"
             android:textStyle="bold"
-            android:layout_margin="@dimen/margin_16"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_TakeBreak"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpUsage" />
 
         <TextView
             android:id="@+id/tv_TakeBreak2"
@@ -42,7 +44,7 @@
             android:text="@string/descricao_take_a_break"
             android:textAlignment="center"
             android:textColor="@color/blue_zup"
-            android:textSize="@dimen/size_16"
+            android:textSize="@dimen/fontSize_14"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_TakeBreak"

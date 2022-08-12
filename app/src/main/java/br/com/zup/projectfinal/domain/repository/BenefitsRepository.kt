@@ -12,7 +12,6 @@ class BenefitsRepository {
         listBenefits.add(Benefit(image = BENEFIT_TELAVITA_LOGO, title = BENEFIT_TELAVITA))
         listBenefits.add(Benefit(image = BENEFIT_GYMPASS_LOGO, title = BENEFIT_GYMPASS))
         listBenefits.add(Benefit(image = BENEFIT_REINTEGRAR_LOGO, title = BENEFIT_REINTEGRAR))
-
         return listBenefits
     }
 }

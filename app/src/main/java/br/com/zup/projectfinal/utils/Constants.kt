@@ -32,5 +32,15 @@ const val BENEFIT_TELAVITA_LOGO = R.drawable.telavita
 const val BENEFIT_REINTEGRAR = "Reintegrar"
 const val BENEFIT_REINTEGRAR_LOGO = R.drawable.reintegrar_zupnet
 
+const val TAKEABREAK_NOREUNION = "Período sem reuniões"
+const val TAKEABREAK_NOREUNION_SUBTITLE = "Sugerimos que os times tenham um período sem reuniões para focar em produzir sem interrupções."
+const val TAKEABREAK_NOREUNION_LOGO = R.drawable.noreunion
+const val TAKEABREAK_LAUNCH = "Bloqueio de almoço"
+const val TAKEABREAK_LAUNCH_SUBTITLE = "Sugerimos que os times tenham um intervalo de almoço de 1h e 30min."
+const val TAKEABREAK_LAUNCH_LOGO = R.drawable.launch
+const val TAKEABREAK_TIMEREUNION = "Reuniões padrão 50 min"
+const val TAKEABREAK_TIMEREUNION_SUBTITLE = "Sugerimos que as reuniões tenham, por padrão, 10 min de intervalo antes da próxima atividade. "
+const val TAKEABREAK_TIMEREUNION_LOGO = R.drawable.timereunion
+
 const val ERROR = "Error"
 const val DIVISOR = "------> "
