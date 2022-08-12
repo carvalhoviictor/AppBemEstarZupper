@@ -14,8 +14,7 @@ import br.com.zup.projectfinal.databinding.FragmentRegisterBinding
 import br.com.zup.projectfinal.domain.model.User
 import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.register.viewmodel.RegisterViewModel
-import br.com.zup.projectfinal.utils.CREATE_USER_ERROR_MESSAGE
-import br.com.zup.projectfinal.utils.USER_KEY
+import br.com.zup.projectfinal.utils.*
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
@@ -38,8 +37,10 @@ class RegisterFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.hide()
 
         binding.bvRegisterNow.setOnClickListener {
-            val user = getDataUser()
-            viewModel.validateDataUser(user)
+            if (validateField()) {
+                val user = getDataUser()
+                viewModel.validateDataUser(user)
+            }
         }
 
         binding.tvInformation.setOnClickListener {
@@ -77,5 +78,37 @@ class RegisterFragment : Fragment() {
     private fun returnToLogin() {
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_registerFragment_to_loginFragment)
+    }
+
+    private fun validateField(): Boolean {
+        return when {
+            (binding.etUserName.text.isEmpty()
+                    && binding.etUserEmail.text.isEmpty()
+                    && binding.etPassword.text.isEmpty())
+                    && binding.etPasswordConfirmation.text.isEmpty()-> {
+                binding.etUserName.error = NAME_REQUIRED_FIELD
+                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
+                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
+                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
+                false
+            }
+            binding.etUserName.text.isEmpty() -> {
+                binding.etUserName.error = NAME_REQUIRED_FIELD
+                false
+            }
+            binding.etUserEmail.text.isEmpty() -> {
+                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
+                false
+            }
+            binding.etPassword.text.isEmpty() -> {
+                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
+                false
+            }
+            binding.etPasswordConfirmation.text.isEmpty() ->{
+                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
+                false
+            }
+            else -> true
+        }
     }
 }
