@@ -69,8 +69,3 @@ const val PREF_CHECKED_ONE = "CHECKONE"
 const val PREF_CHECKED_TWO = "CHECKTWO"
 const val PREF_CHECKED_THREE = "CHECKTREE"
 const val PREF_CHECKED_FOUR = "CHECKFOUR"
-
-const val CHECKBOX_1 = "check1"
-const val CHECKBOX_2 = "check2"
-const val CHECKBOX_3 = "check3"
-const val CHECKBOX_4 = "check4"
