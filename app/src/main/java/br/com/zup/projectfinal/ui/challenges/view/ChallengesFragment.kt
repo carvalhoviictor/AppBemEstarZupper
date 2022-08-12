@@ -174,7 +174,6 @@ class ChallengesFragment : Fragment() {
                     if (checked) {
                         savePoints(challengeModel)
                         challengeModel.check = true
-                        viewModel.challengePosition = challengeModel.position
                         viewModel.updateCheck()
                     }
                 }

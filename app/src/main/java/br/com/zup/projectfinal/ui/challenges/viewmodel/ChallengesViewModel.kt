@@ -35,7 +35,7 @@ class ChallengesViewModel(application: Application) : AndroidViewModel(applicati
     private var _pointsState = MutableLiveData<List<String>>()
     val pointsState: LiveData<List<String>> = _pointsState
 
-    var challengePosition: Int = 6
+    var challengePosition: Int = 1
 
     fun logout() {
         authenticationRepository.logout()
