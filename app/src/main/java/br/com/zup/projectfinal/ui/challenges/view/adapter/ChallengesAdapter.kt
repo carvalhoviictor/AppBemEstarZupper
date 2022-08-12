@@ -22,7 +22,6 @@ class ChallengesAdapter(
             binding.tvNumbPoints.text = challengeModel.challengePoints.toString()
             if(challengeModel.check){
                 binding.cbCheck.isChecked = true
-                binding.cbCheck.isEnabled = false
                 binding.cbCheck.isClickable = false
             }
         }
@@ -47,16 +46,21 @@ class ChallengesAdapter(
 
             if(position == 0){
                 prefEditor.putBoolean(PREF_CHECKED_ONE, true)
+                prefEditor.apply()
             }
             if(position == 1){
                 prefEditor.putBoolean(PREF_CHECKED_TWO, true)
+                prefEditor.apply()
             }
             if(position == 2){
                 prefEditor.putBoolean(PREF_CHECKED_THREE, true)
+                prefEditor.apply()
             }
             if(position == 3){
                 prefEditor.putBoolean(PREF_CHECKED_FOUR, true)
+                prefEditor.apply()
             }
+            notifyItemChanged(position)
         }
     }
 
