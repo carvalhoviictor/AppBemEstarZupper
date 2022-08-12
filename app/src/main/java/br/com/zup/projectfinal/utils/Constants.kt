@@ -10,6 +10,10 @@ const val PASSWORDCONFIRMATION_ERROR_MESSAGE = "A confirmação de senha não co
 const val CREATE_USER_ERROR_MESSAGE = "Erro ao criar usuário! Tente novamente!"
 const val LOGIN_ERROR_MESSAGE = "Usuário não registrado. Favor realizar cadastro!"
 const val EMAIL_ZUP = "@zup.com.br"
+const val EMAIL_REQUIRED_FIELD = "Campo obrigatório: Email"
+const val PASSWORD_REQUIRED_FIELD = "Campo obrigatório: Senha"
+const val PASSWORD_CONFIRMATION_REQUIRED_FIELD = "Campo obrigatório: Confirmação da senha"
+const val NAME_REQUIRED_FIELD = "Campo obrigatório: Nome"
 
 const val TITLE_DESAFIOS = "Desafios"
 const val TITLE_NOTES = "Notas e Lembretes"
