@@ -1,6 +1,5 @@
 package br.com.zup.projectfinal.domain.repository
 
-import android.net.Uri
 import br.com.zup.projectfinal.domain.model.ChallengeModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth

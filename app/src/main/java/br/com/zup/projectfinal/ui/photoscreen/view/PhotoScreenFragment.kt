@@ -22,10 +22,6 @@ import java.util.*
 
 class PhotoScreenFragment : Fragment() {
     private lateinit var binding: FragmentPhotoScreenBinding
-    private val viewmodel: PhotoScreenViewModel by lazy {
-        ViewModelProvider(this)[PhotoScreenViewModel::class.java]
-
-    }
 
     private val viewModel: PhotoScreenViewModel by lazy {
         ViewModelProvider(this)[PhotoScreenViewModel::class.java]
@@ -44,7 +40,7 @@ class PhotoScreenFragment : Fragment() {
         setHasOptionsMenu(true)
         actionBarAccess()
         showCurrentDateText()
-        viewmodel.getImage()
+        viewModel.getImage()
         observable()
     }
 
@@ -95,7 +91,7 @@ class PhotoScreenFragment : Fragment() {
     }
 
     private fun observable() {
-        viewmodel.pexelsState.observe(this.viewLifecycleOwner) {
+        viewModel.pexelsState.observe(this.viewLifecycleOwner) {
             when (it) {
                 is ViewState.Success -> {
                     showImage(it.data)
