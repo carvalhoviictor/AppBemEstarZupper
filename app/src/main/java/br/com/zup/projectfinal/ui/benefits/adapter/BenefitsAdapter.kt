@@ -5,10 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.projectfinal.databinding.BenefitItemBinding
 import br.com.zup.projectfinal.domain.model.Benefit
-import br.com.zup.projectfinal.utils.BENEFIT_GYMPASS_URL
-import br.com.zup.projectfinal.utils.BENEFIT_MOVIMENTE_URL
-import br.com.zup.projectfinal.utils.BENEFIT_REINTEGRAR_URL
-import br.com.zup.projectfinal.utils.BENEFIT_TELAVITA_URL
+import br.com.zup.projectfinal.utils.*
 
 class BenefitsAdapter(
     private var benefitsList: MutableList<Benefit>,
@@ -30,6 +27,9 @@ class BenefitsAdapter(
                 1 -> clickBenefit(BENEFIT_TELAVITA_URL)
                 2 -> clickBenefit(BENEFIT_GYMPASS_URL)
                 3 -> clickBenefit(BENEFIT_REINTEGRAR_URL)
+                4 -> clickBenefit(BENEFIT_BEM_VIVER_URL)
+                5 -> clickBenefit(BENEFIT_GESTAR_URL)
+                6 -> clickBenefit(BENEFIT_ATENDIMENTO_COVID_URL)
             }
         }
     }
