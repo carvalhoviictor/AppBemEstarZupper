@@ -51,10 +51,10 @@ class RegisterFragment : Fragment() {
 
     private fun getDataUser(): User {
         return User(
-            name = binding.etUserName.text.toString(),
-            email = binding.etUserEmail.text.toString(),
-            password = binding.etPassword.text.toString(),
-            passwordConfirmation = binding.etPasswordConfirmation.text.toString()
+            name = binding.etUserName.editText.toString(),
+            email = binding.etUserEmail.editText.toString(),
+            password = binding.etPassword.editText.toString(),
+            passwordConfirmation = binding.etPasswordConfirmation.editText.toString()
         )
     }
 

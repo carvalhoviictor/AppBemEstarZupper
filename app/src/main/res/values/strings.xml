@@ -53,5 +53,6 @@
     <string name="benefit_name">Movi[mente]</string>
     <string name="description_logo">Imagem do logo do benefício descrito abaixo, ao clicar será redirecionado a página desse benefício</string>
     <string name="illustrative_image">Imagens ilustrativas de uma calendário, um prato de comida e relógio</string>
+    <string name="password_visibility">Botão que permite a senha ficar visívél</string>
 
 </resources>

@@ -51,8 +51,8 @@ class LoginFragment : Fragment() {
 
     private fun getDataUser(): User {
         return User(
-            email = binding.etUserEmail.text.toString(),
-            password = binding.etPassword.text.toString()
+            email = binding.etUserEmail.editText.toString(),
+            password = binding.etPassword.editText.toString()
         )
     }
 
