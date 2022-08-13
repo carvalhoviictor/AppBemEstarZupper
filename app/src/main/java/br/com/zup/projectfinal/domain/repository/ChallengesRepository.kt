@@ -1,6 +1,7 @@
 package br.com.zup.projectfinal.domain.repository
 
 import br.com.zup.projectfinal.domain.model.ChallengeModel
+import br.com.zup.projectfinal.domain.model.DailyChallenges
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
@@ -50,21 +51,18 @@ class ChallengesRepository {
         listofchallenges.add(ChallengeModel(challengeName = "Tire aquele plano\npara uma vida mais\nsaudável do papel", challengePoints = 85))
         listofchallenges.add(ChallengeModel(challengeName = "Mantenha sua\ncasa limpa", challengePoints = 75))
         listofchallenges.add(ChallengeModel(challengeName = "Coma menos carne\nvermelha", challengePoints = 50))
-        listofchallenges.add(ChallengeModel(challengeName = "Crie expectativas\npositivas", challengePoints = 35))
+        listofchallenges.add(ChallengeModel(challengeName = "Crie expectativas\npositivas\nÉ de graça!", challengePoints = 35))
         listofchallenges.add(ChallengeModel(challengeName = "Gaste mais tempo com\nquem você gosta!", challengePoints = 40))
         return listofchallenges  
     }
 
     fun getFourRandomChallenges(): List<ChallengeModel>{
         val listofchallenges = setChallengesList().toMutableList()
-
         listofchallenges.shuffle()
         val fourChallengesList = mutableListOf<ChallengeModel>()
-
         for (i in 0..3) {
             fourChallengesList.add(listofchallenges[i])
         }
-
         return fourChallengesList
     }
 }
