@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/ivLogoApp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_margin="54dp"
+        android:contentDescription="@string/image_description_logo2"
+        android:src="@drawable/bez_dark_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:fontFamily="@font/montserrat__bold"
+        android:textColor="@color/blue_zup"
+        android:textSize="@dimen/fontSize_16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Nome: Nome de usuário"
+        android:textAlignment="center"
+        android:layout_marginTop="100dp"
+        android:layout_marginHorizontal="@dimen/margin_20"
+        android:layout_marginBottom="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivLogoApp" />
+
+    <TextView
+        android:id="@+id/tvUserEmail"
+        android:fontFamily="@font/montserrat__bold"
+        android:textColor="@color/blue_zup"
+        android:textSize="@dimen/fontSize_16"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="E-mail: email@zup.com.br"
+        android:textAlignment="center"
+        android:layout_margin="@dimen/margin_20"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+
+    <ImageView
+        android:id="@+id/ivLogoZupColorful"
+        android:layout_width="@dimen/margin_0"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:contentDescription="@string/logo_colorful"
+        android:src="@drawable/logo_zup_colorido"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserEmail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
