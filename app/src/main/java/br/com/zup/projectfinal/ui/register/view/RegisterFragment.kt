@@ -61,7 +61,7 @@ class RegisterFragment : Fragment() {
 
     private fun initObservers() {
         viewModel.registerState.observe(this.viewLifecycleOwner) {
-            goToHome(it)
+            goToLogin(it)
         }
 
         viewModel.errorState.observe(this.viewLifecycleOwner) {
@@ -70,10 +70,10 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun goToHome(user: User) {
+    private fun goToLogin(user: User) {
         val bundle = bundleOf(USER_KEY to user)
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_registerFragment_to_challengesFragment, bundle)
+            .navigate(R.id.action_registerFragment_to_loginFragment, bundle)
     }
 
     private fun returnToLogin() {
