@@ -22,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etUserName"
+            android:id="@+id/etUserNameInsert"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,6 +38,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ivLogoApp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUserName"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/montserrat__bold"
@@ -46,7 +47,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etUserEmail"
+            android:id="@+id/etUserEmailInsert"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,9 +60,10 @@
             app:helperTextTextColor="@color/red_zup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUserName">
+            app:layout_constraintTop_toBottomOf="@+id/etUserNameInsert">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etUserEmail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/montserrat__bold"
@@ -70,7 +72,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etPassword"
+            android:id="@+id/etPasswordInsert"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -81,12 +83,13 @@
             app:boxBackgroundColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUserEmail"
+            app:layout_constraintTop_toBottomOf="@+id/etUserEmailInsert"
             app:passwordToggleContentDescription="@string/password_visibility"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/darkBlue_zup">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="15"
@@ -96,7 +99,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etPasswordConfirmation"
+            android:id="@+id/etPasswordConfirmationInsert"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -107,12 +110,13 @@
             app:boxBackgroundColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPassword"
+            app:layout_constraintTop_toBottomOf="@+id/etPasswordInsert"
             app:passwordToggleContentDescription="@string/password_visibility"
             app:passwordToggleEnabled="true"
             app:passwordToggleTint="@color/darkBlue_zup">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPasswordConfirmation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="15"
@@ -132,9 +136,9 @@
             android:text="@string/bv_register_now"
             android:textColor="@color/blue_zup"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/etPasswordConfirmation"
-            app:layout_constraintStart_toStartOf="@+id/etPasswordConfirmation"
-            app:layout_constraintTop_toBottomOf="@id/etPasswordConfirmation" />
+            app:layout_constraintEnd_toEndOf="@+id/etPasswordConfirmationInsert"
+            app:layout_constraintStart_toStartOf="@+id/etPasswordConfirmationInsert"
+            app:layout_constraintTop_toBottomOf="@id/etPasswordConfirmationInsert" />
 
         <TextView
             android:id="@+id/tvInformation"

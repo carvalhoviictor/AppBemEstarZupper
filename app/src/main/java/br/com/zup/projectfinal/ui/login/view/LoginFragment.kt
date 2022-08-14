@@ -14,8 +14,7 @@ import br.com.zup.projectfinal.databinding.FragmentLoginBinding
 import br.com.zup.projectfinal.domain.model.User
 import br.com.zup.projectfinal.ui.InitialActivity
 import br.com.zup.projectfinal.ui.login.viewmodel.LoginViewModel
-import br.com.zup.projectfinal.utils.LOGIN_ERROR_MESSAGE
-import br.com.zup.projectfinal.utils.USER_KEY
+import br.com.zup.projectfinal.utils.*
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -26,7 +25,7 @@ class LoginFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         return binding.root
@@ -42,8 +41,10 @@ class LoginFragment : Fragment() {
         }
 
         binding.bvLogin.setOnClickListener {
-            val user = getDataUser()
-            viewModel.validateDataUser(user)
+            if (validateField()) {
+                val user = getDataUser()
+                viewModel.validateDataUser(user)
+            }
         }
 
         initObservers()
@@ -51,8 +52,8 @@ class LoginFragment : Fragment() {
 
     private fun getDataUser(): User {
         return User(
-            email = binding.etUserEmail.editText.toString(),
-            password = binding.etPassword.editText.toString()
+            email = binding.etUserEmail.text.toString(),
+            password = binding.etPassword.text.toString()
         )
     }
 
@@ -74,6 +75,25 @@ class LoginFragment : Fragment() {
 
         viewModel.errorState.observe(this.viewLifecycleOwner) {
             Toast.makeText(context, LOGIN_ERROR_MESSAGE, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun validateField(): Boolean {
+        return when {
+            (binding.etUserEmail.text.toString().isEmpty() && binding.etPassword.text.toString().isEmpty()) -> {
+                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
+                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
+                false
+            }
+            binding.etUserEmail.text.toString().isEmpty() -> {
+                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
+                false
+            }
+            binding.etPassword.text.toString().isEmpty() -> {
+                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
+                false
+            }
+            else -> true
         }
     }
 }
