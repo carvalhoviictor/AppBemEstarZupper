@@ -18,7 +18,6 @@ import java.util.*
 
 
 class PhotoScreenViewModel(application: Application) : AndroidViewModel(application) {
-    private val authenticationRepository = AuthenticationRepository()
 
     private val pref: SharedPreferences =
         application.getSharedPreferences("Shared", Context.MODE_PRIVATE)
@@ -96,9 +95,5 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
         val date = Calendar.getInstance().time
         val dateFormat = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
         return dateFormat.format(date)
-    }
-
-    fun logout() {
-        authenticationRepository.logout()
     }
 }

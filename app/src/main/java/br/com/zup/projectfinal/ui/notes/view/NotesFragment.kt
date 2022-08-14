@@ -108,9 +108,9 @@ class NotesFragment : Fragment() {
         }
     }
 
-    private fun navigateToLoginFragment() {
+    private fun navigateToProfileFragment() {
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_notesFragment_to_loginFragment)
+            .navigate(R.id.action_notesFragment_to_profileFragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -119,10 +119,8 @@ class NotesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.exit -> {
-                viewModel.logout()
-                this.onDestroy()
-                navigateToLoginFragment()
+            R.id.profile -> {
+                navigateToProfileFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)

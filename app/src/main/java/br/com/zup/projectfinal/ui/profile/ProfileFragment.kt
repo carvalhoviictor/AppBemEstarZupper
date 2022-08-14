@@ -29,12 +29,30 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
         actionBarAccess()
+        showUserName()
+        showUserEmail()
     }
 
     private fun actionBarAccess() {
         (activity as InitialActivity).supportActionBar?.show()
         (activity as InitialActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
         (activity as InitialActivity).supportActionBar?.title = TITLE_PROFILE
+    }
+
+    private fun showUserName() {
+        val userName = buildString {
+            append("Nome: ")
+            append(viewModel.getUserName())
+        }
+        binding.tvUserName.text = userName
+    }
+
+    private fun showUserEmail() {
+        val userEmail = buildString {
+            append("Nome: ")
+            append(viewModel.getUserEmail())
+        }
+        binding.tvUserName.text = userEmail
     }
 
     private fun navigateToLoginFragment() {
