@@ -80,16 +80,16 @@ class LoginFragment : Fragment() {
 
     private fun validateField(): Boolean {
         return when {
-            (binding.etUserEmail.text.isEmpty() && binding.etPassword.text.isEmpty()) -> {
+            (binding.etUserEmail.text.toString().isEmpty() && binding.etPassword.text.toString().isEmpty()) -> {
                 binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
                 binding.etPassword.error = PASSWORD_REQUIRED_FIELD
                 false
             }
-            binding.etUserEmail.text.isEmpty() -> {
+            binding.etUserEmail.text.toString().isEmpty() -> {
                 binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
                 false
             }
-            binding.etPassword.text.isEmpty() -> {
+            binding.etPassword.text.toString().isEmpty() -> {
                 binding.etPassword.error = PASSWORD_REQUIRED_FIELD
                 false
             }
