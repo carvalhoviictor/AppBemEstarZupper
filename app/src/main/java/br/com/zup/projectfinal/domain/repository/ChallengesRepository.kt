@@ -1,7 +1,6 @@
 package br.com.zup.projectfinal.domain.repository
 
 import br.com.zup.projectfinal.domain.model.ChallengeModel
-import br.com.zup.projectfinal.domain.model.DailyChallenges
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
