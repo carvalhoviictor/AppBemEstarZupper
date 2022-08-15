@@ -9,7 +9,7 @@ import br.com.zup.projectfinal.domain.repository.TakeBreakRepository
 import br.com.zup.projectfinal.utils.DIVISOR
 import br.com.zup.projectfinal.utils.ERROR
 
-class TakeBreakViewModel () : ViewModel() {
+class TakeBreakViewModel() : ViewModel() {
     private val repository = TakeBreakRepository()
     private val _takeBreakResponse: MutableLiveData<List<TakeBreakModel>> = MutableLiveData()
     val takeBreakResponse: LiveData<List<TakeBreakModel>> = _takeBreakResponse

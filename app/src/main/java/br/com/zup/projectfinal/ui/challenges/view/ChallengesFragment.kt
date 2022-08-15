@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentChallengesBinding
 import br.com.zup.projectfinal.domain.model.ChallengeModel
-import br.com.zup.projectfinal.ui.InitialActivity
+import br.com.zup.projectfinal.initial.InitialActivity
 import br.com.zup.projectfinal.ui.challenges.view.adapter.ChallengesAdapter
 import br.com.zup.projectfinal.ui.challenges.viewmodel.ChallengesViewModel
 import br.com.zup.projectfinal.ui.viewstate.ViewState
@@ -123,28 +123,23 @@ class ChallengesFragment : Fragment() {
     }
 
     private fun savePoints(doneChallenge: ChallengeModel) {
-        val totalPoints = binding.tvNumbPoints.text.toString().toInt() + doneChallenge.challengePoints
+        val totalPoints =
+            binding.tvNumbPoints.text.toString().toInt() + doneChallenge.challengePoints
         viewModel.savePoints(totalPoints)
     }
 
+    private fun showPoints(pointList: List<String>) {
 
-    private fun showPoints(pointList: List<String>){
-
-        if(pointList.isEmpty()){
+        if (pointList.isEmpty()) {
             binding.tvNumbPoints.text = "0"
             saveLevel(0)
-        }else{
+        } else {
             binding.tvNumbPoints.text = pointList.last()
             saveLevel(pointList.last().toInt())
         }
     }
 
     private fun saveLevel(points: Int) {
-        //0pts = level 1
-        //100pts = level 2
-        //200pts = level 3
-        //300pts = level 4
-        //500pts = level 5
 
         if (points in 100..199) {
             viewModel.saveLevel(2)
@@ -158,6 +153,21 @@ class ChallengesFragment : Fragment() {
         if (points in 500..599) {
             viewModel.saveLevel(5)
         }
+        if (points in 600..699) {
+            viewModel.saveLevel(6)
+        }
+        if (points in 700..799) {
+            viewModel.saveLevel(7)
+        }
+        if (points in 800..899) {
+            viewModel.saveLevel(8)
+        }
+        if (points in 900..999) {
+            viewModel.saveLevel(9)
+        }
+        if (points in 1000..1099) {
+            viewModel.saveLevel(10)
+        }
     }
 
     private fun showLevel(levelList: List<String>) {
@@ -168,7 +178,7 @@ class ChallengesFragment : Fragment() {
         }
     }
 
-    fun onCheckboxClicked(view: View, challengeModel: ChallengeModel) {
+    private fun onCheckboxClicked(view: View, challengeModel: ChallengeModel) {
         if (view is CheckBox) {
             val checked: Boolean = view.isChecked
 
@@ -182,12 +192,13 @@ class ChallengesFragment : Fragment() {
         }
     }
 
-    fun Fragment.hideKeyboard() {
+    private fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
 
     private fun Context.hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

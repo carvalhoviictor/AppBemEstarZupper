@@ -22,7 +22,7 @@ class BenefitsAdapter(
         val benefit = benefitsList[position]
         holder.showBenefitInfo(benefit)
         holder.binding.benefit.setOnClickListener {
-            when(position){
+            when (position) {
                 0 -> clickBenefit(BENEFIT_MOVIMENTE_URL)
                 1 -> clickBenefit(BENEFIT_TELAVITA_URL)
                 2 -> clickBenefit(BENEFIT_GYMPASS_URL)

@@ -1,4 +1,4 @@
-package br.com.zup.projectfinal.ui.profile
+package br.com.zup.projectfinal.ui.profile.view
 
 import android.os.Bundle
 import android.view.*
@@ -7,7 +7,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentProfileBinding
-import br.com.zup.projectfinal.ui.InitialActivity
+import br.com.zup.projectfinal.initial.InitialActivity
+import br.com.zup.projectfinal.ui.profile.viewmodel.ProfileViewModel
 import br.com.zup.projectfinal.utils.TITLE_PROFILE
 
 class ProfileFragment : Fragment() {
@@ -21,7 +22,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentProfileBinding.inflate(inflater,container,false)
+        binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -59,7 +60,7 @@ class ProfileFragment : Fragment() {
         binding.tvUserEmail.text = userEmail
     }
 
-    private fun logout(){
+    private fun logout() {
         viewModel.logout()
         this.onDestroy()
         navigateToLoginFragment()
@@ -69,5 +70,4 @@ class ProfileFragment : Fragment() {
         NavHostFragment.findNavController(this)
             .navigate(R.id.action_profileFragment_to_loginFragment)
     }
-
 }

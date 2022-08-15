@@ -12,9 +12,9 @@
 
         <ImageView
             android:id="@+id/ivLogoApp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="54dp"
+            android:layout_width="@dimen/size_170"
+            android:layout_height="@dimen/size_170"
+            android:layout_margin="@dimen/margin_54"
             android:contentDescription="@string/image_description_logo2"
             android:src="@drawable/bez_dark_blue"
             app:layout_constraintEnd_toEndOf="parent"
@@ -90,12 +90,12 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
-                android:paddingEnd="@dimen/margin_40"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="15"
                 android:fontFamily="@font/montserrat__bold"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:paddingEnd="@dimen/margin_40" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,26 +118,26 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPasswordConfirmation"
-                android:paddingEnd="@dimen/margin_40"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="15"
                 android:fontFamily="@font/montserrat__bold"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:paddingEnd="@dimen/margin_40" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/bvRegisterNow"
             android:layout_width="wrap_content"
-            android:layout_height="38dp"
+            android:layout_height="@dimen/size_38"
             android:layout_gravity="center"
-            android:layout_margin="25dp"
+            android:layout_margin="@dimen/margin_25"
             android:backgroundTint="@color/lightGray_zup"
             android:fontFamily="@font/montserrat__bold"
             android:text="@string/bv_register_now"
             android:textColor="@color/blue_zup"
-            android:textSize="16sp"
+            android:textSize="@dimen/fontSize_16"
             app:layout_constraintEnd_toEndOf="@+id/etPasswordConfirmationInsert"
             app:layout_constraintStart_toStartOf="@+id/etPasswordConfirmationInsert"
             app:layout_constraintTop_toBottomOf="@id/etPasswordConfirmationInsert" />
@@ -146,12 +146,12 @@
             android:id="@+id/tvInformation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_margin="@dimen/margin_25"
             android:fontFamily="@font/montserrat__bold"
             android:text="@string/return_to_login"
             android:textAlignment="center"
             android:textColor="@color/blue_zup"
-            android:textSize="16sp"
+            android:textSize="@dimen/fontSize_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bvRegisterNow" />
@@ -159,8 +159,8 @@
         <ImageView
             android:id="@+id/ivLogoZupColorful"
             android:layout_width="@dimen/margin_0"
-            android:layout_height="85dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="@dimen/size_85"
+            android:layout_marginTop="@dimen/margin_20"
             android:contentDescription="@string/logo_colorful"
             android:src="@drawable/logo_zup_colorido"
             app:layout_constraintBottom_toBottomOf="parent"

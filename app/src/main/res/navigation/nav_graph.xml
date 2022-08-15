@@ -58,7 +58,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="br.com.zup.projectfinal.ui.profile.ProfileFragment"
+        android:name="br.com.zup.projectfinal.ui.profile.view.ProfileFragment"
         android:label="@string/profiletxt"
         tools:layout="@layout/fragment_profile" >
         <action

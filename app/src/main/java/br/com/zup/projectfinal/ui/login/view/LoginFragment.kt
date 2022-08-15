@@ -15,7 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentLoginBinding
 import br.com.zup.projectfinal.domain.model.User
-import br.com.zup.projectfinal.ui.InitialActivity
+import br.com.zup.projectfinal.initial.InitialActivity
 import br.com.zup.projectfinal.ui.login.viewmodel.LoginViewModel
 import br.com.zup.projectfinal.utils.*
 
@@ -36,13 +36,19 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         (activity as InitialActivity).supportActionBar?.hide()
+        registerButton()
+        loginButton()
+        initObservers()
+    }
 
+    private fun registerButton() {
         binding.bvRegisterNow.setOnClickListener {
             goToRegister()
         }
+    }
 
+    private fun loginButton() {
         binding.bvLogin.setOnClickListener {
             hideKeyboard()
             if (validateField()) {
@@ -50,8 +56,6 @@ class LoginFragment : Fragment() {
                 viewModel.validateDataUser(user)
             }
         }
-
-        initObservers()
     }
 
     private fun getDataUser(): User {
@@ -83,18 +87,20 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun Fragment.hideKeyboard() {
+    private fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
 
     private fun Context.hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun validateField(): Boolean {
         return when {
-            (binding.etUserEmail.text.toString().isEmpty() && binding.etPassword.text.toString().isEmpty()) -> {
+            (binding.etUserEmail.text.toString().isEmpty() && binding.etPassword.text.toString()
+                .isEmpty()) -> {
                 binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
                 binding.etPassword.error = PASSWORD_REQUIRED_FIELD
                 false

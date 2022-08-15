@@ -14,10 +14,10 @@
             android:id="@+id/ivWateringBrain"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_150"
-            android:src="@drawable/ilustra_cerebro_regador"
-            android:scaleType="centerInside"
-            android:contentDescription="@string/description_image_watering_brain"
             android:layout_margin="@dimen/margin_20"
+            android:contentDescription="@string/description_image_watering_brain"
+            android:scaleType="centerInside"
+            android:src="@drawable/ilustra_cerebro_regador"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -27,11 +27,11 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_0"
             android:layout_margin="@dimen/margin_20"
+            android:fontFamily="@font/montserrat__regular"
             android:hint="@string/hint_notes_reminders"
             android:importantForAutofill="no"
-            android:fontFamily="@font/montserrat__regular"
-            android:textColorHint="@color/gray_zup"
             android:inputType="text"
+            android:textColorHint="@color/gray_zup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivWateringBrain" />
@@ -40,13 +40,13 @@
             android:id="@+id/btnSaveNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat__bold"
-            android:text="@string/btn_text_save_note"
-            android:textSize="@dimen/fontSize_16"
-            android:textColor="@color/white_zup"
-            android:backgroundTint="@color/tealGreen_zup"
-            android:paddingHorizontal="@dimen/padding_10"
             android:layout_margin="@dimen/margin_10"
+            android:backgroundTint="@color/tealGreen_zup"
+            android:fontFamily="@font/montserrat__bold"
+            android:paddingHorizontal="@dimen/padding_10"
+            android:text="@string/btn_text_save_note"
+            android:textColor="@color/white_zup"
+            android:textSize="@dimen/fontSize_16"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etNotesReminders" />
@@ -56,11 +56,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margin_20"
-            tools:listitem="@layout/note_item"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnSaveNote" />
+            app:layout_constraintTop_toBottomOf="@id/btnSaveNote"
+            tools:listitem="@layout/note_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

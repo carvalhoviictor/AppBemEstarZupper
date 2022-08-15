@@ -16,6 +16,4 @@ class PexelsUseCase(application: Application) {
             ViewState.Error(ex)
         }
     }
-
 }
-

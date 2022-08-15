@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/ivLogoApp"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
+        android:layout_width="@dimen/size_170"
+        android:layout_height="@dimen/size_170"
         android:contentDescription="@string/image_description_logo1"
         android:src="@drawable/bez_white"
         app:layout_constraintBottom_toTopOf="@id/ivHappyPeople"
@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/ivHappyPeople"
-        android:layout_width="@dimen/margin_0"
-        android:layout_height="240dp"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_240"
         android:contentDescription="@string/image_description_happy_people"
         android:src="@drawable/ilustra_splash"
         app:layout_constraintBottom_toTopOf="@id/ivLogoZupWhite"
@@ -31,8 +31,8 @@
 
     <ImageView
         android:id="@+id/ivLogoZupWhite"
-        android:layout_width="@dimen/margin_0"
-        android:layout_height="85dp"
+        android:layout_width="@dimen/size_0"
+        android:layout_height="@dimen/size_85"
         android:contentDescription="@string/logo_white"
         android:src="@drawable/logo_zup_branco"
         app:layout_constraintBottom_toBottomOf="parent"

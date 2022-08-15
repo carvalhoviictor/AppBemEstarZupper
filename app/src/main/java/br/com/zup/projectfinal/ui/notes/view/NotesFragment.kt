@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 import br.com.zup.projectfinal.databinding.FragmentNotesBinding
-import br.com.zup.projectfinal.ui.InitialActivity
+import br.com.zup.projectfinal.initial.InitialActivity
 import br.com.zup.projectfinal.ui.notes.view.adapter.NotesAdapter
 import br.com.zup.projectfinal.ui.notes.viewmodel.NotesViewModel
 import br.com.zup.projectfinal.ui.viewstate.ViewState
@@ -37,7 +37,7 @@ class NotesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNotesBinding.inflate(inflater,container,false)
+        binding = FragmentNotesBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -49,7 +49,10 @@ class NotesFragment : Fragment() {
         viewModel.getAllNotes()
         initObserver()
         showRecyclerView()
+        saveButton()
+    }
 
+    private fun saveButton() {
         binding.btnSaveNote.setOnClickListener {
             hideKeyboard()
             saveNote()
@@ -62,13 +65,14 @@ class NotesFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         (activity as InitialActivity).supportActionBar?.title = TITLE_NOTES
     }
-    private fun showRecyclerView(){
+
+    private fun showRecyclerView() {
         binding.rvNotes.adapter = notesAdapter
         binding.rvNotes.layoutManager = LinearLayoutManager(context)
     }
 
-    private fun saveNote(){
-        if(validateField()){
+    private fun saveNote() {
+        if (validateField()) {
             viewModel.insertNote(getNote())
             hideKeyboard()
             Toast.makeText(context, MSG_NOTE_SUCCESS, Toast.LENGTH_LONG).show()
@@ -76,43 +80,44 @@ class NotesFragment : Fragment() {
         }
     }
 
-    private fun getNote(): NotesModel{
+    private fun getNote(): NotesModel {
         val note = binding.etNotesReminders.text.toString()
         return NotesModel(note = note)
     }
 
-    private fun validateField(): Boolean{
-        return if(binding.etNotesReminders.text.isEmpty()){
+    private fun validateField(): Boolean {
+        return if (binding.etNotesReminders.text.isEmpty()) {
             binding.etNotesReminders.error = REQUIRED_FIELD
             false
-        }else{
+        } else {
             true
         }
     }
 
-    private fun clearField(){
+    private fun clearField() {
         binding.etNotesReminders.text.clear()
     }
 
-    private fun deleteNote(note: NotesModel){
+    private fun deleteNote(note: NotesModel) {
         viewModel.deleteNote(note.note)
         hideKeyboard()
         Toast.makeText(context, DELETE_MSG_NOTE_SUCCESS, Toast.LENGTH_LONG).show()
     }
 
-    fun Fragment.hideKeyboard() {
+    private fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
 
     private fun Context.hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    private fun initObserver(){
+    private fun initObserver() {
 
-        viewModel.notesListState.observe(this.viewLifecycleOwner){
-            when(it){
+        viewModel.notesListState.observe(this.viewLifecycleOwner) {
+            when (it) {
                 is ViewState.Success -> {
                     notesAdapter.updateNotesList(it.data.toMutableList())
                 }

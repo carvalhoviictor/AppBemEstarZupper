@@ -12,9 +12,9 @@
 
         <ImageView
             android:id="@+id/ivLogoApp"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
-            android:layout_margin="54dp"
+            android:layout_width="@dimen/size_170"
+            android:layout_height="@dimen/size_170"
+            android:layout_margin="@dimen/margin_54"
             android:contentDescription="@string/image_description_logo2"
             android:src="@drawable/bez_dark_blue"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,13 +26,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_30"
             android:layout_marginStart="@dimen/margin_30"
+            android:layout_marginEnd="@dimen/margin_30"
             android:fontFamily="@font/montserrat__bold"
-            app:helperTextTextColor="@color/red_zup"
-            android:selectAllOnFocus="true"
             android:hint="@string/email"
+            android:selectAllOnFocus="true"
             app:boxBackgroundColor="@color/white"
+            app:helperTextTextColor="@color/red_zup"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivLogoApp">
@@ -51,10 +51,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/margin_30"
             android:layout_marginStart="@dimen/margin_30"
-            android:hint="@string/password"
+            android:layout_marginEnd="@dimen/margin_30"
             android:focusableInTouchMode="true"
+            android:hint="@string/password"
             app:boxBackgroundColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,21 +65,21 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
-                android:paddingEnd="@dimen/margin_40"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="15"
                 android:fontFamily="@font/montserrat__bold"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:paddingEnd="@dimen/margin_40" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/bvLogin"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/size_40"
             android:layout_gravity="center"
-            android:layout_margin="25dp"
+            android:layout_margin="@dimen/margin_25"
             android:backgroundTint="@color/red_zup"
             android:fontFamily="@font/montserrat__bold"
             android:text="@string/text_login"
@@ -92,13 +92,13 @@
             android:id="@+id/tvInformation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="25dp"
+            android:layout_margin="@dimen/margin_25"
             android:fontFamily="@font/montserrat__regular"
-            android:lineSpacingExtra="8sp"
+            android:lineSpacingExtra="@dimen/spacing_8"
             android:text="@string/informations"
             android:textAlignment="center"
             android:textColor="@color/blue_zup"
-            android:textSize="16sp"
+            android:textSize="@dimen/fontSize_16"
             app:layout_constraintEnd_toEndOf="@+id/bvLogin"
             app:layout_constraintStart_toStartOf="@+id/bvLogin"
             app:layout_constraintTop_toBottomOf="@+id/bvLogin" />
@@ -106,15 +106,15 @@
         <Button
             android:id="@+id/bvRegisterNow"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_margin="25dp"
+            android:layout_height="@dimen/size_40"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_25"
             android:backgroundTint="@color/lightGray_zup"
             android:fontFamily="@font/montserrat__bold"
             android:text="@string/register_now"
             android:textAlignment="center"
-            android:layout_gravity="center"
             android:textColor="@color/blue_zup"
-            android:textSize="16sp"
+            android:textSize="@dimen/fontSize_16"
             app:layout_constraintEnd_toEndOf="@+id/tvInformation"
             app:layout_constraintStart_toStartOf="@+id/tvInformation"
             app:layout_constraintTop_toBottomOf="@id/tvInformation" />
@@ -122,8 +122,8 @@
         <ImageView
             android:id="@+id/ivLogoZupColorful"
             android:layout_width="@dimen/margin_0"
-            android:layout_height="85dp"
-            android:layout_marginTop="50dp"
+            android:layout_height="@dimen/size_85"
+            android:layout_marginTop="@dimen/margin_50"
             android:contentDescription="@string/logo_colorful"
             android:src="@drawable/logo_zup_colorido"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -132,5 +132,4 @@
             app:layout_constraintTop_toBottomOf="@+id/bvRegisterNow" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </ScrollView>

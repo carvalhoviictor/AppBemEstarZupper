@@ -11,4 +11,4 @@ data class User(
     var passwordConfirmation: String = "",
     var points: Int = 0,
     var level: Int = 0
-): Parcelable
+) : Parcelable

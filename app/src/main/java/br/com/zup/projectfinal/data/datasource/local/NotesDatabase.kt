@@ -8,7 +8,7 @@ import br.com.zup.projectfinal.data.datasource.local.dao.NotesDao
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 
 @Database(entities = [NotesModel::class], version = 2)
-abstract class NotesDatabase: RoomDatabase() {
+abstract class NotesDatabase : RoomDatabase() {
 
     abstract fun notesDao(): NotesDao
 
