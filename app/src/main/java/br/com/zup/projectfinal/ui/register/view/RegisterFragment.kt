@@ -1,10 +1,13 @@
 package br.com.zup.projectfinal.ui.register.view
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -36,6 +39,7 @@ class RegisterFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.hide()
 
         binding.bvRegisterNow.setOnClickListener {
+            hideKeyboard()
             if (validateField()) {
                 val user = getDataUser()
                 viewModel.validateDataUser(user)
@@ -161,5 +165,13 @@ class RegisterFragment : Fragment() {
             }
             else -> true
         }
+    }
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
     }
 }

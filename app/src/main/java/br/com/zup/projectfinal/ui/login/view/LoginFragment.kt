@@ -44,6 +44,7 @@ class LoginFragment : Fragment() {
         }
 
         binding.bvLogin.setOnClickListener {
+            hideKeyboard()
             if (validateField()) {
                 val user = getDataUser()
                 viewModel.validateDataUser(user)

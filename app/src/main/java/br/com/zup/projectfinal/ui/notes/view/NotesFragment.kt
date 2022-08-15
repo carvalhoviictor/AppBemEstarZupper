@@ -51,6 +51,7 @@ class NotesFragment : Fragment() {
         showRecyclerView()
 
         binding.btnSaveNote.setOnClickListener {
+            hideKeyboard()
             saveNote()
             viewModel.getAllNotes()
         }
