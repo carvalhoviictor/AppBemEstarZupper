@@ -31,6 +31,10 @@ class ProfileFragment : Fragment() {
         actionBarAccess()
         showUserName()
         showUserEmail()
+
+        binding.exitBtn.setOnClickListener {
+            logout()
+        }
     }
 
     private fun actionBarAccess() {
@@ -49,31 +53,21 @@ class ProfileFragment : Fragment() {
 
     private fun showUserEmail() {
         val userEmail = buildString {
-            append("Nome: ")
+            append("E-mail: ")
             append(viewModel.getUserEmail())
         }
-        binding.tvUserName.text = userEmail
+        binding.tvUserEmail.text = userEmail
+    }
+
+    private fun logout(){
+        viewModel.logout()
+        this.onDestroy()
+        navigateToLoginFragment()
     }
 
     private fun navigateToLoginFragment() {
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_notesFragment_to_loginFragment)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.exit -> {
-                viewModel.logout()
-                this.onDestroy()
-                navigateToLoginFragment()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
+            .navigate(R.id.action_profileFragment_to_loginFragment)
     }
 
 }
