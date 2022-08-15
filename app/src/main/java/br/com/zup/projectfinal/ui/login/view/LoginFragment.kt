@@ -1,9 +1,12 @@
 package br.com.zup.projectfinal.ui.login.view
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
@@ -74,22 +77,32 @@ class LoginFragment : Fragment() {
         }
 
         viewModel.errorState.observe(this.viewLifecycleOwner) {
-            Toast.makeText(context, LOGIN_ERROR_MESSAGE, Toast.LENGTH_SHORT).show()
+            hideKeyboard()
+            Toast.makeText(context, LOGIN_PASSWORD_INCORRECT, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun validateField(): Boolean {
         return when {
-            (binding.etUserEmail.text.isEmpty() && binding.etPassword.text.isEmpty()) -> {
+            (binding.etUserEmail.text.toString().isEmpty() && binding.etPassword.text.toString().isEmpty()) -> {
                 binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
                 binding.etPassword.error = PASSWORD_REQUIRED_FIELD
                 false
             }
-            binding.etUserEmail.text.isEmpty() -> {
+            binding.etUserEmail.text.toString().isEmpty() -> {
                 binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
                 false
             }
-            binding.etPassword.text.isEmpty() -> {
+            binding.etPassword.text.toString().isEmpty() -> {
                 binding.etPassword.error = PASSWORD_REQUIRED_FIELD
                 false
             }

@@ -1,7 +1,10 @@
 package br.com.zup.projectfinal.ui.notes.view
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -66,6 +69,7 @@ class NotesFragment : Fragment() {
     private fun saveNote(){
         if(validateField()){
             viewModel.insertNote(getNote())
+            hideKeyboard()
             Toast.makeText(context, MSG_NOTE_SUCCESS, Toast.LENGTH_LONG).show()
             clearField()
         }
@@ -91,7 +95,17 @@ class NotesFragment : Fragment() {
 
     private fun deleteNote(note: NotesModel){
         viewModel.deleteNote(note.note)
+        hideKeyboard()
         Toast.makeText(context, DELETE_MSG_NOTE_SUCCESS, Toast.LENGTH_LONG).show()
+    }
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
     private fun initObserver(){
@@ -102,15 +116,16 @@ class NotesFragment : Fragment() {
                     notesAdapter.updateNotesList(it.data.toMutableList())
                 }
                 is ViewState.Error -> {
+                    hideKeyboard()
                     Toast.makeText(context, "${it.throwable.message}", Toast.LENGTH_LONG).show()
                 }
             }
         }
     }
 
-    private fun navigateToLoginFragment() {
+    private fun navigateToProfileFragment() {
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_notesFragment_to_loginFragment)
+            .navigate(R.id.action_notesFragment_to_profileFragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -119,10 +134,8 @@ class NotesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.exit -> {
-                viewModel.logout()
-                this.onDestroy()
-                navigateToLoginFragment()
+            R.id.profile -> {
+                navigateToProfileFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)

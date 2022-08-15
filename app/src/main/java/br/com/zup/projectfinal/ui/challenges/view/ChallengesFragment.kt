@@ -1,10 +1,13 @@
 package br.com.zup.projectfinal.ui.challenges.view
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.CheckBox
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -59,9 +62,9 @@ class ChallengesFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.title = TITLE_DESAFIOS
     }
 
-    private fun navigateToLoginFragment() {
+    private fun navigateToProfileFragment() {
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_challengesFragment_to_loginFragment)
+            .navigate(R.id.action_challengesFragment_to_profileFragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -70,10 +73,8 @@ class ChallengesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.exit -> {
-                viewModel.logout()
-                this.onDestroy()
-                navigateToLoginFragment()
+            R.id.profile -> {
+                navigateToProfileFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -92,12 +93,14 @@ class ChallengesFragment : Fragment() {
                     challengesAdapter.updateNotesList(it.data.toMutableList())
                 }
                 is ViewState.Error -> {
+                    hideKeyboard()
                     Toast.makeText(context, "${it.throwable.message}", Toast.LENGTH_LONG).show()
                 }
             }
         }
 
         viewModel.msgState.observe(this.viewLifecycleOwner) {
+            hideKeyboard()
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
 
@@ -177,5 +180,14 @@ class ChallengesFragment : Fragment() {
                 }
             }
         }
+    }
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
