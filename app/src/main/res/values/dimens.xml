@@ -4,27 +4,44 @@
     <dimen name="margin_8">8dp</dimen>
     <dimen name="margin_10">10dp</dimen>
     <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_25">25dp</dimen>
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_40">40dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_54">54dp</dimen>
+    <dimen name="margin_100">100dp</dimen>
+
+    <dimen name="size_0">0dp</dimen>
+    <dimen name="size_1">1dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_21">21dp</dimen>
+    <dimen name="size_25">25dp</dimen>
+    <dimen name="size_30">30dp</dimen>
+    <dimen name="size_38">38dp</dimen>
+    <dimen name="size_39">39dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_45">45dp</dimen>
+    <dimen name="size_70">70dp</dimen>
+    <dimen name="size_85">85dp</dimen>
+    <dimen name="size_90">90dp</dimen>
+    <dimen name="size_150">150dp</dimen>
+    <dimen name="size_170">170dp</dimen>
+    <dimen name="size_199">199dp</dimen>
     <dimen name="size_200">200dp</dimen>
+    <dimen name="size_210">210dp</dimen>
+    <dimen name="size_240">240dp</dimen>
+    <dimen name="size_300">300dp</dimen>
+
+    <dimen name="spacing_8">8sp</dimen>
     <dimen name="fontSize_14">14sp</dimen>
+    <dimen name="fontSize_16">16sp</dimen>
     <dimen name="fontSize_20">20sp</dimen>
     <dimen name="fontSize_40">40sp</dimen>
+
     <dimen name="padding_10">10dp</dimen>
-    <dimen name="size_21">21dp</dimen>
-    <dimen name="size_45">45dp</dimen>
-    <dimen name="size_16">16dp</dimen>
-    <dimen name="size_39">39dp</dimen>
-    <dimen name="size_199">199dp</dimen>
-    <dimen name="size_210">210dp</dimen>
-    <dimen name="size_8">8dp</dimen>
-    <dimen name="size_150">150dp</dimen>
-    <dimen name="margin_20">20dp</dimen>
-    <dimen name="size_0">0dp</dimen>
-    <dimen name="fontSize_16">16sp</dimen>
     <dimen name="padding_20">20dp</dimen>
     <dimen name="corner_10">10dp</dimen>
-    <dimen name="size_300">300dp</dimen>
-    <dimen name="size_25">25dp</dimen>
-    <dimen name="size_70">70dp</dimen>
+
 </resources>

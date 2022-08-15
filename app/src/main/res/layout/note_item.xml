@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/margin_10"
     android:backgroundTint="@color/white_zup"
-    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="@dimen/corner_10">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,12 +15,14 @@
 
         <TextView
             android:id="@+id/tvNoteReminder"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/size_0"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_8"
             android:fontFamily="@font/montserrat__bold"
             android:textColor="@color/blue_zup"
             android:textSize="@dimen/fontSize_16"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivDelete"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Texto da Nota ou Lembrete aqui" />
