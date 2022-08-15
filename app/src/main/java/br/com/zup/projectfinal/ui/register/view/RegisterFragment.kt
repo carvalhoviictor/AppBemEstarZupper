@@ -40,9 +40,11 @@ class RegisterFragment : Fragment() {
 
         binding.bvRegisterNow.setOnClickListener {
             hideKeyboard()
-            if (validateField()) {
-                val user = getDataUser()
+            val user = getData()
+            if (user != null) {
                 viewModel.validateDataUser(user)
+            } else {
+                showFieldsError()
             }
         }
 
@@ -53,13 +55,21 @@ class RegisterFragment : Fragment() {
         initObservers()
     }
 
-    private fun getDataUser(): User {
-        return User(
-            name = binding.etUserName.text.toString(),
-            email = binding.etUserEmail.text.toString(),
-            password = binding.etPassword.text.toString(),
-            passwordConfirmation = binding.etPasswordConfirmation.text.toString()
-        )
+    private fun getData(): User? {
+        val username = binding.etUserName.text.toString()
+        val userEmail = binding.etUserEmail.text.toString()
+        val password = binding.etPassword.text.toString()
+        val passwordConfirm = binding.etPasswordConfirmation.text.toString()
+
+        if (username.isNotEmpty() && userEmail.isNotEmpty() && password.isNotEmpty() && passwordConfirm.isNotEmpty()) {
+            return User(
+                name = username,
+                email = userEmail,
+                password = password,
+                passwordConfirmation = passwordConfirm
+            )
+        }
+        return null
     }
 
     private fun initObservers() {
@@ -84,98 +94,21 @@ class RegisterFragment : Fragment() {
             .navigate(R.id.action_registerFragment_to_loginFragment)
     }
 
-    private fun validateField(): Boolean {
-        return when {
-            (binding.etUserName.text.toString().isEmpty() && binding.etUserEmail.text.toString()
-                .isEmpty() && binding.etPassword.text.toString()
-                .isEmpty() && binding.etPasswordConfirmation.text.toString().isEmpty()) -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserEmail.text.toString().isEmpty() && binding.etPassword.text.toString()
-                .isEmpty() && binding.etPasswordConfirmation.text.toString().isEmpty()) -> {
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserName.text.toString().isEmpty() && binding.etPassword.text.toString()
-                .isEmpty() && binding.etPasswordConfirmation.text.toString().isEmpty()) -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserName.text.toString().isEmpty() && binding.etUserEmail.text.toString()
-                .isEmpty() && binding.etPasswordConfirmation.text.toString().isEmpty()) -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserName.text.toString().isEmpty() && binding.etUserEmail.text.toString()
-                .isEmpty() && binding.etPassword.text.toString().isEmpty()) -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserName.text.toString().isEmpty() && binding.etUserEmail.text.toString()
-                .isEmpty()) -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserName.text.toString().isEmpty() && binding.etPassword.text.toString()
-                .isEmpty()) -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserName.text.toString()
-                .isEmpty() && binding.etPasswordConfirmation.text.toString().isEmpty()) -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserEmail.text.toString().isEmpty() && binding.etPassword.text.toString()
-                .isEmpty()) -> {
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                false
-            }
-            (binding.etUserEmail.text.toString()
-                .isEmpty() && binding.etPasswordConfirmation.text.toString().isEmpty()) -> {
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                binding.etPasswordConfirmation.error = PASSWORD_REQUIRED_FIELD
-                false
-            }
-            (binding.etPassword.text.toString()
-                .isEmpty() && binding.etPasswordConfirmation.text.toString().isEmpty()) -> {
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
-                false
-            }
-            binding.etUserName.text.toString().isEmpty() -> {
-                binding.etUserName.error = NAME_REQUIRED_FIELD
-                false
-            }
-            binding.etUserEmail.text.toString().isEmpty() -> {
-                binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
-                false
-            }
-            binding.etPassword.text.toString().isEmpty() -> {
-                binding.etPassword.error = PASSWORD_REQUIRED_FIELD
-                false
-            }
-            binding.etPasswordConfirmation.text.toString().isEmpty() -> {
-                binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
-                false
-            }
-            else -> true
+    private fun showFieldsError() {
+        if (binding.etUserName.text.toString().isEmpty()) {
+            binding.etUserName.error = NAME_REQUIRED_FIELD
+        }
+
+        if (binding.etUserEmail.text.toString().isEmpty()) {
+            binding.etUserEmail.error = EMAIL_REQUIRED_FIELD
+        }
+
+        if (binding.etPassword.text.toString().isEmpty()) {
+            binding.etPassword.error = PASSWORD_REQUIRED_FIELD
+        }
+
+        if (binding.etPasswordConfirmation.text.toString().isEmpty()) {
+            binding.etPasswordConfirmation.error = PASSWORD_CONFIRMATION_REQUIRED_FIELD
         }
     }
 
