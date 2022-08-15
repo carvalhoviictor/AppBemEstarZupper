@@ -35,9 +35,13 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         (activity as InitialActivity).supportActionBar?.hide()
+        validateRegister()
+        returnToLoginButton()
+        initObservers()
+    }
 
+    private fun validateRegister() {
         binding.bvRegisterNow.setOnClickListener {
             hideKeyboard()
             val user = getData()
@@ -47,12 +51,12 @@ class RegisterFragment : Fragment() {
                 showFieldsError()
             }
         }
+    }
 
+    private fun returnToLoginButton() {
         binding.tvInformation.setOnClickListener {
             returnToLogin()
         }
-
-        initObservers()
     }
 
     private fun getData(): User? {
