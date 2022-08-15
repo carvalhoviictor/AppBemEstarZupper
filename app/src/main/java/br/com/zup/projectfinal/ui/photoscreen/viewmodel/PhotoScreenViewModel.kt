@@ -37,7 +37,7 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
 
     private fun checkImageDay(): Boolean {
         val dateSave = pref.getString("DATE", "")
-        val imageSave = pref.getString("IMAGE", "")
+        val imageSave = pref.getString("SRC", "")
 
         if (dateSave.isNullOrEmpty() || imageSave.isNullOrEmpty()) return false
 
@@ -60,7 +60,6 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
     }
 
     private fun getImageRepository() {
-
         viewModelScope.launch {
             try {
                 val response = withContext(Dispatchers.IO) {
