@@ -90,6 +90,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
+                android:paddingEnd="@dimen/margin_40"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="15"
@@ -117,6 +118,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPasswordConfirmation"
+                android:paddingEnd="@dimen/margin_40"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ems="15"
