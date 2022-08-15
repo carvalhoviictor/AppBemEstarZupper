@@ -1,9 +1,12 @@
 package br.com.zup.projectfinal.ui.photoscreen.view
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -126,6 +129,7 @@ class PhotoScreenFragment : Fragment() {
                     showImage(it.data)
                 }
                 is ViewState.Error -> {
+                    hideKeyboard()
                     Toast.makeText(context, "${it.throwable.message}", Toast.LENGTH_LONG).show()
                 }
             }
@@ -163,5 +167,14 @@ class PhotoScreenFragment : Fragment() {
         val intent = Intent(Intent.ACTION_VIEW)
         intent.data = Uri.parse(url)
         startActivity(intent)
+    }
+
+    fun Fragment.hideKeyboard() {
+        view?.let { activity?.hideKeyboard(it) }
+    }
+
+    private fun Context.hideKeyboard(view: View) {
+        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
