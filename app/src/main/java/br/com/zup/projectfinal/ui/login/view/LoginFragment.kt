@@ -78,7 +78,7 @@ class LoginFragment : Fragment() {
 
         viewModel.errorState.observe(this.viewLifecycleOwner) {
             hideKeyboard()
-            Toast.makeText(context, LOGIN_ERROR_MESSAGE, Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, LOGIN_PASSWORD_INCORRECT, Toast.LENGTH_SHORT).show()
         }
     }
 
