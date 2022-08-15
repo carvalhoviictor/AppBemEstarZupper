@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="br.com.zup.projectfinal.ui.login.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_challengesFragment"
+            app:destination="@id/challengesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="br.com.zup.projectfinal.ui.register.view.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_registerFragment_to_challengesFragment"
+            app:destination="@id/challengesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengesFragment"
+        android:name="br.com.zup.projectfinal.ui.challenges.view.ChallengesFragment"
+        android:label="@string/challenges"
+        tools:layout="@layout/fragment_challenges" >
+        <action
+            android:id="@+id/action_challengesFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="br.com.zup.projectfinal.ui.notes.view.NotesFragment"
+        android:label="@string/notes"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notesFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoScreenFragment"
+        android:name="br.com.zup.projectfinal.ui.photoscreen.view.PhotoScreenFragment"
+        android:label="@string/take_a_break"
+        tools:layout="@layout/fragment_photo_screen" >
+        <action
+            android:id="@+id/action_photoScreenFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="br.com.zup.projectfinal.ui.profile.view.ProfileFragment"
+        android:label="@string/profiletxt"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+</navigation>

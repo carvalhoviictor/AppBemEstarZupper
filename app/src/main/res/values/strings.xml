@@ -1,3 +1,46 @@
 <resources>
-    <string name="app_name">projectFinal</string>
+    <string name="app_name">Bem Estar Zupper</string>
+    <string name="register_now">Crie agora</string>
+    <string name="text_login">Entrar</string>
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="name">Nome</string>
+    <string name="register">Registrar</string>
+    <string name="exit">Sair</string>
+    <string name="register_now_title">REGISTRAR CONTA</string>
+    <string name="description_example_photo">Mesa cheia de frutas coloridas</string>
+    <string name="image_description_logo2">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e azul marinho num fundo branco</string>
+    <string name="image_description_logo1">Imagem com o texto: \'Bem Estar Zupper\' nas cores verde e branco num fundo azul marinho</string>
+    <string name="informations">Faça Login com sua conta Zup \n Ainda não tem uma conta?</string>
+    <string name="image_description_happy_people">Ilustração de três pessoas se divertindo</string>
+    <string name="return_to_login">Já tenho uma conta</string>
+    <string name="bv_register_now">Criar conta</string>
+    <string name="logo_white">Logotipo da Zup todo branco</string>
+    <string name="logo_colorful">Logotipo da Zup colorido</string>
+    <string name="password_confirmation">Confirme sua senha</string>
+    <string name="hello_zupper"><![CDATA[Olá, <Nome Zupper>]]></string>
+    <string name="image_brain_description">Desenho de um cérebro, sendo o lado esquerdo colorido de laranja e o lado direito dele colorido de verde claro, e em volta várias flores coloridas uma de cada cor sendo laranja, branca, azul com algumas folhas</string>
+    <string name="text_inform">Você está no:</string>
+    <string name="level_1">Nível 1</string>
+    <string name="points">Pontos</string>
+    <string name="zero">0</string>
+    <string name="challenge_msg">Exemplo de Desafio</string>
+    <string name="check_description">Imagem de um check verde para quando o desafio está feito, e de uma X laranja para quando não está feito</string>
+    <string name="_20pts">20pts</string>
+    <string name="description_image_watering_brain">Ilustração de um cérebro colorido e florido sendo regado por uma mão segurando um regador</string>
+    <string name="hint_notes_reminders">Escreva sua nota ou lembrete aqui</string>
+    <string name="btn_text_save_note">SALVAR</string>
+    <string name="description_trash_icon">Ícone de Lixeira. Clique para deletar sua nota ou lembrete</string>
+    <string name="challenges">Desafios</string>
+    <string name="award">Conquistas</string>
+    <string name="take_a_break">Take a Break</string>
+    <string name="notes">Notas</string>
+    <string name="title">Título</string>
+    <string name="description_take_a_break">Descrição take a break</string>
+    <string name="benefit_name">Movi[mente]</string>
+    <string name="description_logo">Imagem do logo do benefício descrito abaixo, ao clicar será redirecionado a página desse benefício</string>
+    <string name="illustrative_image">Imagens ilustrativas de uma calendário, um prato de comida e relógio</string>
+    <string name="password_visibility">Botão que permite a senha ficar visívél</string>
+    <string name="profiletxt">Perfil</string>
+
 </resources>

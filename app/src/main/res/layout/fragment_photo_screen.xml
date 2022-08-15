@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.photoscreen.view.PhotoScreenFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_200"
+            android:contentDescription="@string/description_example_photo"
+            android:scaleType="centerCrop"
+            android:src="@drawable/example_photo_api"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/limeGreen_zup"
+            android:fontFamily="@font/montserrat__bold"
+            android:padding="@dimen/padding_10"
+            android:textAlignment="center"
+            android:textColor="@color/white_zup"
+            android:textSize="@dimen/fontSize_14"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPhoto"
+            tools:text="Foto Motivacional do Dia | 08 de agosto de 2022" />
+
+        <TextView
+            android:id="@+id/tv_TakeBreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_25"
+            android:fontFamily="@font/montserrat__bold"
+            android:text="@string/take_a_break"
+            android:textAlignment="center"
+            android:textColor="@color/orange_zup"
+            android:textSize="@dimen/fontSize_16"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_TakeBreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_25"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_TakeBreak"
+            tools:itemCount="3"
+            tools:listitem="@layout/take_break_item" />
+
+        <View
+            android:id="@+id/dividerLine"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_1"
+            android:layout_margin="@dimen/margin_30"
+            android:background="@color/orange_zup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_TakeBreak" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_benefits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dividerLine"
+            tools:itemCount="4"
+            tools:listitem="@layout/benefit_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

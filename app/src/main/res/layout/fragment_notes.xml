@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.notes.view.NotesFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivWateringBrain"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_150"
+            android:layout_margin="@dimen/margin_20"
+            android:contentDescription="@string/description_image_watering_brain"
+            android:scaleType="centerInside"
+            android:src="@drawable/ilustra_cerebro_regador"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etNotesReminders"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0"
+            android:layout_margin="@dimen/margin_20"
+            android:fontFamily="@font/montserrat__regular"
+            android:hint="@string/hint_notes_reminders"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textColorHint="@color/gray_zup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivWateringBrain" />
+
+        <Button
+            android:id="@+id/btnSaveNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10"
+            android:backgroundTint="@color/tealGreen_zup"
+            android:fontFamily="@font/montserrat__bold"
+            android:paddingHorizontal="@dimen/padding_10"
+            android:text="@string/btn_text_save_note"
+            android:textColor="@color/white_zup"
+            android:textSize="@dimen/fontSize_16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etNotesReminders" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNotes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/margin_20"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSaveNote"
+            tools:listitem="@layout/note_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
