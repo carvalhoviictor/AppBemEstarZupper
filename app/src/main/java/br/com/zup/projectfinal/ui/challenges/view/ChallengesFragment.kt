@@ -62,9 +62,9 @@ class ChallengesFragment : Fragment() {
         (activity as InitialActivity).supportActionBar?.title = TITLE_DESAFIOS
     }
 
-    private fun navigateToLoginFragment() {
+    private fun navigateToProfileFragment() {
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_challengesFragment_to_loginFragment)
+            .navigate(R.id.action_challengesFragment_to_profileFragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -73,10 +73,8 @@ class ChallengesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.exit -> {
-                viewModel.logout()
-                this.onDestroy()
-                navigateToLoginFragment()
+            R.id.profile -> {
+                navigateToProfileFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)

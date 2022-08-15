@@ -15,7 +15,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class NotesViewModel(application: Application): AndroidViewModel(application) {
-    private val authenticationRepository = AuthenticationRepository()
 
     private val notesUseCase = NotesUseCase(application)
 
@@ -49,9 +48,5 @@ class NotesViewModel(application: Application): AndroidViewModel(application) {
                 _notesListState.value = ViewState.Error(Throwable(NOTE_LIST_ERROR))
             }
         }
-    }
-
-    fun logout() {
-        authenticationRepository.logout()
     }
 }

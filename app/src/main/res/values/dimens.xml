@@ -26,4 +26,5 @@
     <dimen name="corner_10">10dp</dimen>
     <dimen name="size_300">300dp</dimen>
     <dimen name="size_25">25dp</dimen>
+    <dimen name="size_70">70dp</dimen>
 </resources>

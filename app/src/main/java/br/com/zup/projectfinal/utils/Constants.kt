@@ -19,6 +19,7 @@ const val NAME_REQUIRED_FIELD = "Campo obrigatório: Nome"
 const val TITLE_DESAFIOS = "Desafios"
 const val TITLE_NOTES = "Notas e Lembretes"
 const val TITLE_BSZ = "Bem Estar Zupper"
+const val TITLE_PROFILE = "Perfil"
 
 const val MSG_NOTE_SUCCESS = "Salvo com sucesso!"
 const val DELETE_MSG_NOTE_SUCCESS = "Excluído com sucesso!"

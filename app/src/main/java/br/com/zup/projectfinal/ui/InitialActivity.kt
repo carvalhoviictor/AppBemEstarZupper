@@ -1,6 +1,7 @@
 package br.com.zup.projectfinal.ui
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
@@ -27,6 +28,7 @@ class InitialActivity : AppCompatActivity() {
             when (destination.id) {
                 R.id.loginFragment -> hideBottomNav()
                 R.id.registerFragment -> hideBottomNav()
+                R.id.profileFragment -> hideBottomNav()
                 else -> showBottomNav()
             }
         }
@@ -60,5 +62,13 @@ class InitialActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            onBackPressed()
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

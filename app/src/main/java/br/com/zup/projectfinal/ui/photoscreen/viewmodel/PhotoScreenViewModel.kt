@@ -9,7 +9,7 @@ import androidx.lifecycle.viewModelScope
 import br.com.zup.projectfinal.domain.model.Image
 import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import br.com.zup.projectfinal.domain.usecase.PexelsUseCase
-import br.com.zup.projectfinal.ui.ViewState
+import br.com.zup.projectfinal.ui.viewstate.ViewState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -18,7 +18,6 @@ import java.util.*
 
 
 class PhotoScreenViewModel(application: Application) : AndroidViewModel(application) {
-    private val authenticationRepository = AuthenticationRepository()
 
     private val pref: SharedPreferences =
         application.getSharedPreferences("Shared", Context.MODE_PRIVATE)
@@ -70,8 +69,8 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
                 pexelsState.value = response
 
                 when (response) {
-                    is ViewState.Success -> {
-                        saveImagePref(response.data)
+                    is ViewState.Success<*> -> {
+                        saveImagePref(response.data as Image)
                     }
                     is ViewState.Error -> {
                         Throwable("Não foi possível salvar  a imagem vinda da internet!")
@@ -96,9 +95,5 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
         val date = Calendar.getInstance().time
         val dateFormat = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
         return dateFormat.format(date)
-    }
-
-    fun logout() {
-        authenticationRepository.logout()
     }
 }

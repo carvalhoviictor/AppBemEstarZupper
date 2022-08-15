@@ -16,12 +16,12 @@ import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentPhotoScreenBinding
 import br.com.zup.projectfinal.domain.model.Image
 import br.com.zup.projectfinal.ui.InitialActivity
-import br.com.zup.projectfinal.ui.ViewState
 import br.com.zup.projectfinal.ui.benefits.adapter.BenefitsAdapter
 import br.com.zup.projectfinal.ui.benefits.viewmodel.BenefitsViewModel
 import br.com.zup.projectfinal.ui.photoscreen.viewmodel.PhotoScreenViewModel
 import br.com.zup.projectfinal.ui.takebreak.adapter.TakeBreakAdapter
 import br.com.zup.projectfinal.ui.takebreak.viewmodel.TakeBreakViewModel
+import br.com.zup.projectfinal.ui.viewstate.ViewState
 import br.com.zup.projectfinal.utils.TITLE_BSZ
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
@@ -95,9 +95,9 @@ class PhotoScreenFragment : Fragment() {
         binding.tvDate.text = textDate
     }
 
-    private fun navigateToLoginFragment() {
+    private fun navigateToProfileFragment() {
         NavHostFragment.findNavController(this)
-            .navigate(R.id.action_photoScreenFragment_to_loginFragment)
+            .navigate(R.id.action_photoScreenFragment_to_profileFragment)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -106,10 +106,8 @@ class PhotoScreenFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.exit -> {
-                viewModel.logout()
-                this.onDestroy()
-                navigateToLoginFragment()
+            R.id.profile -> {
+                navigateToProfileFragment()
                 true
             }
             else -> super.onOptionsItemSelected(item)
