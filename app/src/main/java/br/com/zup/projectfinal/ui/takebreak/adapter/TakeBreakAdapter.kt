@@ -11,7 +11,8 @@ class TakeBreakAdapter(
 ) : RecyclerView.Adapter<TakeBreakAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = TakeBreakItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            TakeBreakItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

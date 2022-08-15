@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import br.com.zup.projectfinal.R
-import br.com.zup.projectfinal.ui.InitialActivity
+import br.com.zup.projectfinal.initial.InitialActivity
 import java.util.*
 
 class SplashActivity : AppCompatActivity() {

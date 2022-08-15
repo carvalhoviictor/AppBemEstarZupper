@@ -18,4 +18,4 @@ data class DailyChallenges(
     var checkFour: Boolean = false,
 
     var currentDate: String
-    )
+)

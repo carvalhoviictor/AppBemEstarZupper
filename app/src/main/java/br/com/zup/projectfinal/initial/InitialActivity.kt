@@ -1,4 +1,4 @@
-package br.com.zup.projectfinal.ui
+package br.com.zup.projectfinal.initial
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -24,6 +24,11 @@ class InitialActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController)
         binding.bottomNavigation.setupWithNavController(navController)
 
+        setNavControllerDestination()
+        setBottomNavigation()
+    }
+
+    private fun setNavControllerDestination() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.loginFragment -> hideBottomNav()
@@ -32,7 +37,9 @@ class InitialActivity : AppCompatActivity() {
                 else -> showBottomNav()
             }
         }
+    }
 
+    private fun setBottomNavigation() {
         binding.bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menuChallengesPage -> {

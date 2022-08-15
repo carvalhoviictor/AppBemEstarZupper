@@ -7,20 +7,19 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import br.com.zup.projectfinal.domain.model.Image
-import br.com.zup.projectfinal.domain.repository.AuthenticationRepository
 import br.com.zup.projectfinal.domain.usecase.PexelsUseCase
 import br.com.zup.projectfinal.ui.viewstate.ViewState
+import br.com.zup.projectfinal.utils.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.text.SimpleDateFormat
 import java.util.*
 
-
 class PhotoScreenViewModel(application: Application) : AndroidViewModel(application) {
 
     private val pref: SharedPreferences =
-        application.getSharedPreferences("Shared", Context.MODE_PRIVATE)
+        application.getSharedPreferences(SHARED_KEY, Context.MODE_PRIVATE)
     private val prefEditor: SharedPreferences.Editor = pref.edit()
 
     private val pexelsUseCase = PexelsUseCase(application)
@@ -36,8 +35,8 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
     }
 
     private fun checkImageDay(): Boolean {
-        val dateSave = pref.getString("DATE", "")
-        val imageSave = pref.getString("SRC", "")
+        val dateSave = pref.getString(DATE_KEY, "")
+        val imageSave = pref.getString(SRC_KEY, "")
 
         if (dateSave.isNullOrEmpty() || imageSave.isNullOrEmpty()) return false
 
@@ -51,8 +50,8 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
 
             val image = ViewState.Success(
                 Image(
-                    alt = pref.getString("ALT", "").toString(),
-                    src = pref.getString("SRC", "").toString()
+                    alt = pref.getString(ALT_KEY, "").toString(),
+                    src = pref.getString(SRC_KEY, "").toString()
                 )
             )
             pexelsState.value = image
@@ -72,27 +71,26 @@ class PhotoScreenViewModel(application: Application) : AndroidViewModel(applicat
                         saveImagePref(response.data as Image)
                     }
                     is ViewState.Error -> {
-                        Throwable("Não foi possível salvar  a imagem vinda da internet!")
+                        Throwable(IMAGE_NETWORK_ERROR)
                     }
                 }
             } catch (ex: Exception) {
                 pexelsState.value =
-                    ViewState.Error(Throwable("Não foi possível carregar a imagem vinda da internet!"))
+                    ViewState.Error(Throwable(IMAGE_LOADING_ERROR))
             }
         }
     }
 
     private fun saveImagePref(image: Image) {
-        prefEditor.putString("DATE", getCurrentDate())
-        prefEditor.putString("ALT", image.alt)
-        prefEditor.putString("SRC", image.src)
+        prefEditor.putString(DATE_KEY, getCurrentDate())
+        prefEditor.putString(ALT_KEY, image.alt)
+        prefEditor.putString(SRC_KEY, image.src)
         prefEditor.apply()
     }
 
-
     private fun getCurrentDate(): String {
         val date = Calendar.getInstance().time
-        val dateFormat = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
+        val dateFormat = SimpleDateFormat(FORMAT_DATE, Locale.getDefault())
         return dateFormat.format(date)
     }
 }

@@ -11,20 +11,20 @@ class NotesUseCase(application: Application) {
     private val notesDao = NotesDatabase.getCharacterDatabase(application).notesDao()
     private val notesRepository = NotesRepository(notesDao)
 
-   suspend fun insertNote(note: NotesModel){
+    suspend fun insertNote(note: NotesModel) {
         notesRepository.insertNote(note)
     }
 
-   suspend fun deleteNote(note: String){
+    suspend fun deleteNote(note: String) {
         notesRepository.deleteNote(note)
     }
 
-   suspend fun getAllNotes(): ViewState<List<NotesModel>>{
-       return try {
-           val notes = notesRepository.getAllNotes()
-           ViewState.Success(notes)
-       } catch (ex: Exception) {
-           ViewState.Error(Exception(NOTE_LIST_ERROR))
-       }
+    suspend fun getAllNotes(): ViewState<List<NotesModel>> {
+        return try {
+            val notes = notesRepository.getAllNotes()
+            ViewState.Success(notes)
+        } catch (ex: Exception) {
+            ViewState.Error(Exception(NOTE_LIST_ERROR))
+        }
     }
 }

@@ -15,13 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentPhotoScreenBinding
 import br.com.zup.projectfinal.domain.model.Image
-import br.com.zup.projectfinal.ui.InitialActivity
+import br.com.zup.projectfinal.initial.InitialActivity
 import br.com.zup.projectfinal.ui.benefits.adapter.BenefitsAdapter
 import br.com.zup.projectfinal.ui.benefits.viewmodel.BenefitsViewModel
 import br.com.zup.projectfinal.ui.photoscreen.viewmodel.PhotoScreenViewModel
 import br.com.zup.projectfinal.ui.takebreak.adapter.TakeBreakAdapter
 import br.com.zup.projectfinal.ui.takebreak.viewmodel.TakeBreakViewModel
 import br.com.zup.projectfinal.ui.viewstate.ViewState
+import br.com.zup.projectfinal.utils.DATE_FORMAT
 import br.com.zup.projectfinal.utils.TITLE_BSZ
 import com.squareup.picasso.Picasso
 import java.text.SimpleDateFormat
@@ -40,7 +41,8 @@ class PhotoScreenFragment : Fragment() {
 
     private val benefitsAdapter: BenefitsAdapter by lazy {
         BenefitsAdapter(
-            arrayListOf(), this::goToWeb)
+            arrayListOf(), this::goToWeb
+        )
     }
 
     private val benefitsViewModel: BenefitsViewModel by lazy {
@@ -86,7 +88,7 @@ class PhotoScreenFragment : Fragment() {
 
         val date = Calendar.getInstance().time
 
-        val dateTimeFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+        val dateTimeFormat = SimpleDateFormat(DATE_FORMAT, Locale.getDefault())
 
         val textDate = buildString {
             append("Foto Motivacional do Dia | ")
@@ -115,7 +117,6 @@ class PhotoScreenFragment : Fragment() {
     }
 
     private fun showImage(image: Image) {
-
         Picasso.get().load(image.src).into(binding.ivPhoto)
         binding.ivPhoto.contentDescription = image.alt
     }
@@ -132,6 +133,7 @@ class PhotoScreenFragment : Fragment() {
                 }
             }
         }
+
         takeBreakViewModel.takeBreakResponse.observe(this.viewLifecycleOwner) {
             takeBreakAdapter.updateTakeBreak(it.toMutableList())
         }
@@ -159,7 +161,7 @@ class PhotoScreenFragment : Fragment() {
 
     private fun goToWeb(uri: String) {
         var url = uri
-        if (!url.startsWith("https://" ) && !url.startsWith("http://")){
+        if (!url.startsWith("https://") && !url.startsWith("http://")) {
             url = "https://$uri"
         }
         val intent = Intent(Intent.ACTION_VIEW)
@@ -167,12 +169,13 @@ class PhotoScreenFragment : Fragment() {
         startActivity(intent)
     }
 
-    fun Fragment.hideKeyboard() {
+    private fun Fragment.hideKeyboard() {
         view?.let { activity?.hideKeyboard(it) }
     }
 
     private fun Context.hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        val inputMethodManager =
+            getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }

@@ -6,19 +6,19 @@ import androidx.recyclerview.widget.RecyclerView
 import br.com.zup.projectfinal.data.datasource.local.model.NotesModel
 import br.com.zup.projectfinal.databinding.NoteItemBinding
 
-class NotesAdapter (
+class NotesAdapter(
     private var notesList: MutableList<NotesModel>,
     private val clickDelete: (notesModel: NotesModel) -> Unit
-): RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<NotesAdapter.ViewHolder>() {
 
-    class ViewHolder(val binding: NoteItemBinding): RecyclerView.ViewHolder(binding.root){
-        fun showMessage(notesModel: NotesModel){
+    class ViewHolder(val binding: NoteItemBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun showMessage(notesModel: NotesModel) {
             binding.tvNoteReminder.text = notesModel.note
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = NoteItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = NoteItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -33,14 +33,12 @@ class NotesAdapter (
         }
     }
 
-    override fun getItemCount(): Int {
-        return notesList.size
-    }
+    override fun getItemCount() = notesList.size
 
-    fun updateNotesList(newList: MutableList<NotesModel>){
-        if (notesList.size == 0){
+    fun updateNotesList(newList: MutableList<NotesModel>) {
+        if (notesList.size == 0) {
             notesList = newList
-        }else{
+        } else {
             notesList = mutableListOf()
             notesList.addAll(newList)
         }

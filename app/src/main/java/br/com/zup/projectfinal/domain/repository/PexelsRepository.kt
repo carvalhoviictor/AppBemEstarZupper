@@ -7,8 +7,10 @@ import br.com.zup.projectfinal.domain.model.Image
 class PexelsRepository {
 
     suspend fun getImages(): List<Image> {
-        val resp = RetrofitService.apiService.getImagesPexels(RetrofitService.KEY_API,
-            "healthy")
+        val resp = RetrofitService.apiService.getImagesPexels(
+            RetrofitService.KEY_API,
+            "healthy"
+        )
         return toListImage(resp.photos)
     }
 
