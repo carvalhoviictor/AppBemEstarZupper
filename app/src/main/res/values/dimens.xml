@@ -27,4 +27,5 @@
     <dimen name="size_300">300dp</dimen>
     <dimen name="size_25">25dp</dimen>
     <dimen name="size_70">70dp</dimen>
+    <dimen name="size_30">30dp</dimen>
 </resources>
