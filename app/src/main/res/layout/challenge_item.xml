@@ -14,14 +14,14 @@
 
         <TextView
             android:id="@+id/tv_messageBody"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/size_0"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat__bold"
             android:text="@string/challenge_msg"
             android:textColor="@color/blue_zup"
             android:textSize="@dimen/fontSize_14"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/cbCheck"
+            app:layout_constraintEnd_toStartOf="@+id/tv_numbPoints"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
