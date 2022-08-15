@@ -23,6 +23,7 @@ class PexelsRepository {
                 )
             )
         }
+        images.shuffle()
         return images
     }
 }
