@@ -1,14 +1,14 @@
 package br.com.zup.projectfinal.ui.profile.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.NavHostFragment
-import br.com.zup.projectfinal.R
 import br.com.zup.projectfinal.databinding.FragmentProfileBinding
 import br.com.zup.projectfinal.initial.InitialActivity
 import br.com.zup.projectfinal.ui.profile.viewmodel.ProfileViewModel
+import br.com.zup.projectfinal.ui.splash.view.SplashActivity
 import br.com.zup.projectfinal.utils.TITLE_PROFILE
 
 class ProfileFragment : Fragment() {
@@ -62,12 +62,11 @@ class ProfileFragment : Fragment() {
 
     private fun logout() {
         viewModel.logout()
-        this.onDestroy()
-        navigateToLoginFragment()
+        activity?.finishAffinity()
+        restartApp()
     }
 
-    private fun navigateToLoginFragment() {
-        NavHostFragment.findNavController(this)
-            .navigate(R.id.action_profileFragment_to_loginFragment)
+    private fun restartApp() {
+        startActivity(Intent(context, SplashActivity::class.java))
     }
 }
