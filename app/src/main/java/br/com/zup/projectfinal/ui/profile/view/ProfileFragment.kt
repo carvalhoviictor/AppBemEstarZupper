@@ -67,6 +67,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun restartApp() {
-        startActivity(Intent(context, SplashActivity::class.java))
+        startActivity(Intent(context, InitialActivity::class.java))
     }
 }
