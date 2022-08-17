@@ -14,10 +14,10 @@ Bem Estar Zupper é um app de Android. Onde o objetivo é ajudar os Zuppers a se
 Figma: https://www.figma.com/proto/Z7UNRFNNiicKRAb41dhKxj/Projeto-Final-(Pexel)?node-id=17%3A7&scaling=scal
 ## Como Usar
 
-Crie uma nova conta usando seu e-mail zup e em seguida faça Login.
+Seu dispositivo precisa estar conectado à internet para a autenticação, e após o login as funcionalidades do app podem ser usadas também offline
 
-Navegue pelo app usando o menu inferior.
-
+- Crie uma nova conta usando seu e-mail zup e em seguida faça Login.
+- Navegue pelo app usando o menu inferior.
 - Tela Desafios: Os 4 desafios são atualizados diariamente, complete-os clicando na checkbox para ganhar pontos e subir de nível.
 - Tela Bem Estar Zupper: Exibe uma foto motivacional que é atualizada diariamente; Exibe informações de Take a Break; Exibe botões clicáveis que redirecionam o usuário para os respectivos sites de benefícios sobre saúde e bem estar que a Zup oferece aos Zuppers.
 - Tela Notas e Lembretes: Digite uma nota ou um lembrete e clique no botão 'Salvar'. As notas salvas aparecerão abaixo do botão 'Salvar', e podem ser excluídas clicando no ícone de lixeira.
