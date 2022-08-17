@@ -42,7 +42,66 @@ Seu dispositivo precisa estar conectado à internet para a autenticação, e ap�
 - 3.1 Biblioteca REST Client: Retrofit.
 
 - 4.0 Serviço de autenticação: Firebase Authentication.
+## Plugins
 
+```kotlin
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+}
+```
+## Dependências - App Level
+
+```kotlin
+dependencies {
+    //Lifecycle
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0'
+    implementation 'androidx.annotation:annotation:1.4.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.0'
+    
+    //Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-fragment:2.5.1'
+    
+    //Network_Retrofit
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.6.0"
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.2.1"
+    
+    //Image_Loader
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    
+    //Firebase
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-database:19.2.1'
+    implementation 'androidx.room:room-common:2.4.3'
+    
+    //Room Database
+    implementation("androidx.room:room-runtime:2.4.2")
+    kapt("androidx.room:room-compiler:2.4.2")
+}
+```
+
+
+## Dependências - Project Level
+
+```kotlin
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.3.13'
+    }
+}
+```
 
 ## Suporte
 
