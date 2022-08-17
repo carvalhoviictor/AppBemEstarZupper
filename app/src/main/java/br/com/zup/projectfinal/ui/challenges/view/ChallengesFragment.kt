@@ -140,34 +140,8 @@ class ChallengesFragment : Fragment() {
     }
 
     private fun saveLevel(points: Int) {
-
-        if (points in 100..199) {
-            viewModel.saveLevel(2)
-        }
-        if (points in 200..299) {
-            viewModel.saveLevel(3)
-        }
-        if (points in 300..499) {
-            viewModel.saveLevel(4)
-        }
-        if (points in 500..599) {
-            viewModel.saveLevel(5)
-        }
-        if (points in 600..699) {
-            viewModel.saveLevel(6)
-        }
-        if (points in 700..799) {
-            viewModel.saveLevel(7)
-        }
-        if (points in 800..899) {
-            viewModel.saveLevel(8)
-        }
-        if (points in 900..999) {
-            viewModel.saveLevel(9)
-        }
-        if (points in 1000..1099) {
-            viewModel.saveLevel(10)
-        }
+        val level = (points / 100) + 1
+        viewModel.saveLevel(level)
     }
 
     private fun showLevel(levelList: List<String>) {
